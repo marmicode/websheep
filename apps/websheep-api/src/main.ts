@@ -4,13 +4,12 @@
  **/
 
 import * as express from 'express';
-import { docsRouter } from './app/docs';
+import { v1Router } from './app/v1';
 
 const app = express();
 
-app.get('/', (req, res) => res.redirect('/docs'));
-
-app.use('/docs', docsRouter);
+app.use('/v1', v1Router);
+app.get('/', (req, res) => res.redirect('/v1'));
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
