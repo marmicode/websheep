@@ -4,15 +4,16 @@
  **/
 
 import * as express from 'express';
+import { docsRouter } from './app/docs';
 
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to websheep-api!' });
-});
+app.get('/', (req, res) => res.redirect('/docs'));
+
+app.use('/docs', docsRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Listening at http://localhost:${port}`);
 });
 server.on('error', console.error);

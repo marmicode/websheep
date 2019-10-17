@@ -137,7 +137,8 @@
             "outputPath": "dist/apps/websheep-api",
             "main": "apps/websheep-api/src/main.ts",
             "tsConfig": "apps/websheep-api/tsconfig.app.json",
-            "assets": ["apps/websheep-api/src/assets"]
+            "assets": ["apps/websheep-api/src/assets"],
+            "webpackConfig": "apps/websheep-api/webpack.config.js"
           },
           "configurations": {
             "production": {
