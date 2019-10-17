@@ -1,0 +1,12 @@
+<form [formGroup]="apiBaseUrlForm">
+  <mat-form-field>
+    <input
+      formControlName="apiServerUrl"
+      matInput
+      placeholder="API's URL">
+  </mat-form-field>
+
+  <mat-radio-group aria-label="Select an option" formControlName="apiBasePath">
+    <mat-radio-button *ngFor="let basePath of apiBasePathList" [value]="basePath">{{ '/' + basePath}}</mat-radio-button>
+  </mat-radio-group>
+</form>

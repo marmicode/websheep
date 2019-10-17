@@ -15,7 +15,7 @@ import {
 } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ApiSelectorModule } from '../api-selector/api-selector.component';
+import { ApiSelectorModule } from '../api-selector/api-selector/api-selector.component';
 
 @Component({
   selector: 'ws-nav',
