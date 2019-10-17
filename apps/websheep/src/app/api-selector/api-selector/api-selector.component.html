@@ -19,11 +19,5 @@
   *ngIf="isEditing"
   fxLayout="row"
   fxLayoutAlign="center center">
-  <ws-api-selector-form></ws-api-selector-form>
-  <mat-icon
-    class="ws-api-selector__edit"
-    aria-hidden="false"
-    aria-label="Edit API URL"
-    (click)="stopEditing()">close
-  </mat-icon>
+  <ws-api-selector-form (done)="stopEditing()"></ws-api-selector-form>
 </div>

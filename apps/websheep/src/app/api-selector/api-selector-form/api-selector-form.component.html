@@ -1,4 +1,4 @@
-<form [formGroup]="apiBaseUrlForm">
+<form fxLayout="row" fxLayoutAlign="center center" [formGroup]="apiBaseUrlForm">
   <mat-form-field>
     <input
       formControlName="apiServerUrl"
@@ -9,4 +9,13 @@
   <mat-radio-group aria-label="Select an option" formControlName="apiBasePath">
     <mat-radio-button *ngFor="let basePath of apiBasePathList" [value]="basePath">{{ '/' + basePath}}</mat-radio-button>
   </mat-radio-group>
+
+  <mat-icon
+    class="ws-api-selector-form__close"
+    aria-hidden="false"
+    aria-label="Close editor"
+    (click)="close()">close
+  </mat-icon>
+
 </form>
+

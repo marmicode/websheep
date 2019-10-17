@@ -1,8 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  NgModule,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
+import { FlexModule } from '@angular/flex-layout';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
   MatFormFieldModule,
+  MatIconModule,
   MatInputModule,
   MatRadioModule
 } from '@angular/material';
@@ -22,6 +31,8 @@ import { AppState } from '../../reducers';
   styleUrls: ['./api-selector-form.component.scss']
 })
 export class ApiSelectorFormComponent implements OnDestroy, OnInit {
+  @Output() done = new EventEmitter();
+
   apiServerUrl$ = this._store.select(fromConfig.apiServerUrl);
   apiBasePath$ = this._store.select(fromConfig.apiBasePath);
 
@@ -59,10 +70,15 @@ export class ApiSelectorFormComponent implements OnDestroy, OnInit {
       .valueChanges.pipe(this._scavenger.collect())
       .subscribe(apiBasePath => {
         this._store.dispatch(selectApiBasePath({ apiBasePath }));
+        this.close();
       });
   }
 
   ngOnDestroy() {}
+
+  close() {
+    this.done.emit();
+  }
 }
 
 @NgModule({
@@ -72,7 +88,9 @@ export class ApiSelectorFormComponent implements OnDestroy, OnInit {
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule,
+    FlexModule
   ],
   exports: [ApiSelectorFormComponent]
 })
