@@ -1,7 +1,7 @@
 {
   "extends": "../../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "websheep", "camelCase"],
-    "component-selector": [true, "element", "websheep", "kebab-case"]
+    "directive-selector": [true, "attribute", "ws", "camelCase"],
+    "component-selector": [true, "element", "ws", "kebab-case"]
   }
 }

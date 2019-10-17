@@ -10,7 +10,7 @@
       },
       "root": "apps/websheep",
       "sourceRoot": "apps/websheep/src",
-      "prefix": "websheep",
+      "prefix": "ws",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

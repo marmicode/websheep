@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { NavModule } from './nav/nav.component';
 import { reducers, metaReducers } from './reducers';
 
 @NgModule({
@@ -11,6 +12,7 @@ import { reducers, metaReducers } from './reducers';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NavModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
