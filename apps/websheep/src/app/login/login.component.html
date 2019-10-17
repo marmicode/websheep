@@ -1,1 +1,27 @@
-<p>login works!</p>
+<form
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  [formGroup]="loginForm"
+  (ngSubmit)="logIn()">
+
+  <mat-form-field
+    class="ws-login-field">
+    <input
+      formControlName="userName"
+      matInput
+      placeholder="User Name (i.e. karinelemarchand)"
+      type="username">
+  </mat-form-field>
+
+  <mat-form-field
+    class="ws-login-field">
+    <input
+      formControlName="password"
+      matInput
+      placeholder="Password (i.e. 123456)"
+      type="password">
+  </mat-form-field>
+
+  <button color="primary" mat-raised-button type="submit">LOG IN</button>
+
+</form>
