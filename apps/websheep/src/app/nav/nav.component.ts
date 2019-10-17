@@ -13,9 +13,12 @@ import {
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { combineLatest, Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { ApiSelectorModule } from '../api-selector/api-selector/api-selector.component';
+import { AppState } from '../reducers';
+import * as fromUser from '../user/user.selectors';
 
 @Component({
   selector: 'ws-nav',
@@ -23,14 +26,32 @@ import { ApiSelectorModule } from '../api-selector/api-selector/api-selector.com
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  isHandset$: Observable<boolean> = this.breakpointObserver
+  canToggleSidenav$: Observable<boolean>;
+  isHandset$: Observable<boolean> = this._breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+  isSidenavOpen$: Observable<boolean>;
+  isSignedIn$ = this._store.select(fromUser.isSignedIn);
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private _breakpointObserver: BreakpointObserver,
+    private _store: Store<AppState>
+  ) {
+    /* User can toggle if user is signed in and device is handset. */
+    this.canToggleSidenav$ = combineLatest([
+      this.isSignedIn$,
+      this.isHandset$
+    ]).pipe(map(([isSignedIn, isHandset]) => isSignedIn && isHandset));
+
+    /* Sidenav is open if user is signed in and not handset. */
+    this.isSidenavOpen$ = combineLatest([
+      this.isSignedIn$,
+      this.isHandset$
+    ]).pipe(map(([isSignedIn, isHandset]) => isSignedIn && !isHandset));
+  }
 }
 
 @NgModule({
