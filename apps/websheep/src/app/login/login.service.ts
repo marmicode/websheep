@@ -42,7 +42,7 @@ export class Login {
             loginSuccess({
               token: tokenResponse.token,
               tokenId: tokenResponse.id,
-              userId: tokenResponse.token
+              userId: tokenResponse.userId
             })
           )
         )
