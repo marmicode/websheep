@@ -1,4 +1,5 @@
-import { Action, createReducer } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
+import { selectApiBasePath, selectApiServerUrl } from './config.actions';
 
 export const configFeatureKey = 'config';
 
@@ -12,7 +13,17 @@ export const initialState: ConfigState = {
   apiServerUrl: 'http://localhost:3333'
 };
 
-const _configReducer = createReducer(initialState);
+const _configReducer = createReducer(
+  initialState,
+  on(selectApiBasePath, (state, { apiBasePath }) => ({
+    ...state,
+    apiBasePath
+  })),
+  on(selectApiServerUrl, (state, { apiServerUrl }) => ({
+    ...state,
+    apiServerUrl
+  }))
+);
 
 export function configReducer(state: ConfigState, action: Action): ConfigState {
   return _configReducer(state, action);

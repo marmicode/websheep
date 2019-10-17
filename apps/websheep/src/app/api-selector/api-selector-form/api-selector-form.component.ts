@@ -7,10 +7,14 @@ import {
   MatRadioModule
 } from '@angular/material';
 import { Store } from '@ngrx/store';
+import { Scavenger } from '@wishtack/rx-scavenger';
 import { combineLatest } from 'rxjs';
+import {
+  selectApiBasePath,
+  selectApiServerUrl
+} from '../../config/config.actions';
 import * as fromConfig from '../../config/config.selectors';
 import { AppState } from '../../reducers';
-import { Scavenger } from '@wishtack/rx-scavenger';
 
 @Component({
   selector: 'ws-api-selector-form',
@@ -37,11 +41,24 @@ export class ApiSelectorFormComponent implements OnDestroy, OnInit {
     combineLatest([this.apiServerUrl$, this.apiBasePath$])
       .pipe(this._scavenger.collect())
       .subscribe(([apiServerUrl, apiBasePath]) => {
-        console.log(apiBasePath);
         this.apiBaseUrlForm.patchValue({
           apiServerUrl,
           apiBasePath
         });
+      });
+
+    this.apiBaseUrlForm
+      .get('apiServerUrl')
+      .valueChanges.pipe(this._scavenger.collect())
+      .subscribe(apiServerUrl => {
+        this._store.dispatch(selectApiServerUrl({ apiServerUrl }));
+      });
+
+    this.apiBaseUrlForm
+      .get('apiBasePath')
+      .valueChanges.pipe(this._scavenger.collect())
+      .subscribe(apiBasePath => {
+        this._store.dispatch(selectApiBasePath({ apiBasePath }));
       });
   }
 
