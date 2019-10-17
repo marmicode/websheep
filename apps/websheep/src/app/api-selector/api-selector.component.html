@@ -1,1 +1,11 @@
-<div class="ws-api-selector-api-base-url">API: {{ apiBaseUrl$ | async }}</div>
+<div
+  *ngIf="!isEditing"
+  fxLayout="row"
+  fxLayoutAlign="center center">
+  <span class="ws-api-selector__api-base-url">API: {{ apiBaseUrl$ | async }}</span>
+  <mat-icon
+    class="ws-api-selector__edit"
+    aria-hidden="false"
+    aria-label="Edit API URL"
+    (click)="edit()">edit</mat-icon>
+</div>
