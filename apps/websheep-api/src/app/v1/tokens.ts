@@ -1,14 +1,29 @@
+import { pbkdf2Sync } from 'crypto';
 import { Router } from 'express';
 import { farmers } from '../../lib/farmers';
 
 export const tokensRouter = Router();
 
 tokensRouter.post('/', (req, res) => {
-  const farmer = farmers.get({ farmerId: req.body.userName });
+  const farmerId = req.body.userName;
+  const password = req.body.password;
 
-  if (farmer == null || farmer.password !== req.body.password) {
-    return res.status(403);
+  const farmer = farmers.get({ farmerId });
+
+  const passwordHash = pbkdf2Sync(
+    password,
+    farmerId,
+    1000,
+    32,
+    'sha512'
+  ).toString('base64');
+
+  if (farmer == null || farmer.passwordHash !== passwordHash) {
+    res.status(401).end();
+    return;
   }
 
-  res.json({});
+  res.json({
+    userId: farmerId
+  });
 });

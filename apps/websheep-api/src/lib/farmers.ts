@@ -4,7 +4,7 @@ export const farmers = {
   get({ farmerId }: { farmerId: string }) {
     return database
       .get('farmers')
-      .get({ id: farmerId })
+      .find({ id: farmerId })
       .value();
   }
 };
