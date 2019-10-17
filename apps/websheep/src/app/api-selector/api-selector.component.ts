@@ -1,5 +1,8 @@
-import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromConfig from '../config/config.selectors';
+import { AppState } from '../reducers';
 
 @Component({
   selector: 'ws-api-selector',
@@ -7,7 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./api-selector.component.scss']
 })
 export class ApiSelectorComponent implements OnInit {
-  constructor() {}
+  apiBaseUrl$ = this._store.select(fromConfig.apiBaseUrl);
+
+  constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {}
 }
