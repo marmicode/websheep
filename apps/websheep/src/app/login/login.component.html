@@ -9,7 +9,7 @@
     <input
       formControlName="userName"
       matInput
-      placeholder="User Name (i.e. karinelemarchand)"
+      placeholder="User Name"
       type="username">
   </mat-form-field>
 
@@ -18,10 +18,15 @@
     <input
       formControlName="password"
       matInput
-      placeholder="Password (i.e. 123456)"
+      placeholder="Password"
       type="password">
   </mat-form-field>
 
-  <button color="primary" mat-raised-button type="submit">LOG IN</button>
+  <div>
+    <button mat-button type="reset">RESET</button>
+
+    <button color="primary" mat-raised-button type="submit">LOG IN</button>
+  </div>
+
 
 </form>
