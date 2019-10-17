@@ -5,6 +5,7 @@ import {
 } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
+import { FlexModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
   MatIconModule,
@@ -14,6 +15,7 @@ import {
 } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { ApiSelectorModule } from '../api-selector/api-selector.component';
 
 @Component({
   selector: 'ws-nav',
@@ -41,7 +43,9 @@ export class NavComponent {
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FlexModule,
+    ApiSelectorModule
   ]
 })
 export class NavModule {}

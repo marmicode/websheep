@@ -3,11 +3,13 @@ import { Action, createReducer } from '@ngrx/store';
 export const configFeatureKey = 'config';
 
 export interface ConfigState {
-  apiBaseUrl: string;
+  apiBasePath: string;
+  apiServerUrl: string;
 }
 
 export const initialState: ConfigState = {
-  apiBaseUrl: null
+  apiBasePath: 'v1',
+  apiServerUrl: 'http://localhost:3333'
 };
 
 const _configReducer = createReducer(initialState);
