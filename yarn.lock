@@ -1284,6 +1284,16 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@ngrx/schematics@^8.4.0":
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-8.4.0.tgz#34290255ff2db9261e643f672fa0f3ac6185e499"
+  integrity sha512-EUQEeYS5Mr2hJ9K1whNoU2N4+1z8ulnPVZHFKpPkz7mU2SIOGceTjPqkJJUJJVNxq6wTqd2jd33nh918sHcpgA==
+
+"@ngrx/store@^8.4.0":
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.4.0.tgz#b4ab3bf81c6ab7bc0904886aa2b40be98fae8db5"
+  integrity sha512-Z8+2hfGcynGrzJuU7ixxYxOI6M2E0H8Omni1u01h55vvaZeoTO8bRt6OWqbjxxEsSKQmBBZ1XyOuuZXSWjxvYw==
+
 "@ngtools/webpack@8.3.10":
   version "8.3.10"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.3.10.tgz#c5d970c76a8153cd46c73e4bad9622363b727b37"
