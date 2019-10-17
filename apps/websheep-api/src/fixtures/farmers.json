@@ -2,16 +2,19 @@
   {
     "id": "karinelemarchand",
     "firstName": "Karine",
-    "lastName": "Le Marchand"
+    "lastName": "Le Marchand",
+    "password": "123456"
   },
   {
     "id": "foobar",
     "firstName": "foo",
-    "lastName": "Bar"
+    "lastName": "Bar",
+    "password": "zTAr@6y60PwJ"
   },
   {
     "id": "johndoe",
     "firstName": "John",
-    "lastName": "DOE"
+    "lastName": "DOE",
+    "password": "%yP50h^qI02t"
   }
 ]
