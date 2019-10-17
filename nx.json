@@ -13,6 +13,9 @@
     },
     "websheep": {
       "tags": []
+    },
+    "websheep-api": {
+      "tags": []
     }
   }
 }

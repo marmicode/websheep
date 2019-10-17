@@ -123,6 +123,60 @@
           }
         }
       }
+    },
+    "websheep-api": {
+      "root": "apps/websheep-api",
+      "sourceRoot": "apps/websheep-api/src",
+      "projectType": "application",
+      "prefix": "websheep-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/websheep-api",
+            "main": "apps/websheep-api/src/main.ts",
+            "tsConfig": "apps/websheep-api/tsconfig.app.json",
+            "assets": ["apps/websheep-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/websheep-api/src/environments/environment.ts",
+                  "with": "apps/websheep-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "websheep-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/websheep-api/tsconfig.app.json",
+              "apps/websheep-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/websheep-api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/websheep-api/jest.config.js",
+            "tsConfig": "apps/websheep-api/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {
