@@ -5,6 +5,7 @@ import { concat, Observable, of } from 'rxjs';
 import { map, materialize, tap } from 'rxjs/operators';
 import { AppState } from '../reducers';
 import { loginSuccess } from '../user/user.actions';
+import * as fromConfig from '../config/config.selectors';
 
 export interface Credentials {
   userName: string;
@@ -27,6 +28,8 @@ export enum LoginResult {
   providedIn: 'root'
 })
 export class Login {
+  private _apiBaseUrl$ = this._store.select(fromConfig.apiBaseUrl);
+
   constructor(
     private _httpClient: HttpClient,
     private _store: Store<AppState>
