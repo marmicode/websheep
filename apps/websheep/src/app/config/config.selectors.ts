@@ -1,9 +1,3 @@
-/**
- *
- * (c) 2013-2019 Wishtack
- *
- */
-
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { urlJoin } from '../helpers/url-join';
 import { configFeatureKey, ConfigState } from './config.reducer';
