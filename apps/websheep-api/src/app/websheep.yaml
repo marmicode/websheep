@@ -49,8 +49,6 @@ paths:
       security:
         - BearerAuth: []
 
-
-
 components:
   schemas:
     Credentials:
