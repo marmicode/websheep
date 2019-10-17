@@ -28,17 +28,14 @@ export enum LoginResult {
   providedIn: 'root'
 })
 export class Login {
-  private _apiBaseUrl$ = this._store.select(fromConfig.apiBaseUrl);
-
   constructor(
     private _httpClient: HttpClient,
     private _store: Store<AppState>
   ) {}
 
   logIn(credentials: Credentials): Observable<LoginResult> {
-    const apiBaseUrl = 'http://localhost:3333';
     const loginRequest$ = this._httpClient
-      .post<TokenResponse>(`${apiBaseUrl}/tokens`, credentials)
+      .post<TokenResponse>('/tokens', credentials)
       .pipe(
         tap((tokenResponse: TokenResponse) =>
           this._store.dispatch(
