@@ -20,7 +20,7 @@
             "main": "apps/websheep/src/main.ts",
             "polyfills": "apps/websheep/src/polyfills.ts",
             "tsConfig": "apps/websheep/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/websheep/src/favicon.ico",
               "apps/websheep/src/assets"
