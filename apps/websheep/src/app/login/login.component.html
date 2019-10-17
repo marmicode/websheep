@@ -28,5 +28,6 @@
     <button color="primary" mat-raised-button type="submit">LOG IN</button>
   </div>
 
+  <mat-error *ngIf="errorMessage$ | async as errorMessage">{{ errorMessage }}</mat-error>
 
 </form>

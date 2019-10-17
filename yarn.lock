@@ -1832,6 +1832,11 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
+"@wishtack/rx-scavenger@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@wishtack/rx-scavenger/-/rx-scavenger-1.0.5.tgz#571cbfbfe6c078b46230bd8bb77439692df39b2d"
+  integrity sha512-mJMagUI2y2ItmW5Lnpq0DCBVmBovXe5QkRo500uveobRjg6W+dqYS2j+QoMXJ5ck24keEC5t6qQtaUGXwatxEA==
+
 "@wishtack/schematics@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@wishtack/schematics/-/schematics-1.1.2.tgz#7a1ffc69d66ac61bbc82597a699b07cf8cf6e494"
