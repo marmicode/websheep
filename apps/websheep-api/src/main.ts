@@ -5,8 +5,11 @@
 
 import * as express from 'express';
 import { v1Router } from './app/v1';
+import { initializeDatabase } from './lib/db';
 
 const app = express();
+
+initializeDatabase();
 
 app.use('/v1', v1Router);
 app.get('/', (req, res) => res.redirect('/v1'));
