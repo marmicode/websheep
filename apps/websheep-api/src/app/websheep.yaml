@@ -25,6 +25,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TokenResponse'
+  /farmers/{farmerId}:
+    get:
+      summary: Get farmer
+      operationId: getFarmer
+      parameters:
+        - in: path
+          name: farmerId
+          required: true
+          schema:
+            type: string
+          description: The farmer's id
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Farmer'
+      security:
+        - BearerAuth: []
+
+
 
 components:
   schemas:
@@ -41,6 +63,15 @@ components:
           type: string
           format: password
           example: "123456"
+    Farmer:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
     TokenResponse:
       type: object
       required:
@@ -57,3 +88,7 @@ components:
         userId:
           type: string
           description: User's id
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
