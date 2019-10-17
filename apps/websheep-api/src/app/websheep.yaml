@@ -2,6 +2,9 @@ openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Websheep
+  description: |
+    * [JSON specification](specification.json)
+    * [YAML specification](specification.yaml)
   license:
     name: MIT
 servers:
