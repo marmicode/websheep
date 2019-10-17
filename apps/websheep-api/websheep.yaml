@@ -1,0 +1,59 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Websheep
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:3333/v1
+paths:
+  /tokens:
+    post:
+      summary: Create a token
+      operationId: createToken
+      requestBody:
+        description: Farmer credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+      responses:
+        201:
+          description: Farmer id and token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+
+components:
+  schemas:
+    Credentials:
+      type: object
+      required:
+        - userName
+        - password
+      properties:
+        userName:
+          type: string
+          example: karinelemarchand
+        password:
+          type: string
+          format: password
+          example: "123456"
+    TokenResponse:
+      type: object
+      required:
+        - id
+        - token
+        - userId
+      properties:
+        id:
+          type: string
+          description: Token's id
+        token:
+          type: string
+          description: Token's value
+        userId:
+          type: string
+          description: User's id
