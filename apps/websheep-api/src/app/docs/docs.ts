@@ -7,6 +7,7 @@ export const docsRouter = Router();
 const swaggerRaw = require('./websheep.yaml').default;
 const swaggerDocument = yaml.parse(swaggerRaw);
 
+docsRouter.get('/', (req, res) => res.redirect(`${req.baseUrl}/docs`));
 docsRouter.use('/docs', swaggerUi.serve);
 docsRouter.get('/docs', swaggerUi.setup(swaggerDocument));
 docsRouter.get('/docs/specification.yaml', (req, res) => res.send(swaggerRaw));

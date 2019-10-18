@@ -13,7 +13,6 @@ export const v2Router = Router();
 v2Router.use(cors());
 v2Router.use(bodyParser.json());
 
-v2Router.get('/', (req, res) => res.redirect('/v2/docs'));
 v2Router.use(docsRouter);
 v2Router.use(tokensRouter);
 
