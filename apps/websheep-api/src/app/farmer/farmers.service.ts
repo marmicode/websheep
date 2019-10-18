@@ -20,6 +20,9 @@ export const farmersService = {
     return this.getFarmer({ farmerId: tokenInfo.userId });
   },
   updateFarmer({ farmerId, farmer }: { farmerId: string; farmer }) {
+    const data = { ...farmer };
+    delete data.id;
+
     return database
       .get('farmers')
       .find({ id: farmerId })
