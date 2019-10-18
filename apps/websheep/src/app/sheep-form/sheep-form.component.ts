@@ -20,6 +20,7 @@ import { map } from 'rxjs/operators';
 import { AppState } from '../reducers';
 import * as fromConfig from '../config/config.selectors';
 import { Destination, Gender } from '../sheep-core/sheep';
+import { UserFarmService } from './user-farm.service';
 
 @Component({
   selector: 'ws-sheep-form',
@@ -38,7 +39,11 @@ export class SheepFormComponent implements OnInit {
     destinations: new FormControl([Destination.Kebab]),
     pictureUri: new FormControl()
   });
+
   errorMessage$: Observable<string>;
+
+  farmList$ = this._userFarmService.farmList$;
+
   pictureUriList$ = this._store.select(fromConfig.apiServerUrl).pipe(
     map(apiServerUrl => {
       return Array.from(Array(20).keys()).map(
@@ -47,7 +52,10 @@ export class SheepFormComponent implements OnInit {
     })
   );
 
-  constructor(private _store: Store<AppState>) {}
+  constructor(
+    private _userFarmService: UserFarmService,
+    private _store: Store<AppState>
+  ) {}
 
   ngOnInit() {}
 

@@ -51,6 +51,9 @@
       class="ws-sheep-form__field">
       <mat-label>Farm</mat-label>
       <mat-select formControlName="id">
+        <mat-option
+          *ngFor="let farm of farmList$ | async"
+          [value]="farm.id">{{ farm.name }}</mat-option>
       </mat-select>
     </mat-form-field>
 
