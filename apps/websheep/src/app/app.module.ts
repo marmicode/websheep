@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { AuthInterceptor } from './http/auth.interceptor';
 import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';
 import { metaReducers, reducers } from './reducers';
@@ -40,6 +41,11 @@ import { metaReducers, reducers } from './reducers';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: PrependBaseUrlInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
       multi: true
     }
   ],

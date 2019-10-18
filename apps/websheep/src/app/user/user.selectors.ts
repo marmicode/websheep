@@ -3,9 +3,14 @@ import { userFeatureKey, UserState } from './user.reducer';
 
 export const user = createFeatureSelector<UserState>(userFeatureKey);
 
-export const isSignedIn = createSelector(
+export const token = createSelector(
   user,
-  _user => _user.token != null
+  _user => _user.token
+);
+
+export const isSignedIn = createSelector(
+  token,
+  _token => _token != null
 );
 
 export const tokenId = createSelector(
