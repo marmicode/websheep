@@ -8,10 +8,12 @@ import {
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { AuthEffects } from './auth/auth.effects';
 import { AuthInterceptor } from './http/auth.interceptor';
 import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';
@@ -23,6 +25,7 @@ import { metaReducers, reducers } from './reducers';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    EffectsModule.forRoot([AuthEffects]),
     HttpClientModule,
     NavModule,
     StoreModule.forRoot(reducers, {

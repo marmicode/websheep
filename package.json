@@ -41,6 +41,7 @@
     "@angular/platform-browser": "^9.0.0-next.11",
     "@angular/platform-browser-dynamic": "^9.0.0-next.11",
     "@angular/router": "^9.0.0-next.11",
+    "@ngrx/effects": "^8.4.0",
     "@ngrx/store": "^8.4.0",
     "@nrwl/angular": "8.6.0",
     "@wishtack/rx-scavenger": "^1.0.5",
