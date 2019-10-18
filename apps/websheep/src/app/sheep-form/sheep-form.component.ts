@@ -19,6 +19,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AppState } from '../reducers';
 import * as fromConfig from '../config/config.selectors';
+import { Destination, Gender } from '../sheep-core/sheep';
 
 @Component({
   selector: 'ws-sheep-form',
@@ -27,13 +28,14 @@ import * as fromConfig from '../config/config.selectors';
 })
 export class SheepFormComponent implements OnInit {
   sheepForm = new FormGroup({
-    name: new FormControl(),
-    age: new FormControl(),
-    eyeColor: new FormControl(),
+    name: new FormControl('Dolly'),
+    age: new FormControl(3),
+    gender: new FormControl(Gender.Female),
+    eyeColor: new FormControl('blue'),
     farm: new FormGroup({
       id: new FormControl()
     }),
-    destinations: new FormControl(),
+    destinations: new FormControl([Destination.Kebab]),
     pictureUri: new FormControl()
   });
   errorMessage$: Observable<string>;
@@ -49,7 +51,9 @@ export class SheepFormComponent implements OnInit {
 
   ngOnInit() {}
 
-  addSheep() {}
+  addSheep() {
+    console.log(this.sheepForm.value);
+  }
 
   selectPictureUri(pictureUri: string) {
     this.sheepForm.patchValue({ pictureUri });

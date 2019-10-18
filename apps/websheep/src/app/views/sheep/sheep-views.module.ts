@@ -1,8 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SheepFormComponent } from '../../sheep-form/sheep-form.component';
-import { SheepListContainerComponent } from '../../sheep-list/sheep-list-container/sheep-list-container.component';
+import {
+  SheepFormComponent,
+  SheepFormModule
+} from '../../sheep-form/sheep-form.component';
+import {
+  SheepListContainerComponent,
+  SheepListContainerModule
+} from '../../sheep-list/sheep-list-container/sheep-list-container.component';
 import { sheepRouteHelper } from './sheep-route-helper';
 
 export const sheepRoutes: Routes = [
@@ -17,6 +23,11 @@ export const sheepRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(sheepRoutes)]
+  imports: [
+    CommonModule,
+    SheepListContainerModule,
+    SheepFormModule,
+    RouterModule.forChild(sheepRoutes)
+  ]
 })
 export class SheepViewsModule {}
