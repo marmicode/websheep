@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { appRouteHelper } from './app-route-helper';
+import { IsNotSignedInGuard } from './auth/is-not-signed-in.guard';
 import { IsSignedInGuard } from './auth/is-signed-in.guard';
 import {
   SigninFormComponent,
@@ -11,6 +12,7 @@ import { sheepRouteHelper } from './views/sheep/sheep-route-helper';
 export const appRoutes: Routes = [
   {
     path: appRouteHelper.SIGNIN_PATH,
+    canActivate: [IsNotSignedInGuard],
     component: SigninFormComponent
   },
   {
