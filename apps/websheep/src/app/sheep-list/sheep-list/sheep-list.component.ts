@@ -6,6 +6,7 @@ import {
   NgModule
 } from '@angular/core';
 import { Sheep } from '../../sheep-core/sheep';
+import { SheepPreviewModule } from '../sheep-preview/sheep-preview.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +20,7 @@ export class SheepListComponent {
 
 @NgModule({
   declarations: [SheepListComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, SheepPreviewModule],
   exports: [SheepListComponent]
 })
 export class SheepListModule {}

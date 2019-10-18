@@ -10,13 +10,13 @@ Use with https://www.json-generator.com/
     eyeColor: '{{random("blue", "brown", "green")}}',
     gender: '{{gender()}}',
     name: '{{firstName()}}',
-    pictureUri: 'http://localhost:3333/assets/sheep-{{index()}}.jpg',
+    pictureUri: '/assets/sheep-{{index()}}.jpg',
     farmId: function (tags) {
         var farms = ['P4VU2Xsw', 'ks6GN2am', 'wF6aEGTGK'];
         return farms[tags.integer(0, farms.length - 1)];
     },
     destinations: function (tags) {
-      var destinations = ['kebab', 'wool'];
+      var destinations = [['kebab'], ['wool'], ['kebab', 'wool']];
       return destinations[tags.integer(0, destinations.length - 1)];
     }
   }

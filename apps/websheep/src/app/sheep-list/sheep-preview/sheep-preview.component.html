@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ sheep.name }}</mat-card-title>
+    <mat-card-subtitle>{{ sheep.age }} years old</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="sheep.pictureUri" [alt]="'Picture of ' + sheep.name">
+  <mat-card-content>
+    <p>👀 {{ sheep.eyeColor }} eyes</p>
+    <div>Goals:</div>
+    <ul>
+      <li *ngFor="let destination of sheep.destinations">{{ destination }}</li>
+    </ul>
+  </mat-card-content>
+</mat-card>
