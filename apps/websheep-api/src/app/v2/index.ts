@@ -7,15 +7,16 @@ import { docsRouter } from '../docs/docs';
 import { farmsRouter } from '../farm/farms.router';
 import { sheepRouter } from '../sheep/sheep.router';
 import { tokensRouter } from '../token/tokens.router';
+import { isSelfGuard } from './is-self.guard';
 
-export const v1Router = Router();
+export const v2Router = Router();
 
-v1Router.use(cors());
-v1Router.use(bodyParser.json());
+v2Router.use(cors());
+v2Router.use(bodyParser.json());
 
-v1Router.get('/', (req, res) => res.redirect('/v1/docs'));
-v1Router.use(docsRouter);
-v1Router.use(tokensRouter);
+v2Router.get('/', (req, res) => res.redirect('/v2/docs'));
+v2Router.use(docsRouter);
+v2Router.use(tokensRouter);
 
-v1Router.use(bearerAuthMiddleware, farmsRouter);
-v1Router.use(bearerAuthMiddleware, sheepRouter);
+v2Router.use(bearerAuthMiddleware, farmsRouter);
+v2Router.use(bearerAuthMiddleware, sheepRouter);

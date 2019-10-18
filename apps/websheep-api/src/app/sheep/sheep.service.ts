@@ -1,5 +1,5 @@
 import * as shortid from 'shortid';
-import { database } from '../../lib/database';
+import { database } from '../database';
 
 export const sheepService = {
   getSheepByFarmIdList({ farmIdList }: { farmIdList: string[] }) {

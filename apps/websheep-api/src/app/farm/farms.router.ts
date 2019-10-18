@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { farmsService } from '../shared/farms.service';
+import { farmsService } from './farms.service';
 
 export const farmsRouter = Router();
 

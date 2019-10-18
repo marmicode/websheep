@@ -1,7 +1,7 @@
 import { randomBytes } from 'crypto';
 import * as shortid from 'shortid';
 import { promisify } from 'util';
-import { database } from '../../lib/database';
+import { database } from '../database';
 
 export const tokensService = {
   async create({ userId }: { userId: string }) {

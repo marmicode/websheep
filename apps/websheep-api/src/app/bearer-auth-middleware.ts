@@ -1,6 +1,6 @@
 import { Passport } from 'passport';
 import { Strategy as BearerStrategy } from 'passport-http-bearer';
-import { farmersService } from './farmers.service';
+import { farmersService } from './farmer/farmers.service';
 
 const passport = new Passport();
 
