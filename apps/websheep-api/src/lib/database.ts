@@ -11,7 +11,8 @@ export function initializeDatabase() {
     .defaults({
       farms,
       farmers,
-      sheep
+      sheep,
+      tokens: []
     })
     .write();
 }

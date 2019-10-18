@@ -11,7 +11,7 @@ export const tokens = {
 
     database
       .get('tokens')
-      .create({
+      .push({
         id: tokenId,
         token: tokenValue,
         userId
