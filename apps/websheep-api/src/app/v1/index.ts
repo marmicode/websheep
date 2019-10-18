@@ -16,6 +16,7 @@ v1Router.use(bodyParser.json());
 
 v1Router.use(docsRouter);
 v1Router.use(tokensRouter);
+
 v1Router.use(bearerAuthMiddleware, farmersRouter);
 v1Router.use(bearerAuthMiddleware, farmsRouter);
 v1Router.use(bearerAuthMiddleware, sheepRouter);

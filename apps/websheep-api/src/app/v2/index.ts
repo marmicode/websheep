@@ -5,6 +5,7 @@ import { bearerAuthMiddleware } from '../bearer-auth-middleware';
 
 import { docsRouter } from '../docs/docs.router';
 import { tokensRouter } from '../token/tokens.router';
+import { farmersRouter } from './farmers.router';
 import { farmsRouter } from './farms.router';
 import { sheepRouter } from './sheep.router';
 
@@ -16,5 +17,6 @@ v2Router.use(bodyParser.json());
 v2Router.use(docsRouter);
 v2Router.use(tokensRouter);
 
+v2Router.use(bearerAuthMiddleware, farmersRouter);
 v2Router.use(bearerAuthMiddleware, farmsRouter);
 v2Router.use(bearerAuthMiddleware, sheepRouter);
