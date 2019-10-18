@@ -53,6 +53,8 @@ paths:
       responses:
         204:
           description: Token destroyed
+      security:
+          - BearerAuth: []
 
   #
   # Farm
@@ -152,6 +154,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sheep'
+      security:
+        - BearerAuth: []
 
 
 components:

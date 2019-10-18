@@ -28,5 +28,11 @@ export const tokensService = {
       .get('tokens')
       .remove({ id: tokenId })
       .write();
+  },
+  getUserId({ tokenId }: { tokenId: string }) {
+    return database
+      .get('tokens')
+      .find({ id: tokenId })
+      .value().userId;
   }
 };
