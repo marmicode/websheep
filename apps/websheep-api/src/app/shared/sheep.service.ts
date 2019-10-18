@@ -1,4 +1,4 @@
-import { database } from './database';
+import { database } from '../../lib/database';
 
 export const sheepService = {
   getSheepByFarmIdList({ farmIdList }: { farmIdList: string[] }) {

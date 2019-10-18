@@ -1,9 +1,9 @@
 import { randomBytes } from 'crypto';
 import * as shortid from 'shortid';
 import { promisify } from 'util';
-import { database } from './database';
+import { database } from '../../lib/database';
 
-export const tokens = {
+export const tokensService = {
   async create({ userId }: { userId: string }) {
     const tokenBuffer = await promisify(randomBytes)(32);
     const tokenValue = tokenBuffer.toString('base64');

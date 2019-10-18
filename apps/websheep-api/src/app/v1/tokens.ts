@@ -1,7 +1,7 @@
 import { pbkdf2Sync } from 'crypto';
 import { Router } from 'express';
-import { farmers } from '../../lib/farmers';
-import { tokens } from '../../lib/tokens';
+import { farmersService } from '../shared/farmers.service';
+import { tokensService } from '../shared/tokens.service';
 
 export const tokensRouter = Router();
 
@@ -9,7 +9,7 @@ tokensRouter.post('/tokens', async (req, res) => {
   const userId = req.body.userName;
   const password = req.body.password;
 
-  const farmer = farmers.get({ farmerId: userId });
+  const farmer = farmersService.get({ farmerId: userId });
 
   const passwordHash = pbkdf2Sync(
     password,
@@ -26,7 +26,7 @@ tokensRouter.post('/tokens', async (req, res) => {
     return;
   }
 
-  const tokenInfo = await tokens.create({ userId });
+  const tokenInfo = await tokensService.create({ userId });
 
   res.json({
     ...tokenInfo,
@@ -37,7 +37,7 @@ tokensRouter.post('/tokens', async (req, res) => {
 tokensRouter.delete('/tokens/:tokenId', (req, res) => {
   const { tokenId } = req.params;
 
-  tokens.delete({ tokenId });
+  tokensService.delete({ tokenId });
 
   res.status(204).end();
 });

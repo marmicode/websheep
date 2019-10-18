@@ -1,6 +1,6 @@
-import { database } from './database';
+import { database } from '../../lib/database';
 
-export const farms = {
+export const farmsService = {
   getFarmsByFarmerId({ farmerId }: { farmerId: string }) {
     return database
       .get('farms')

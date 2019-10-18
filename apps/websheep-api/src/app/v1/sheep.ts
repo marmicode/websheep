@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { farms } from '../../lib/farms';
-import { sheepService } from '../../lib/sheep.service';
+import { farmsService } from '../shared/farms.service';
+import { sheepService } from '../shared/sheep.service';
 
 export const sheepRouter = Router();
 
@@ -20,7 +20,9 @@ export function serializeSheep({ sheep, host }) {
 }
 
 sheepRouter.get('/farmers/:farmerId/sheep', (req, res) => {
-  const farmList = farms.getFarmsByFarmerId({ farmerId: req.params.farmerId });
+  const farmList = farmsService.getFarmsByFarmerId({
+    farmerId: req.params.farmerId
+  });
 
   const farmIdList = farmList.map(farm => farm.id);
 
