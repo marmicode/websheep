@@ -4,10 +4,9 @@ import { Router } from 'express';
 import { bearerAuthMiddleware } from '../bearer-auth-middleware';
 
 import { docsRouter } from '../docs/docs';
-import { farmsRouter } from '../farm/farms.router';
 import { sheepRouter } from '../sheep/sheep.router';
 import { tokensRouter } from '../token/tokens.router';
-import { isSelfGuard } from './is-self.guard';
+import { farmsRouter } from './farms.router';
 
 export const v2Router = Router();
 

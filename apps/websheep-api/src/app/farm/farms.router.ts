@@ -1,17 +1,6 @@
 import { Router } from 'express';
-import { farmsService } from './farms.service';
+import { getFarmerFarms } from './ger-farmer-farms';
 
 export const farmsRouter = Router();
 
-farmsRouter.get('/farmers/:farmerId/farms', (req, res) => {
-  const { farmerId } = req.params;
-
-  const farms = farmsService.getFarmsByFarmerId({ farmerId });
-
-  res.json({
-    previous: null,
-    next: null,
-    totalCount: farms.length,
-    items: farms
-  });
-});
+farmsRouter.get('/farmers/:farmerId/farms', getFarmerFarms);

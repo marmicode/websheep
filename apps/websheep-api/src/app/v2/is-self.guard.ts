@@ -4,5 +4,5 @@ export function isSelfGuard(req, res, next) {
     return;
   }
 
-  return next(req, res);
+  return next();
 }
