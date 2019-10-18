@@ -13,6 +13,7 @@ export enum Gender {
 }
 
 export interface Sheep {
+  createdAt: Date;
   id: string;
   kind: SheepKind;
   age: number;
@@ -26,6 +27,7 @@ export interface Sheep {
 export function createSheep(sheep: Partial<Sheep>): Sheep {
   return {
     id: sheep.id,
+    createdAt: sheep.createdAt && new Date(sheep.createdAt),
     kind: sheep.kind,
     age: sheep.age,
     eyeColor: sheep.eyeColor,

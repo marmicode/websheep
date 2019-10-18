@@ -13,7 +13,11 @@ import { UserSheepService } from './user-sheep.service';
 })
 export class SheepListContainerComponent {
   sheepList$ = this._sheepListService.getUserSheep().pipe(
-    map(response => response.items),
+    map(response =>
+      [...response.items].sort(
+        (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+      )
+    ),
     shareReplay({
       bufferSize: 1,
       refCount: true
