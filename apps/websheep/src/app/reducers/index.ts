@@ -5,15 +5,22 @@ import {
   configReducer,
   ConfigState
 } from '../config/config.reducer';
+import {
+  layoutFeatureKey,
+  layoutReducer,
+  LayoutState
+} from '../layout/layout.reducer';
 import { userFeatureKey, userReducer, UserState } from '../user/user.reducer';
 
 export interface AppState {
   [configFeatureKey]: ConfigState;
+  [layoutFeatureKey]: LayoutState;
   [userFeatureKey]: UserState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   config: configReducer,
+  layout: layoutReducer,
   user: userReducer
 };
 

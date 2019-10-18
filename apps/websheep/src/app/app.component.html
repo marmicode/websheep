@@ -1,4 +1,4 @@
-<ws-nav>
+<ws-nav [isRightSidenavOpen]="isHackMenuOpen$ | async">
 
   <!-- Toolbar -->
   <ng-container slot="toolbar">
@@ -6,6 +6,11 @@
       <div fxFlex><span>🐑 {{ greetings$ | async}}</span></div>
       <div fxFlex fxLayout="row" fxLayoutAlign="end">
         <ws-api-selector></ws-api-selector>
+        <mat-icon
+          aria-label="Show hack menu"
+          class="ws-cursor-pointer"
+          (click)="hack()">settings_applications
+        </mat-icon>
       </div>
     </div>
   </ng-container>
@@ -16,7 +21,7 @@
     <mat-toolbar fxLayout="row">
       <span>Menu</span>
       <span fxFlex></span>
-      <mat-icon class="wt-sidenav__sign-out" aria-label="sign out" (click)="signOut()">power_off</mat-icon>
+      <mat-icon class="ws-cursor-pointer" aria-label="sign out" (click)="signOut()">power_off</mat-icon>
     </mat-toolbar>
 
     <mat-nav-list>
