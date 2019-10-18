@@ -16,6 +16,7 @@ export interface Sheep {
   id: string;
   kind: SheepKind;
   age: number;
+  eyeColor: string;
   gender: Gender;
   name: string;
   destinations: Destination[];
@@ -27,6 +28,7 @@ export function createSheep(sheep: Partial<Sheep>): Sheep {
     id: sheep.id,
     kind: sheep.kind,
     age: sheep.age,
+    eyeColor: sheep.eyeColor,
     gender: sheep.gender,
     name: sheep.name,
     destinations: sheep.destinations,
