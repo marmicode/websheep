@@ -5,7 +5,7 @@
 
 import * as express from 'express';
 import { v1Router } from './app/v1';
-import { initializeDatabase } from './lib/db';
+import { initializeDatabase } from './lib/database';
 
 const app = express();
 
