@@ -32,10 +32,10 @@ export class SigninFormComponent implements OnDestroy, OnInit {
   private _credentialsSubmit$ = new Subject<Credentials>();
   private _scavenger = new Scavenger(this);
 
-  constructor(private _login: Signin) {
+  constructor(private _signin: Signin) {
     this.loginResult$ = this._credentialsSubmit$.pipe(
       /* Login and materialize response so the stream doesn't brake on error. */
-      switchMap(credentials => concat(this._login.logIn(credentials))),
+      switchMap(credentials => concat(this._signin.logIn(credentials))),
       shareReplay({
         bufferSize: 1,
         refCount: true

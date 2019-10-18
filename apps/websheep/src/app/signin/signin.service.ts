@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { concat, Observable, of } from 'rxjs';
 import { map, materialize, tap } from 'rxjs/operators';
 import { AppState } from '../reducers';
 import { loginSuccess } from '../user/user.actions';
-import * as fromConfig from '../config/config.selectors';
+import { sheepRouteHelper } from '../views/sheep/sheep-route-helper';
 
 export interface Credentials {
   userName: string;
@@ -30,6 +31,7 @@ export enum SigninResult {
 export class Signin {
   constructor(
     private _httpClient: HttpClient,
+    private _router: Router,
     private _store: Store<AppState>
   ) {}
 
@@ -50,6 +52,7 @@ export class Signin {
     return concat(
       of(SigninResult.Pending),
       loginRequest$.pipe(
+        tap(() => this._router.navigate(sheepRouteHelper.sheepListRoute())),
         materialize(),
         map(notification => {
           return notification.kind === 'E'
