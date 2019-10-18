@@ -1,6 +1,8 @@
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import { Router } from 'express';
+import { bearerAuthMiddleware } from '../shared/bearer-auth-middleware';
+
 import { docsRouter } from '../shared/docs';
 import { sheepRouter } from './sheep';
 import { tokensRouter } from './tokens';
@@ -13,4 +15,5 @@ v1Router.use(bodyParser.json());
 v1Router.get('/', (req, res) => res.redirect('/v1/docs'));
 v1Router.use(docsRouter);
 v1Router.use(tokensRouter);
-v1Router.use(sheepRouter);
+
+v1Router.use(bearerAuthMiddleware, sheepRouter);
