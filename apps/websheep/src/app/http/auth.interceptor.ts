@@ -7,12 +7,13 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { combineLatest, Observable, of } from 'rxjs';
+import { combineLatest, Observable, of, throwError } from 'rxjs';
 import { Signout } from '../auth/signout';
 import { AppState } from '../reducers';
 import * as fromConfig from '../config/config.selectors';
+import { signout } from '../user/user.actions';
 import * as fromUser from '../user/user.selectors';
-import { first, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, first, map, switchMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,13 @@ export class AuthInterceptor implements HttpInterceptor {
           })
         );
       }),
-      switchMap(_req => next.handle(_req))
+      switchMap(_req => next.handle(_req)),
+      catchError(error => {
+        if (error instanceof HttpErrorResponse && error.status === 401) {
+          this._store.dispatch(signout());
+        }
+        return throwError(error);
+      })
     );
   }
 }
