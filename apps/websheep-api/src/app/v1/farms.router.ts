@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getFarmerFarms } from './ger-farmer-farms';
+import { getFarmerFarms } from '../farm/ger-farmer-farms';
 
 export const farmsRouter = Router();
 

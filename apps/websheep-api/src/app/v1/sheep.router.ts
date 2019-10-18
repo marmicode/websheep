@@ -1,7 +1,6 @@
 import { Router } from 'express';
-import { isSelfGuard } from '../v2/is-self.guard';
-import { getFarmerSheepList } from './get-farmer-sheep-list';
-import { getSheepList } from './get-sheep-list';
+import { getFarmerSheepList } from '../sheep/get-farmer-sheep-list';
+import { getSheepList } from '../sheep/get-sheep-list';
 
 export const sheepRouter = Router();
 

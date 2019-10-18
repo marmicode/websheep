@@ -4,9 +4,9 @@ import { Router } from 'express';
 import { bearerAuthMiddleware } from '../bearer-auth-middleware';
 
 import { docsRouter } from '../docs/docs';
-import { sheepRouter } from '../sheep/sheep.router';
 import { tokensRouter } from '../token/tokens.router';
 import { farmsRouter } from './farms.router';
+import { sheepRouter } from './sheep.router';
 
 export const v2Router = Router();
 
