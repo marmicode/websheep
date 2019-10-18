@@ -43,7 +43,6 @@ sheepRouter.post('/sheep', (req, res) => {
 
   const sheep = sheepService.createSheep({
     sheep: {
-      id: req.body.id,
       age: req.body.age,
       eyeColor: req.body.eyeColor,
       gender: req.body.gender,

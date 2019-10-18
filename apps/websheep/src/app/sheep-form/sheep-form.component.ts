@@ -1,11 +1,18 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexModule } from '@angular/flex-layout';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule
+} from '@angular/forms';
 import {
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule
 } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
@@ -21,6 +28,12 @@ import * as fromConfig from '../config/config.selectors';
 export class SheepFormComponent implements OnInit {
   sheepForm = new FormGroup({
     name: new FormControl(),
+    age: new FormControl(),
+    eyeColor: new FormControl(),
+    farm: new FormGroup({
+      id: new FormControl()
+    }),
+    destinations: new FormControl(),
     pictureUri: new FormControl()
   });
   errorMessage$: Observable<string>;
@@ -51,7 +64,8 @@ export class SheepFormComponent implements OnInit {
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [SheepFormComponent]
 })
