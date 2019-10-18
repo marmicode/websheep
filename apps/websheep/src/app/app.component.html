@@ -2,7 +2,7 @@
   <div slot="sidenav">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="sheepRouteHelper.sheepListRoute()">My Sheep</a>
+      <a mat-list-item routerLinkActive="ws-sidenav-link__active" [routerLink]="sheepRouteHelper.sheepListRoute()">My Sheep</a>
     </mat-nav-list>
   </div>
   <router-outlet slot="content"></router-outlet>
