@@ -4,6 +4,7 @@ import { Router } from 'express';
 import { bearerAuthMiddleware } from '../bearer-auth-middleware';
 
 import { docsRouter } from '../docs/docs.router';
+import { farmersRouter } from './farmers.router';
 import { farmsRouter } from './farms.router';
 import { sheepRouter } from './sheep.router';
 import { tokensRouter } from '../token/tokens.router';
@@ -15,5 +16,6 @@ v1Router.use(bodyParser.json());
 
 v1Router.use(docsRouter);
 v1Router.use(tokensRouter);
+v1Router.use(bearerAuthMiddleware, farmersRouter);
 v1Router.use(bearerAuthMiddleware, farmsRouter);
 v1Router.use(bearerAuthMiddleware, sheepRouter);

@@ -111,14 +111,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Farmer'
-                  - type: object
-                    properties:
-                      farms:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/Farm'
+                $ref: '#/components/schemas/Farmer'
       security:
         - BearerAuth: []
 

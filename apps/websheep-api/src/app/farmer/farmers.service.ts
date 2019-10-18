@@ -1,7 +1,7 @@
 import { database } from '../database';
 
 export const farmersService = {
-  get({ farmerId }: { farmerId: string }) {
+  getFarmer({ farmerId }: { farmerId: string }) {
     return database
       .get('farmers')
       .find({ id: farmerId })

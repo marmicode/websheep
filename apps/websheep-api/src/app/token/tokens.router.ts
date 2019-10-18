@@ -10,7 +10,7 @@ tokensRouter.post('/tokens', async (req, res) => {
   const userId = req.body.userName;
   const password = req.body.password;
 
-  const farmer = farmersService.get({ farmerId: userId });
+  const farmer = farmersService.getFarmer({ farmerId: userId });
 
   const passwordHash = pbkdf2Sync(
     password,
