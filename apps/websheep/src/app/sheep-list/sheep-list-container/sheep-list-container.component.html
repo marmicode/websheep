@@ -1,1 +1,3 @@
 <ws-sheep-list [sheepList]="sheepList$ | async"></ws-sheep-list>
+
+<mat-error *ngIf="errorMessage$ | async as errorMessage">{{ errorMessage }}</mat-error>

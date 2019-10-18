@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { MatFormFieldModule } from '@angular/material';
+import { Observable, of } from 'rxjs';
+import { catchError, map, mapTo, shareReplay } from 'rxjs/operators';
 import { SheepListModule } from '../sheep-list/sheep-list.component';
 import { UserSheepService } from './user-sheep.service';
 
@@ -10,16 +12,27 @@ import { UserSheepService } from './user-sheep.service';
   styleUrls: ['./sheep-list-container.component.scss']
 })
 export class SheepListContainerComponent {
-  sheepList$ = this._sheepListService
-    .getUserSheep()
-    .pipe(map(response => response.items));
+  sheepList$ = this._sheepListService.getUserSheep().pipe(
+    map(response => response.items),
+    shareReplay({
+      bufferSize: 1,
+      refCount: true
+    })
+  );
 
-  constructor(private _sheepListService: UserSheepService) {}
+  errorMessage$: Observable<string>;
+
+  constructor(private _sheepListService: UserSheepService) {
+    this.errorMessage$ = this.sheepList$.pipe(
+      mapTo(null),
+      catchError(() => of('Something went wrong!'))
+    );
+  }
 }
 
 @NgModule({
   declarations: [SheepListContainerComponent],
-  imports: [CommonModule, SheepListModule],
+  imports: [CommonModule, SheepListModule, MatFormFieldModule],
   exports: [SheepListContainerComponent]
 })
 export class SheepListContainerModule {}
