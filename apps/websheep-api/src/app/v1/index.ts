@@ -3,7 +3,7 @@ import * as cors from 'cors';
 import { Router } from 'express';
 import { bearerAuthMiddleware } from '../bearer-auth-middleware';
 
-import { docsRouter } from '../docs/docs';
+import { docsRouter } from '../docs/docs.router';
 import { farmsRouter } from './farms.router';
 import { sheepRouter } from './sheep.router';
 import { tokensRouter } from '../token/tokens.router';
