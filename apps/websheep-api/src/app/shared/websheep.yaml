@@ -74,6 +74,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SheepListResponse'
+      security:
+        - BearerAuth: []
 
 components:
   schemas:
