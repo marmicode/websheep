@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { concat, Observable, of } from 'rxjs';
 import { map, materialize, tap } from 'rxjs/operators';
 import { AppState } from '../reducers';
-import { loginSuccess } from '../user/user.actions';
+import { signinSuccess } from '../user/user.actions';
 import { sheepRouteHelper } from '../views/sheep/sheep-route-helper';
 
 export interface Credentials {
@@ -41,7 +41,7 @@ export class Signin {
       .pipe(
         tap((tokenResponse: TokenResponse) =>
           this._store.dispatch(
-            loginSuccess({
+            signinSuccess({
               token: tokenResponse.token,
               tokenId: tokenResponse.id,
               userId: tokenResponse.userId

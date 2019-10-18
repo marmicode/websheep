@@ -1,6 +1,11 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatListModule, MatToolbarModule } from '@angular/material';
+import { FlexModule } from '@angular/flex-layout';
+import {
+  MatIconModule,
+  MatListModule,
+  MatToolbarModule
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
@@ -27,7 +32,9 @@ import { metaReducers, reducers } from './reducers';
       }
     }),
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    FlexModule
   ],
   providers: [
     {

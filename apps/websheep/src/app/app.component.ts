@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Signout } from './auth/signout';
 import { sheepRouteHelper } from './views/sheep/sheep-route-helper';
 
 @Component({
@@ -8,4 +9,10 @@ import { sheepRouteHelper } from './views/sheep/sheep-route-helper';
 })
 export class AppComponent {
   sheepRouteHelper = sheepRouteHelper;
+
+  constructor(private _signout: Signout) {}
+
+  signOut() {
+    this._signout.signOut().subscribe();
+  }
 }

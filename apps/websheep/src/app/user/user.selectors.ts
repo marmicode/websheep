@@ -8,6 +8,11 @@ export const isSignedIn = createSelector(
   _user => _user.token != null
 );
 
+export const tokenId = createSelector(
+  user,
+  _user => _user.tokenId
+);
+
 export const userId = createSelector(
   user,
   _user => _user.userId
