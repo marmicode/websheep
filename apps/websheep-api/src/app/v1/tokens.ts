@@ -1,7 +1,7 @@
 import { pbkdf2Sync } from 'crypto';
 import { Router } from 'express';
 import { farmers } from '../../lib/farmers';
-import { tokens } from '../../lib/to';
+import { tokens } from '../../lib/tokens';
 
 export const tokensRouter = Router();
 
