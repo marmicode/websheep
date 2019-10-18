@@ -31,6 +31,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/TokenResponse'
 
+  /tokens/{tokenId}:
+    delete:
+      summary: Destroy token
+      tags:
+        - Authentication
+      operationId: deleteToken
+      parameters:
+        - in: path
+          name: tokenId
+          required: true
+          schema:
+            type: string
+          description: The token's id
+      responses:
+        204:
+          description: Token destroyed
+
   /farmers/{farmerId}:
     get:
       summary: Get farmer
