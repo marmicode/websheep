@@ -1,1 +1,3 @@
-<ws-sheep-preview *ngFor="let sheep of sheepList" [sheep]="sheep"></ws-sheep-preview>
+<div fxLayout="row wrap" fxLayoutAlign="center stretch">
+  <ws-sheep-preview class="ws-sheep-list__preview" *ngFor="let sheep of sheepList" [sheep]="sheep"></ws-sheep-preview>
+</div>

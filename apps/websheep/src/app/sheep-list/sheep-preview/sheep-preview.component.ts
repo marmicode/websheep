@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, NgModule } from '@angular/core';
+import { FlexModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material';
 import { Sheep } from '../../sheep-core/sheep';
 import { SheepDestinationEmojiPipeModule } from './sheep-destination-emoji.pipe';
@@ -15,7 +16,12 @@ export class SheepPreviewComponent {
 
 @NgModule({
   declarations: [SheepPreviewComponent],
-  imports: [CommonModule, MatCardModule, SheepDestinationEmojiPipeModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    SheepDestinationEmojiPipeModule,
+    FlexModule
+  ],
   exports: [SheepPreviewComponent]
 })
 export class SheepPreviewModule {}

@@ -5,6 +5,7 @@ import {
   Input,
   NgModule
 } from '@angular/core';
+import { FlexModule } from '@angular/flex-layout';
 import { Sheep } from '../../sheep-core/sheep';
 import { SheepDestinationEmojiPipeModule } from '../sheep-preview/sheep-destination-emoji.pipe';
 import { SheepPreviewModule } from '../sheep-preview/sheep-preview.component';
@@ -21,7 +22,12 @@ export class SheepListComponent {
 
 @NgModule({
   declarations: [SheepListComponent],
-  imports: [CommonModule, SheepPreviewModule, SheepDestinationEmojiPipeModule],
+  imports: [
+    CommonModule,
+    SheepPreviewModule,
+    SheepDestinationEmojiPipeModule,
+    FlexModule
+  ],
   exports: [SheepListComponent]
 })
 export class SheepListModule {}

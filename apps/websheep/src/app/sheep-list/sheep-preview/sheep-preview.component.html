@@ -1,14 +1,19 @@
-<mat-card>
+<mat-card fxFlex>
   <mat-card-header>
     <mat-card-title>{{ sheep.name }}</mat-card-title>
     <mat-card-subtitle>{{ sheep.age }} years old</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="sheep.pictureUri" [alt]="'Picture of ' + sheep.name">
+  <img
+    class="wt-sheep-preview__picture"
+    mat-card-image
+    [alt]="'Picture of ' + sheep.name"
+    [src]="sheep.pictureUri">
   <mat-card-content>
-    <p>👀 {{ sheep.eyeColor }} eyes</p>
+    <div class="wt-sheep-preview__eye-color" [style.color]="sheep.eyeColor">👀 {{ sheep.eyeColor }} eyes</div>
     <div>Goals:</div>
     <ul>
-      <li *ngFor="let destination of sheep.destinations">{{ destination | sheepDestinationEmoji }} {{ destination }}</li>
+      <li
+        *ngFor="let destination of sheep.destinations">{{ destination | sheepDestinationEmoji }} {{ destination }}</li>
     </ul>
   </mat-card-content>
 </mat-card>

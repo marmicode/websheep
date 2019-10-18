@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.wt-sheep-preview__eye-color {
+  font-weight: bold;
+}
+
+.wt-sheep-preview__picture {
+  height: 250px;
+  object-fit: cover;
+}
