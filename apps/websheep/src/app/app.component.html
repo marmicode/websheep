@@ -1,8 +1,12 @@
 <ws-nav>
 
   <ng-container slot="toolbar">
-    <span *ngIf="currentFarmer$ | async as farmer">Welcome {{ farmer.firstName }}</span>
-    <ws-api-selector></ws-api-selector>
+    <div fxFlex fxLayout="row">
+      <div fxFlex><span>🐑 {{ greetings$ | async}}</span></div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="end">
+        <ws-api-selector></ws-api-selector>
+      </div>
+    </div>
   </ng-container>
 
   <div slot="sidenav">
