@@ -16,7 +16,7 @@ import {
 } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map, shareReplay } from 'rxjs/operators';
 import { AppState } from '../reducers';
 import * as fromConfig from '../config/config.selectors';
 import { Destination, Gender } from '../sheep-core/sheep';
@@ -42,7 +42,9 @@ export class SheepFormComponent implements OnInit {
 
   errorMessage$: Observable<string>;
 
-  farmList$ = this._userFarmService.farmList$;
+  farmList$ = this._userFarmService.farmList$.pipe(
+    shareReplay({ refCount: true, bufferSize: 1 })
+  );
 
   pictureUriList$ = this._store.select(fromConfig.apiServerUrl).pipe(
     map(apiServerUrl => {
@@ -57,7 +59,20 @@ export class SheepFormComponent implements OnInit {
     private _store: Store<AppState>
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.farmList$
+      .pipe(
+        filter(farmList => farmList.length > 0),
+        map(farmList => farmList[0])
+      )
+      .subscribe(farm =>
+        this.sheepForm.patchValue({
+          farm: {
+            id: farm.id
+          }
+        })
+      );
+  }
 
   addSheep() {
     console.log(this.sheepForm.value);
