@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./sheep-list-container.component.scss']
 })
 export class SheepListContainerComponent implements OnInit {
+  sheepList = [];
+
   constructor() {}
 
   ngOnInit() {}
