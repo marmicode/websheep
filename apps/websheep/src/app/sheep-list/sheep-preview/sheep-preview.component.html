@@ -8,7 +8,7 @@
     <p>👀 {{ sheep.eyeColor }} eyes</p>
     <div>Goals:</div>
     <ul>
-      <li *ngFor="let destination of sheep.destinations">{{ destination }}</li>
+      <li *ngFor="let destination of sheep.destinations">{{ destination | sheepDestinationEmoji }} {{ destination }}</li>
     </ul>
   </mat-card-content>
 </mat-card>

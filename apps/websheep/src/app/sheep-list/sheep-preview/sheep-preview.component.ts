@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material';
 import { Sheep } from '../../sheep-core/sheep';
+import { SheepDestinationEmojiPipeModule } from './sheep-destination-emoji.pipe';
 
 @Component({
   selector: 'ws-sheep-preview',
@@ -14,7 +15,7 @@ export class SheepPreviewComponent {
 
 @NgModule({
   declarations: [SheepPreviewComponent],
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, SheepDestinationEmojiPipeModule],
   exports: [SheepPreviewComponent]
 })
 export class SheepPreviewModule {}

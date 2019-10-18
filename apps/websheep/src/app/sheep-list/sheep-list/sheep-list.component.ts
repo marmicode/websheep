@@ -6,6 +6,7 @@ import {
   NgModule
 } from '@angular/core';
 import { Sheep } from '../../sheep-core/sheep';
+import { SheepDestinationEmojiPipeModule } from '../sheep-preview/sheep-destination-emoji.pipe';
 import { SheepPreviewModule } from '../sheep-preview/sheep-preview.component';
 
 @Component({
@@ -20,7 +21,7 @@ export class SheepListComponent {
 
 @NgModule({
   declarations: [SheepListComponent],
-  imports: [CommonModule, SheepPreviewModule],
+  imports: [CommonModule, SheepPreviewModule, SheepDestinationEmojiPipeModule],
   exports: [SheepListComponent]
 })
 export class SheepListModule {}

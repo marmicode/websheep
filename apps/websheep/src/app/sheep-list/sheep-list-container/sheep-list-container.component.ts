@@ -1,5 +1,5 @@
-import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { SheepListModule } from '../sheep-list/sheep-list.component';
 import { UserSheepService } from './user-sheep.service';
