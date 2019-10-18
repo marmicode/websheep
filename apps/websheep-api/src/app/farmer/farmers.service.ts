@@ -18,5 +18,12 @@ export const farmersService = {
     }
 
     return this.getFarmer({ farmerId: tokenInfo.userId });
+  },
+  updateFarmer({ farmerId, farmer }: { farmerId: string; farmer }) {
+    return database
+      .get('farmers')
+      .find({ id: farmerId })
+      .assign(farmer)
+      .value();
   }
 };
