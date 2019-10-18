@@ -9,15 +9,24 @@ export const tokens = {
     const tokenValue = tokenBuffer.toString('base64');
     const tokenId = shortid.generate();
 
-    database.get('tokens').create({
-      id: tokenId,
-      token: tokenValue,
-      userId
-    });
+    database
+      .get('tokens')
+      .create({
+        id: tokenId,
+        token: tokenValue,
+        userId
+      })
+      .write();
 
     return {
       id: tokenId,
       token: tokenValue
     };
+  },
+  delete({ tokenId }: { tokenId: string }) {
+    database
+      .get('tokens')
+      .remove({ id: tokenId })
+      .write();
   }
 };

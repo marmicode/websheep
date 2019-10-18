@@ -31,3 +31,11 @@ tokensRouter.post('/tokens', async (req, res) => {
     userId
   });
 });
+
+tokensRouter.delete('/tokens/:tokenId', (req, res) => {
+  const { tokenId } = req.params;
+
+  tokens.delete({ tokenId });
+
+  res.status(204).end();
+});
