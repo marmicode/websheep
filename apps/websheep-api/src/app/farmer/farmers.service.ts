@@ -17,6 +17,6 @@ export const farmersService = {
       return null;
     }
 
-    return this.get({ farmerId: tokenInfo.userId });
+    return this.getFarmer({ farmerId: tokenInfo.userId });
   }
 };

@@ -1,14 +1,25 @@
 <ws-nav>
+
+  <ng-container slot="toolbar">
+    <span *ngIf="currentFarmer$ | async as farmer">Welcome {{ farmer.firstName }}</span>
+    <ws-api-selector></ws-api-selector>
+  </ng-container>
+
   <div slot="sidenav">
+
     <mat-toolbar fxLayout="row">
       <span>Menu</span>
       <span fxFlex></span>
       <mat-icon class="wt-sidenav__sign-out" aria-label="sign out" (click)="signOut()">power_off</mat-icon>
     </mat-toolbar>
+
     <mat-nav-list>
       <a mat-list-item routerLinkActive="ws-sidenav__link--active" [routerLink]="sheepRouteHelper.sheepAddRoute()">Add Sheep</a>
       <a mat-list-item routerLinkActive="ws-sidenav__link--active" [routerLink]="sheepRouteHelper.sheepListRoute()">My Sheep</a>
     </mat-nav-list>
+
   </div>
+
   <router-outlet slot="content"></router-outlet>
+
 </ws-nav>

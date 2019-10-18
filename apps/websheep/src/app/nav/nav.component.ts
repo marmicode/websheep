@@ -16,7 +16,6 @@ import {
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ApiSelectorModule } from '../api-selector/api-selector/api-selector.component';
 import { AppState } from '../reducers';
 import * as fromUser from '../user/user.selectors';
 
@@ -65,8 +64,7 @@ export class NavComponent {
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FlexModule,
-    ApiSelectorModule
+    FlexModule
   ]
 })
 export class NavModule {}

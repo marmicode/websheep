@@ -19,7 +19,7 @@
       </button>
       <span>websheep</span>
       <span fxFlex></span>
-      <ws-api-selector></ws-api-selector>
+      <ng-content select="[slot=toolbar]"></ng-content>
     </mat-toolbar>
     <ng-content select="[slot=content]"></ng-content>
   </mat-sidenav-content>
