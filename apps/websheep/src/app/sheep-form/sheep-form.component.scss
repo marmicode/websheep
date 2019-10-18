@@ -1,0 +1,12 @@
+.ws-sheep-form__thumbnail {
+  cursor: pointer;
+  object-fit: cover;
+  height: 80px;
+  width: 80px;
+
+  filter: grayscale(100%);
+
+  &.selected,&:hover {
+    filter: grayscale(0%);
+  }
+}

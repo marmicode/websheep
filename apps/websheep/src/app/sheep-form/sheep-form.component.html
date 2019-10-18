@@ -13,6 +13,17 @@
       type="text">
   </mat-form-field>
 
+  <!-- Picture selector. -->
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <img
+      *ngFor="let pictureUri of pictureUriList$ | async"
+      alt="A sheep picture"
+      class="ws-sheep-form__thumbnail"
+      [class.selected]="sheepForm.get('pictureUri').value === pictureUri"
+      [src]="pictureUri"
+      (click)="selectPictureUri(pictureUri)">
+  </div>
+
   <div>
     <button mat-button type="reset">RESET</button>
 
