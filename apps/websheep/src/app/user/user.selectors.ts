@@ -7,3 +7,8 @@ export const isSignedIn = createSelector(
   user,
   _user => _user.token != null
 );
+
+export const userId = createSelector(
+  user,
+  _user => _user.userId
+);
