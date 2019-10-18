@@ -4,7 +4,7 @@ import {
   LayoutModule
 } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
@@ -25,6 +25,8 @@ import * as fromUser from '../user/user.selectors';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
+  @Input() isRightSidenavOpen = false;
+
   canToggleSidenav$: Observable<boolean>;
   isHandset$: Observable<boolean> = this._breakpointObserver
     .observe(Breakpoints.Handset)

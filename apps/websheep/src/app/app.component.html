@@ -1,5 +1,6 @@
 <ws-nav>
 
+  <!-- Toolbar -->
   <ng-container slot="toolbar">
     <div fxFlex fxLayout="row">
       <div fxFlex><span>🐑 {{ greetings$ | async}}</span></div>
@@ -9,6 +10,7 @@
     </div>
   </ng-container>
 
+  <!-- Sidenav -->
   <div slot="sidenav">
 
     <mat-toolbar fxLayout="row">
@@ -24,6 +26,12 @@
 
   </div>
 
+  <!-- Right sidenav -->
+  <div slot="right-sidenav">
+    <ws-hack-menu></ws-hack-menu>
+  </div>
+
+  <!-- Content -->
   <router-outlet slot="content"></router-outlet>
 
 </ws-nav>

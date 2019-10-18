@@ -7,6 +7,10 @@
     <ng-content select="[slot=sidenav]"></ng-content>
   </mat-sidenav>
 
+  <mat-sidenav [opened]="isRightSidenavOpen" mode="over" position="end">
+    <ng-content select="[slot=right-sidenav]"></ng-content>
+  </mat-sidenav>
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button

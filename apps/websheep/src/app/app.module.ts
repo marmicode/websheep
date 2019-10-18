@@ -4,6 +4,7 @@ import { FlexModule } from '@angular/flex-layout';
 import {
   MatIconModule,
   MatListModule,
+  MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AuthEffects } from './auth/auth.effects';
+import { HackMenuModule } from './hack-menu/hack-menu.component';
 import { AuthInterceptor } from './http/auth.interceptor';
 import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';
@@ -40,7 +42,9 @@ import { metaReducers, reducers } from './reducers';
     MatToolbarModule,
     MatIconModule,
     FlexModule,
-    ApiSelectorModule
+    ApiSelectorModule,
+    MatSidenavModule,
+    HackMenuModule
   ],
   providers: [
     {
