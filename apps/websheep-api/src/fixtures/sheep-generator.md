@@ -6,6 +6,7 @@ Use with https://www.json-generator.com/
   '{{repeat(20, 20)}}',
   {
     id: '{{objectId()}}',
+    createdAt: '2019-10-08T13:39:59.335Z',
     age: '{{integer(1, 12)}}',
     eyeColor: '{{random("blue", "brown", "green")}}',
     gender: '{{gender()}}',

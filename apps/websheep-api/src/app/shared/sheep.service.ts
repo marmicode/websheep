@@ -12,6 +12,8 @@ export const sheepService = {
     database
       .get('sheep')
       .push({
+        id: shortid.generate(),
+        createdAt: new Date().toISOString(),
         age: sheep.age,
         eyeColor: sheep.eyeColor,
         gender: sheep.gender,
