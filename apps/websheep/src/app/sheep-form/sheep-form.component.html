@@ -1,1 +1,24 @@
-<p>sheep-form works!</p>
+<form
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  [formGroup]="sheepForm"
+  (ngSubmit)="addSheep()">
+
+  <mat-form-field
+    class="ws-sheep-form__field">
+    <input
+      formControlName="name"
+      matInput
+      placeholder="Name"
+      type="text">
+  </mat-form-field>
+
+  <div>
+    <button mat-button type="reset">RESET</button>
+
+    <button color="primary" mat-raised-button type="submit">ADD</button>
+  </div>
+
+  <mat-error *ngIf="errorMessage$ | async as errorMessage">{{ errorMessage }}</mat-error>
+
+</form>
