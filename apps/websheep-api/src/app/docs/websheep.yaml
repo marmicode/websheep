@@ -8,7 +8,10 @@ info:
   license:
     name: MIT
 servers:
-  - url: http://localhost:3333/v1
+  - description: Authorization vulnerability 1
+    url: http://localhost:3333/v1
+  - description: Authorization vulnerability 2
+    url: http://localhost:3333/v2
 paths:
   #
   # Authentication
