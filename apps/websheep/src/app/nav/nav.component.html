@@ -3,12 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="isSidenavOpen$ | async ">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
+    <ng-content select="[slot=sidenav]"></ng-content>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -24,6 +19,6 @@
       <span fxFlex></span>
       <ws-api-selector></ws-api-selector>
     </mat-toolbar>
-    <ng-content></ng-content>
+    <ng-content select="[slot=content]"></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
