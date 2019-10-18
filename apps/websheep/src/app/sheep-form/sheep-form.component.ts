@@ -20,6 +20,7 @@ import { filter, map, shareReplay } from 'rxjs/operators';
 import { AppState } from '../reducers';
 import * as fromConfig from '../config/config.selectors';
 import { Destination, Gender } from '../sheep-core/sheep';
+import { AddSheepService } from './add-sheep.service';
 import { UserFarmService } from './user-farm.service';
 
 @Component({
@@ -55,6 +56,7 @@ export class SheepFormComponent implements OnInit {
   );
 
   constructor(
+    private _addSheepService: AddSheepService,
     private _userFarmService: UserFarmService,
     private _store: Store<AppState>
   ) {}
@@ -75,7 +77,7 @@ export class SheepFormComponent implements OnInit {
   }
 
   addSheep() {
-    console.log(this.sheepForm.value);
+    this._addSheepService.addSheep({ sheep: this.sheepForm.value }).subscribe();
   }
 
   selectPictureUri(pictureUri: string) {

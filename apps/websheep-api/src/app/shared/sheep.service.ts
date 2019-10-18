@@ -8,6 +8,10 @@ export const sheepService = {
       .value();
   },
   createSheep({ sheep }) {
-    return database.get('sheep').insert(sheep);
+    database
+      .get('sheep')
+      .push(sheep)
+      .write();
+    return sheep;
   }
 };

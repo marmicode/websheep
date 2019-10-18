@@ -5,13 +5,14 @@ import { sheepService } from '../shared/sheep.service';
 export const sheepRouter = Router();
 
 export function serializeSheep({ sheep, host }) {
+  const pictureUri = sheep.pictureUri && `//${host}${sheep.pictureUri}`;
   return {
     id: sheep.id,
     age: sheep.age,
     eyeColor: sheep.eyeColor,
     gender: sheep.gender,
     name: sheep.name,
-    pictureUri: `//${host}${sheep.pictureUri}`,
+    pictureUri,
     farm: {
       id: sheep.farmId
     },
@@ -39,9 +40,9 @@ sheepRouter.get('/farmers/:farmerId/sheep', (req, res) => {
 });
 
 sheepRouter.post('/sheep', (req, res) => {
-  const pictureUri = req.body.pictureUri
-    .replace(/^.*:\/\//, '')
-    .replace(req.headers.host, '');
+  const pictureUri =
+    req.body.pictureUri &&
+    req.body.pictureUri.replace(/^.*:\/\//, '').replace(req.headers.host, '');
 
   const sheep = sheepService.createSheep({
     sheep: {
