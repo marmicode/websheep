@@ -5,6 +5,6 @@ import { getSheepList } from './get-sheep-list';
 
 export const sheepRouter = Router();
 
-sheepRouter.get('/farmers/:farmerId/sheep', isSelfGuard, getFarmerSheepList);
+sheepRouter.get('/farmers/:farmerId/sheep', getFarmerSheepList);
 
 sheepRouter.post('/sheep', getSheepList);
