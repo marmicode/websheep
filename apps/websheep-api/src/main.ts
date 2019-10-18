@@ -4,6 +4,7 @@
  **/
 
 import * as express from 'express';
+import * as path from 'path';
 import { v1Router } from './app/v1';
 import { initializeDatabase } from './lib/database';
 
@@ -13,6 +14,7 @@ initializeDatabase();
 
 app.use('/v1', v1Router);
 app.get('/', (req, res) => res.redirect('/v1'));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

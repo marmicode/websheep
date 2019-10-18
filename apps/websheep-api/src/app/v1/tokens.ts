@@ -5,7 +5,7 @@ import { tokens } from '../../lib/tokens';
 
 export const tokensRouter = Router();
 
-tokensRouter.post('/', async (req, res) => {
+tokensRouter.post('/tokens', async (req, res) => {
   const userId = req.body.userName;
   const password = req.body.password;
 
