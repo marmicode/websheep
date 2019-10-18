@@ -19,8 +19,6 @@ tokensRouter.post('/tokens', async (req, res) => {
     'sha512'
   ).toString('base64');
 
-  console.log(passwordHash);
-
   if (farmer == null || farmer.passwordHash !== passwordHash) {
     res.status(401).end();
     return;
