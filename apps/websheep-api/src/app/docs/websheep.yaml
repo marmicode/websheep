@@ -98,6 +98,13 @@ paths:
           schema:
             type: string
           description: The farmer's id
+      requestBody:
+        description: Farmer
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Farmer'
       responses:
         200:
           description: OK
@@ -107,6 +114,29 @@ paths:
                 $ref: '#/components/schemas/Farmer'
       security:
         - BearerAuth: []
+
+    patch:
+      summary: Update farmer
+      tags:
+        - Farmer
+      operationId: updateFarmer
+      parameters:
+        - in: path
+          name: farmerId
+          required: true
+          schema:
+            type: string
+          description: The farmer's id
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Farmer'
+      security:
+        - BearerAuth: []
+
 
   #
   # Sheep
