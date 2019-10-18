@@ -1,3 +1,4 @@
+import * as shortid from 'shortid';
 import { database } from '../../lib/database';
 
 export const sheepService = {
@@ -10,7 +11,15 @@ export const sheepService = {
   createSheep({ sheep }) {
     database
       .get('sheep')
-      .push(sheep)
+      .push({
+        age: sheep.age,
+        eyeColor: sheep.eyeColor,
+        gender: sheep.gender,
+        name: sheep.name,
+        pictureUri: sheep.pictureUri,
+        farmId: sheep.farm.id,
+        destinations: sheep.destinations
+      })
       .write();
     return sheep;
   }

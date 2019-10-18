@@ -7,16 +7,8 @@ export const sheepRouter = Router();
 export function serializeSheep({ sheep, host }) {
   const pictureUri = sheep.pictureUri && `//${host}${sheep.pictureUri}`;
   return {
-    id: sheep.id,
-    age: sheep.age,
-    eyeColor: sheep.eyeColor,
-    gender: sheep.gender,
-    name: sheep.name,
-    pictureUri,
-    farm: {
-      id: sheep.farmId
-    },
-    destinations: sheep.destinations
+    ...sheep,
+    pictureUri
   };
 }
 
@@ -46,13 +38,8 @@ sheepRouter.post('/sheep', (req, res) => {
 
   const sheep = sheepService.createSheep({
     sheep: {
-      age: req.body.age,
-      eyeColor: req.body.eyeColor,
-      gender: req.body.gender,
-      name: req.body.name,
-      pictureUri,
-      farm: req.body.farm,
-      destinations: req.body.destinations
+      ...req.body,
+      pictureUri
     }
   });
 
