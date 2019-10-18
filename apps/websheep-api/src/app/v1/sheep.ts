@@ -1,26 +1,32 @@
 import { Router } from 'express';
 import { farms } from '../../lib/farms';
-import { sheep } from '../../lib/sheep';
+import { sheepService } from '../../lib/sheep.service';
 
 export const sheepRouter = Router();
+
+export function serializeSheep({ sheep, host }) {
+  return {
+    id: sheep.id,
+    age: sheep.age,
+    eyeColor: sheep.eyeColor,
+    gender: sheep.gender,
+    name: sheep.name,
+    pictureUri: `//${host}${sheep.pictureUri}`,
+    farm: {
+      id: sheep.farmId
+    },
+    destinations: sheep.destinations
+  };
+}
 
 sheepRouter.get('/farmers/:farmerId/sheep', (req, res) => {
   const farmList = farms.getFarmsByFarmerId({ farmerId: req.params.farmerId });
 
   const farmIdList = farmList.map(farm => farm.id);
 
-  const sheepList = sheep.getSheepByFarmIdList({ farmIdList }).map(_sheep => ({
-    id: _sheep.id,
-    age: _sheep.age,
-    eyeColor: _sheep.eyeColor,
-    gender: _sheep.gender,
-    name: _sheep.name,
-    pictureUri: `//${req.headers.host}${_sheep.pictureUri}`,
-    farm: {
-      id: _sheep.farmId
-    },
-    destinations: _sheep.destinations
-  }));
+  const sheepList = sheepService
+    .getSheepByFarmIdList({ farmIdList })
+    .map(sheep => serializeSheep({ sheep, host: req.headers.host }));
 
   res.json({
     next: null,
@@ -28,4 +34,25 @@ sheepRouter.get('/farmers/:farmerId/sheep', (req, res) => {
     totalCount: sheepList.length,
     items: sheepList
   });
+});
+
+sheepRouter.post('/sheep', (req, res) => {
+  const pictureUri = req.body.pictureUri
+    .replace(/^.*:\/\//, '')
+    .replace(req.headers.host, '');
+
+  const sheep = sheepService.createSheep({
+    sheep: {
+      id: req.body.id,
+      age: req.body.age,
+      eyeColor: req.body.eyeColor,
+      gender: req.body.gender,
+      name: req.body.name,
+      pictureUri,
+      farm: req.body.farm,
+      destinations: req.body.destinations
+    }
+  });
+
+  res.json(serializeSheep({ sheep, host: req.headers.host }));
 });
