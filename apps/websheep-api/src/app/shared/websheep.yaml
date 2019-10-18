@@ -10,6 +10,9 @@ info:
 servers:
   - url: http://localhost:3333/v1
 paths:
+  #
+  # Authentication
+  #
   /tokens:
     post:
       summary: Create a token
@@ -48,6 +51,9 @@ paths:
         204:
           description: Token destroyed
 
+  #
+  # Farm
+  #
   /farmers/{farmerId}/farms:
     get:
       summary: Get farmer's farms
@@ -71,6 +77,9 @@ paths:
       security:
         - BearerAuth: []
 
+  #
+  # Farmer
+  #
   /farmers/{farmerId}:
     get:
       summary: Get farmer
@@ -94,6 +103,9 @@ paths:
       security:
         - BearerAuth: []
 
+  #
+  # Sheep
+  #
   /farmers/{farmerId}/sheep:
     get:
       summary: Get farmer's sheep
@@ -116,6 +128,28 @@ paths:
                 $ref: '#/components/schemas/SheepListResponse'
       security:
         - BearerAuth: []
+
+  /sheep:
+    post:
+      summary: Add sheep
+      tags:
+        - Sheep
+      operationId: addSheep
+      requestBody:
+        description: Sheep
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sheep'
+      responses:
+        201:
+          description: The created sheep
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sheep'
+
 
 components:
   schemas:
@@ -180,13 +214,37 @@ components:
 
     Sheep:
       type: object
+      required:
+        - name
       properties:
         id:
           type: string
         kind:
           type: string
-          enum: ['sheep']
+          enum:
+            - sheep
+        age:
+          type: number
+        destinations:
+          type: string
+          enum:
+            - kebab
+            - wool
+        eyeColor:
+          type: string
+        farm:
+          type: object
+          properties:
+            id:
+              type: string
+        gender:
+          type: string
+          enum:
+            - female
+            - male
         name:
+          type: string
+        pictureUri:
           type: string
 
     SheepListResponse:
