@@ -11,13 +11,13 @@ export const farmers = [
     firstName: 'foo',
     lastName: 'Bar',
     /* zTAr@6y60PwJ */
-    passwordHash: 'wOdGepZEPVqu1IYhbVIVuohZ8NtII+CbuO1g8Qf+aSI='
+    passwordHash: 'cm+Gzc9HqStHBB7E92lRZ7jDmuwAPfTQUvrQstGCbvs='
   },
   {
     id: 'johndoe',
     firstName: 'John',
     lastName: 'DOE',
     /* %yP50h^qI02t */
-    passwordHash: 'BpVRyaAPWYG/RXKXUtrZZd2J/evwkEawNL5LvwgeluM='
+    passwordHash: '494yx+2TfffQcs1c5xg4BQB8ubAd6bPK56e/eX4mTf0='
   }
 ];
