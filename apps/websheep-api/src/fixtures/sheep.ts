@@ -5,7 +5,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'female',
     name: 'Corinne',
-    pictureUri: 'http://localhost:3333/assets/sheep-0.jpg',
+    pictureUri: '/assets/sheep-0.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'kebab'
   },
@@ -15,7 +15,7 @@ export const sheep = [
     eyeColor: 'brown',
     gender: 'female',
     name: 'Oliver',
-    pictureUri: 'http://localhost:3333/assets/sheep-1.jpg',
+    pictureUri: '/assets/sheep-1.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'wool'
   },
@@ -25,7 +25,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'male',
     name: 'Hebert',
-    pictureUri: 'http://localhost:3333/assets/sheep-2.jpg',
+    pictureUri: '/assets/sheep-2.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'kebab'
   },
@@ -35,7 +35,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'male',
     name: 'Floyd',
-    pictureUri: 'http://localhost:3333/assets/sheep-3.jpg',
+    pictureUri: '/assets/sheep-3.jpg',
     farmId: 'wF6aEGTGK',
     destinations: 'wool'
   },
@@ -45,7 +45,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'male',
     name: 'Riggs',
-    pictureUri: 'http://localhost:3333/assets/sheep-4.jpg',
+    pictureUri: '/assets/sheep-4.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'wool'
   },
@@ -55,7 +55,7 @@ export const sheep = [
     eyeColor: 'brown',
     gender: 'male',
     name: 'Guthrie',
-    pictureUri: 'http://localhost:3333/assets/sheep-5.jpg',
+    pictureUri: '/assets/sheep-5.jpg',
     farmId: 'ks6GN2am',
     destinations: 'kebab'
   },
@@ -65,7 +65,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'male',
     name: 'Ortega',
-    pictureUri: 'http://localhost:3333/assets/sheep-6.jpg',
+    pictureUri: '/assets/sheep-6.jpg',
     farmId: 'wF6aEGTGK',
     destinations: 'wool'
   },
@@ -75,7 +75,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'male',
     name: 'Kelli',
-    pictureUri: 'http://localhost:3333/assets/sheep-7.jpg',
+    pictureUri: '/assets/sheep-7.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'kebab'
   },
@@ -85,7 +85,7 @@ export const sheep = [
     eyeColor: 'brown',
     gender: 'female',
     name: 'Concetta',
-    pictureUri: 'http://localhost:3333/assets/sheep-8.jpg',
+    pictureUri: '/assets/sheep-8.jpg',
     farmId: 'wF6aEGTGK',
     destinations: 'kebab'
   },
@@ -95,7 +95,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'female',
     name: 'Vivian',
-    pictureUri: 'http://localhost:3333/assets/sheep-9.jpg',
+    pictureUri: '/assets/sheep-9.jpg',
     farmId: 'ks6GN2am',
     destinations: 'kebab'
   },
@@ -105,7 +105,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'female',
     name: 'Mckee',
-    pictureUri: 'http://localhost:3333/assets/sheep-10.jpg',
+    pictureUri: '/assets/sheep-10.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'kebab'
   },
@@ -115,7 +115,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'male',
     name: 'Harris',
-    pictureUri: 'http://localhost:3333/assets/sheep-11.jpg',
+    pictureUri: '/assets/sheep-11.jpg',
     farmId: 'wF6aEGTGK',
     destinations: 'kebab'
   },
@@ -125,7 +125,7 @@ export const sheep = [
     eyeColor: 'brown',
     gender: 'male',
     name: 'Kelley',
-    pictureUri: 'http://localhost:3333/assets/sheep-12.jpg',
+    pictureUri: '/assets/sheep-12.jpg',
     farmId: 'ks6GN2am',
     destinations: 'kebab'
   },
@@ -135,7 +135,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'male',
     name: 'Elise',
-    pictureUri: 'http://localhost:3333/assets/sheep-13.jpg',
+    pictureUri: '/assets/sheep-13.jpg',
     farmId: 'ks6GN2am',
     destinations: 'kebab'
   },
@@ -145,7 +145,7 @@ export const sheep = [
     eyeColor: 'brown',
     gender: 'female',
     name: 'Marla',
-    pictureUri: 'http://localhost:3333/assets/sheep-14.jpg',
+    pictureUri: '/assets/sheep-14.jpg',
     farmId: 'wF6aEGTGK',
     destinations: 'kebab'
   },
@@ -155,7 +155,7 @@ export const sheep = [
     eyeColor: 'brown',
     gender: 'female',
     name: 'Tessa',
-    pictureUri: 'http://localhost:3333/assets/sheep-15.jpg',
+    pictureUri: '/assets/sheep-15.jpg',
     farmId: 'wF6aEGTGK',
     destinations: 'kebab'
   },
@@ -165,7 +165,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'female',
     name: 'Faith',
-    pictureUri: 'http://localhost:3333/assets/sheep-16.jpg',
+    pictureUri: '/assets/sheep-16.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'wool'
   },
@@ -175,7 +175,7 @@ export const sheep = [
     eyeColor: 'blue',
     gender: 'female',
     name: 'Gamble',
-    pictureUri: 'http://localhost:3333/assets/sheep-17.jpg',
+    pictureUri: '/assets/sheep-17.jpg',
     farmId: 'ks6GN2am',
     destinations: 'wool'
   },
@@ -185,7 +185,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'male',
     name: 'Montoya',
-    pictureUri: 'http://localhost:3333/assets/sheep-18.jpg',
+    pictureUri: '/assets/sheep-18.jpg',
     farmId: 'P4VU2Xsw',
     destinations: 'kebab'
   },
@@ -195,7 +195,7 @@ export const sheep = [
     eyeColor: 'green',
     gender: 'male',
     name: 'Beach',
-    pictureUri: 'http://localhost:3333/assets/sheep-19.jpg',
+    pictureUri: '/assets/sheep-19.jpg',
     farmId: 'ks6GN2am',
     destinations: 'wool'
   }

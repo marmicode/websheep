@@ -15,14 +15,12 @@ sheepRouter.get('/farmers/:farmerId/sheep', (req, res) => {
     eyeColor: _sheep.eyeColor,
     gender: _sheep.gender,
     name: _sheep.name,
-    pictureUri: _sheep.pictureUri,
+    pictureUri: `//${req.headers.host}${_sheep.pictureUri}`,
     farm: {
       id: _sheep.farmId
     },
     destinations: _sheep.destinations
   }));
-
-  // console.log(JSON.stringify(req));
 
   res.json({
     next: null,
