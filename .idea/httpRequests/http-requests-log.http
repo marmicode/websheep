@@ -1,3 +1,188 @@
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022109.200.json
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022040.404.page
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/sheep
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022039.200.json
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022034.404.page
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022031-1.404.page
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022031.404.page
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022024.404.page
+
+###
+
+GET http://localhost:3333/v1/farmers/karinelemarchand/sheep
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022022.200.json
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer HEmu2fwOBBCT2fXHpmVCaCYCxPoEwKcNgcPNFEfdl3o=
+
+<> 2019-10-18T022010.404.page
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021952.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021908-1.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021908.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021907-4.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021907-3.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021907-2.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021907-1.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021907.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/farms
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021905.401.txt
+
+###
+
+GET http://localhost:3333/v1/farmers/foobar/sheep
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer s+XV5psYpXE6DrfdFsuafHl43ICo1VKhOITFgVpGtlM=
+
+<> 2019-10-18T021858.401.txt
+
+###
+
 GET http://localhost:3333/v1/farmers/foobar/sheep
 Accept: application/json
 Cache-Control: no-cache
@@ -233,128 +418,6 @@ Accept: application/json
 Cache-Control: no-cache
 
 <> 2019-10-18T100841.200.json
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100840.500.page
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100837.500.page
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100834.500.page
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100144.200.json
-
-###
-
-GET http://localhost:3333/v1/farmers/karinelemarchand/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100140.200.json
-
-###
-
-GET http://localhost:3333/v1/farmers/foobar/sheep
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100125.200.json
-
-###
-
-GET http://localhost:3333/v1
-Accept: application/json
-Cache-Control: no-cache
-
-<> 2019-10-18T100111.200.page
-
-###
-
-GET http://localhost:3333/v1
-Accept: */*
-Cache-Control: no-cache
-
-<> 2019-10-18T100058.200.page
-
-###
-
-GET http://localhost:3333/farmers/foobar/sheep
-Accept: */*
-Cache-Control: no-cache
-
-<> 2019-10-18T100015.404.page
-
-###
-
-GET http://localhost:3333/farmers/foobar/sheep
-Accept: */*
-Cache-Control: no-cache
-
-<> 2019-10-18T100014.404.page
-
-###
-
-GET http://localhost:3333/farmers/foobar/sheep
-Accept: */*
-Cache-Control: no-cache
-
-<> 2019-10-18T100002.404.page
-
-###
-
-GET http://localhost:3333/farmers/foobar/sheep
-Accept: */*
-Cache-Control: no-cache
-
-<> 2019-10-18T095955.404.page
-
-###
-
-GET http://localhost:3333/farmers/foobar/sheep
-Accept: */*
-Cache-Control: no-cache
-
-<> 2019-10-18T095927.404.page
-
-###
-
-GET http://localhost:333/farmers/foobar/sheep
-Accept: */*
-Cache-Control: no-cache
 
 ###
 
