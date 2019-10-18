@@ -13,6 +13,8 @@ paths:
   /tokens:
     post:
       summary: Create a token
+      tags:
+        - Authentication
       operationId: createToken
       requestBody:
         description: Farmer credentials
@@ -28,9 +30,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TokenResponse'
+
   /farmers/{farmerId}:
     get:
       summary: Get farmer
+      tags:
+        - Farmer
       operationId: getFarmer
       parameters:
         - in: path
@@ -49,6 +54,27 @@ paths:
       security:
         - BearerAuth: []
 
+  /farmers/{farmerId}/sheep:
+    get:
+      summary: Get farmer's sheep
+      tags:
+        - Sheep
+      operationId: getFarmerSheep
+      parameters:
+        - in: path
+          name: farmerId
+          required: true
+          schema:
+            type: string
+          description: The farmer's id
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SheepListResponse'
+
 components:
   schemas:
     Credentials:
@@ -63,16 +89,56 @@ components:
         password:
           type: string
           format: password
-          example: "123456"
+          example: '123456'
+
     Farmer:
       type: object
       properties:
         id:
           type: string
+        kind:
+          type: string
+          enum: ['farmer']
         firstName:
           type: string
         lastName:
           type: string
+
+    ListResponse:
+      type: object
+      properties:
+        next:
+          type: string
+        previous:
+          type: string
+        totalCount:
+          type: number
+        items:
+          type: array
+          # Any type
+          items: {}
+
+    Sheep:
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+          enum: ['sheep']
+        name:
+          type: string
+
+    SheepListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ListResponse'
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Sheep'
+
     TokenResponse:
       type: object
       required:
@@ -88,7 +154,7 @@ components:
           description: Token's value
         userId:
           type: string
-          description: User's id
+      description: User's id
   securitySchemes:
     BearerAuth:
       type: http
