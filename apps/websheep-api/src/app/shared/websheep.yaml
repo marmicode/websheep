@@ -48,6 +48,29 @@ paths:
         204:
           description: Token destroyed
 
+  /farmers/{farmerId}/farms:
+    get:
+      summary: Get farmer's farms
+      tags:
+        - Farm
+      operationId: getFarmerFarms
+      parameters:
+        - in: path
+          name: farmerId
+          required: true
+          schema:
+            type: string
+          description: The farmer's id
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FarmListResponse'
+      security:
+        - BearerAuth: []
+
   /farmers/{farmerId}:
     get:
       summary: Get farmer
@@ -109,6 +132,24 @@ components:
           type: string
           format: password
           example: '123456'
+
+    Farm:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    FarmListResponse:
+      allOf:
+        - $ref: '#/components/schemas/ListResponse'
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Farm'
 
     Farmer:
       type: object
@@ -174,6 +215,7 @@ components:
         userId:
           type: string
       description: User's id
+
   securitySchemes:
     BearerAuth:
       type: http
