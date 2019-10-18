@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { appRouteHelper } from './app-route-helper';
-import { LoginComponent, LoginModule } from './login/login.component';
+import {
+  SigninFormComponent,
+  LoginModule
+} from './signin/signin-form.component';
 
 export const appRoutes: Routes = [
   {
-    path: appRouteHelper.LOGIN_PATH,
-    component: LoginComponent
+    path: appRouteHelper.SIGNIN_PATH,
+    component: SigninFormComponent
   }
 ];
 

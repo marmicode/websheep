@@ -18,7 +18,7 @@ export interface TokenResponse {
   userId: string;
 }
 
-export enum LoginResult {
+export enum SigninResult {
   Pending = 'pending',
   Success = 'success',
   Error = 'error'
@@ -27,13 +27,13 @@ export enum LoginResult {
 @Injectable({
   providedIn: 'root'
 })
-export class Login {
+export class Signin {
   constructor(
     private _httpClient: HttpClient,
     private _store: Store<AppState>
   ) {}
 
-  logIn(credentials: Credentials): Observable<LoginResult> {
+  logIn(credentials: Credentials): Observable<SigninResult> {
     const loginRequest$ = this._httpClient
       .post<TokenResponse>('/tokens', credentials)
       .pipe(
@@ -48,13 +48,13 @@ export class Login {
         )
       );
     return concat(
-      of(LoginResult.Pending),
+      of(SigninResult.Pending),
       loginRequest$.pipe(
         materialize(),
         map(notification => {
           return notification.kind === 'E'
-            ? LoginResult.Error
-            : LoginResult.Success;
+            ? SigninResult.Error
+            : SigninResult.Success;
         })
       )
     );

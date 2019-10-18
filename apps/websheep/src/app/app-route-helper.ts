@@ -1,3 +1,6 @@
 export const appRouteHelper = {
-  LOGIN_PATH: 'login'
+  SIGNIN_PATH: 'signin',
+  signinRoute() {
+    return ['/', this.SIGNIN_PATH];
+  }
 };

@@ -12,27 +12,27 @@ import { MatButtonModule, MatInputModule } from '@angular/material';
 import { Scavenger } from '@wishtack/rx-scavenger';
 import { concat, Observable, Subject } from 'rxjs';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
-import { Credentials, Login, LoginResult } from './login.service';
+import { Credentials, Signin, SigninResult } from './signin.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'ws-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'ws-signin-form',
+  templateUrl: './signin-form.component.html',
+  styleUrls: ['./signin-form.component.scss']
 })
-export class LoginComponent implements OnDestroy, OnInit {
+export class SigninFormComponent implements OnDestroy, OnInit {
   loginForm = new FormGroup({
     userName: new FormControl('karinelemarchand'),
     password: new FormControl('123456')
   });
 
   errorMessage$: Observable<string>;
-  loginResult$: Observable<LoginResult>;
+  loginResult$: Observable<SigninResult>;
 
   private _credentialsSubmit$ = new Subject<Credentials>();
   private _scavenger = new Scavenger(this);
 
-  constructor(private _login: Login) {
+  constructor(private _login: Signin) {
     this.loginResult$ = this._credentialsSubmit$.pipe(
       /* Login and materialize response so the stream doesn't brake on error. */
       switchMap(credentials => concat(this._login.logIn(credentials))),
@@ -44,7 +44,7 @@ export class LoginComponent implements OnDestroy, OnInit {
 
     /* Map errors to error message. */
     this.errorMessage$ = this.loginResult$.pipe(
-      map(result => (result === LoginResult.Error ? 'Login error' : null))
+      map(result => (result === SigninResult.Error ? 'Login error' : null))
     );
   }
 
@@ -60,7 +60,7 @@ export class LoginComponent implements OnDestroy, OnInit {
 }
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [SigninFormComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -68,6 +68,6 @@ export class LoginComponent implements OnDestroy, OnInit {
     MatButtonModule,
     FlexModule
   ],
-  exports: [LoginComponent]
+  exports: [SigninFormComponent]
 })
 export class LoginModule {}
