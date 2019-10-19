@@ -3,7 +3,7 @@ import { layoutFeatureKey, LayoutState } from './layout.reducer';
 
 export const getLayout = createFeatureSelector<LayoutState>(layoutFeatureKey);
 
-export const getIsHackMenuOpen = createSelector(
+export const getIsHackAssistantOpen = createSelector(
   getLayout,
-  layout => layout.isHackMenuOpen
+  layout => layout.isHackAssistantOpen
 );

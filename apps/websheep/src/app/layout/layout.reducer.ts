@@ -1,20 +1,20 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { hdieHackMenu, showHackMenu } from './layout.actions';
+import { hideHackAssistant, showHackAssistant } from './layout.actions';
 
 export const layoutFeatureKey = 'layout';
 
 export interface LayoutState {
-  isHackMenuOpen: boolean;
+  isHackAssistantOpen: boolean;
 }
 
 export const initialState: LayoutState = {
-  isHackMenuOpen: false
+  isHackAssistantOpen: false
 };
 
 const _layoutReducer = createReducer(
   initialState,
-  on(showHackMenu, state => ({ ...state, isHackMenuOpen: true })),
-  on(hdieHackMenu, state => ({ ...state, isHackMenuOpen: false }))
+  on(showHackAssistant, state => ({ ...state, isHackAssistantOpen: true })),
+  on(hideHackAssistant, state => ({ ...state, isHackAssistantOpen: false }))
 );
 
 export function layoutReducer(state: LayoutState, action: Action): LayoutState {

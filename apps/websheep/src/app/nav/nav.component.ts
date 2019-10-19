@@ -4,7 +4,13 @@ import {
   LayoutModule
 } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, Input, NgModule } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  NgModule,
+  Output
+} from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
@@ -26,6 +32,7 @@ import * as fromUser from '../user/user.selectors';
 })
 export class NavComponent {
   @Input() isRightSidenavOpen = false;
+  @Output() rightSidenavOpenChange = new EventEmitter<boolean>();
 
   canToggleSidenav$: Observable<boolean>;
   isHandset$: Observable<boolean> = this._breakpointObserver

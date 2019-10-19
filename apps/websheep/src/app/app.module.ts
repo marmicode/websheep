@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AuthEffects } from './auth/auth.effects';
-import { HackMenuModule } from './hack-menu/hack-menu.component';
+import { HackAssistantModule } from './hack-menu/hack-assistant.component';
 import { AuthInterceptor } from './http/auth.interceptor';
 import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';
@@ -44,7 +44,7 @@ import { metaReducers, reducers } from './reducers';
     FlexModule,
     ApiSelectorModule,
     MatSidenavModule,
-    HackMenuModule
+    HackAssistantModule
   ],
   providers: [
     {

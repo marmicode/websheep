@@ -7,7 +7,11 @@
     <ng-content select="[slot=sidenav]"></ng-content>
   </mat-sidenav>
 
-  <mat-sidenav [opened]="isRightSidenavOpen" mode="over" position="end">
+  <mat-sidenav
+    mode="over"
+    position="end"
+    [opened]="isRightSidenavOpen"
+    (openedChange)="rightSidenavOpenChange.emit($event)">
     <ng-content select="[slot=right-sidenav]"></ng-content>
   </mat-sidenav>
 

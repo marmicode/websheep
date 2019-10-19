@@ -1,4 +1,6 @@
-<ws-nav [isRightSidenavOpen]="isHackMenuOpen$ | async">
+<ws-nav
+  [isRightSidenavOpen]="isHackAssistantOpen$ | async"
+  (rightSidenavOpenChange)="setIsHackAssistantOpen($event)">
 
   <!-- Toolbar -->
   <ng-container slot="toolbar">
@@ -33,7 +35,7 @@
 
   <!-- Right sidenav -->
   <div slot="right-sidenav">
-    <ws-hack-menu></ws-hack-menu>
+    <ws-hack-assistant></ws-hack-assistant>
   </div>
 
   <!-- Content -->

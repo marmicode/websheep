@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Signout } from './auth/signout';
 import { FarmerService } from './farmer/farmer.service';
-import { showHackMenu } from './layout/layout.actions';
-import { getIsHackMenuOpen } from './layout/layout.selectors';
+import { hideHackAssistant, showHackAssistant } from './layout/layout.actions';
+import { getIsHackAssistantOpen } from './layout/layout.selectors';
 import { AppState } from './reducers';
 import { sheepRouteHelper } from './views/sheep/sheep-route-helper';
 
@@ -16,7 +16,7 @@ import { sheepRouteHelper } from './views/sheep/sheep-route-helper';
 })
 export class AppComponent {
   currentFarmer$ = this._farmerService.currentFarmer$;
-  isHackMenuOpen$ = this._store.select(getIsHackMenuOpen);
+  isHackAssistantOpen$ = this._store.select(getIsHackAssistantOpen);
   sheepRouteHelper = sheepRouteHelper;
   greetings$: Observable<string>;
 
@@ -37,6 +37,12 @@ export class AppComponent {
   }
 
   hack() {
-    this._store.dispatch(showHackMenu());
+    this._store.dispatch(showHackAssistant());
+  }
+
+  setIsHackAssistantOpen(isHackAssistantOpen: boolean) {
+    this._store.dispatch(
+      isHackAssistantOpen ? showHackAssistant() : hideHackAssistant()
+    );
   }
 }
