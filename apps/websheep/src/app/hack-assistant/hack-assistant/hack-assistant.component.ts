@@ -15,13 +15,19 @@ export interface Mission {
   styleUrls: ['./hack-assistant.component.scss']
 })
 export class HackAssistantComponent {
-  topics = ['Authorization'];
+  topics = ['Authorization', 'CSRF'];
 
   missions: Mission[] = [
     {
       title: 'Catch a sheep herd',
       topic: 'Authorization',
       goals: [`Grab the names of Foo Bar's sheep`],
+      hints: [`Foo Bar's user id is "foobar"`]
+    },
+    {
+      title: 'Inject a wolf in the herd',
+      topic: 'CSRF',
+      goals: [`Inject a wolf in the hed`],
       hints: [`Foo Bar's user id is "foobar"`]
     }
   ];
