@@ -1,5 +1,10 @@
+import { applyChange } from '@angular/compiler-cli/ngcc/src/writing/package_json_updater';
 import { Action, createReducer, on } from '@ngrx/store';
-import { selectApiBasePath, selectApiServerUrl } from './config.actions';
+import {
+  applyConfig,
+  selectApiBasePath,
+  selectApiServerUrl
+} from './config.actions';
 
 export const configFeatureKey = 'config';
 
@@ -22,6 +27,10 @@ const _configReducer = createReducer(
   on(selectApiServerUrl, (state, { apiServerUrl }) => ({
     ...state,
     apiServerUrl
+  })),
+  on(applyConfig, (state, { config }) => ({
+    ...state,
+    ...config
   }))
 );
 
