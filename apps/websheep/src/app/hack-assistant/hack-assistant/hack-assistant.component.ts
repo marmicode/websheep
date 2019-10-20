@@ -1,23 +1,12 @@
-import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
 import { MatDividerModule } from '@angular/material';
 import {
   HackTopicSelectorModule,
   ItemAndLabel
 } from '../hack-topic-selector/hack-topic-selector.component';
-
-export enum Topic {
-  Authorization = 'authorization',
-  Csrf = 'csrf'
-}
-
-export interface Mission {
-  title: string;
-  topic: Topic;
-  goals?: string[];
-  hints?: string[];
-  // @todo config: Config
-}
+import { Mission } from '../mission';
+import { Topic } from '../topic';
 
 @Component({
   selector: 'ws-hack-assistant',

@@ -6,6 +6,11 @@ import {
   ConfigState
 } from '../config/config.reducer';
 import {
+  assistantFeatureKey,
+  assistantReducer,
+  AssistantState
+} from '../hack-assistant/hack-assistant.reducer';
+import {
   layoutFeatureKey,
   layoutReducer,
   LayoutState
@@ -13,12 +18,14 @@ import {
 import { userFeatureKey, userReducer, UserState } from '../user/user.reducer';
 
 export interface AppState {
+  [assistantFeatureKey]: AssistantState;
   [configFeatureKey]: ConfigState;
   [layoutFeatureKey]: LayoutState;
   [userFeatureKey]: UserState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
+  assistant: assistantReducer,
   config: configReducer,
   layout: layoutReducer,
   user: userReducer
