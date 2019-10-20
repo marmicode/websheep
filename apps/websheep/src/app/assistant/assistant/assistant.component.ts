@@ -10,6 +10,7 @@ import {
 } from '../../../lib/item-selector/item-selector.component';
 import { getApiBaseUrl } from '../../config/config.selectors';
 import { AppState } from '../../reducers';
+import { ApiSelectorModule } from '../api-selector/api-selector.component';
 import { selectMission, selectTopic } from '../assistant.actions';
 import { getMission, getTopic } from '../assistant.selectors';
 import { Mission } from '../mission';
@@ -74,7 +75,8 @@ export class AssistantComponent {
     CommonModule,
     HackTopicSelectorModule,
     MatDividerModule,
-    FlexModule
+    FlexModule,
+    ApiSelectorModule
   ],
   exports: [AssistantComponent]
 })

@@ -19,8 +19,13 @@
 
   <div class="ws-scrollable" fxFlex></div>
 
+  <ws-api-selector></ws-api-selector>
+
   <footer class="ws-assistant__footer">
-    <div>Base URL: {{ apiBaseUrl$ | async }}</div>
+    <div>
+      <span>Base URL:&nbsp;</span>
+      <a [href]="apiBaseUrl$ | async">{{ apiBaseUrl$ | async }}</a>
+    </div>
   </footer>
 
 </section>
