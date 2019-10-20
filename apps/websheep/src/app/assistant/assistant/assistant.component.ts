@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { MatDividerModule } from '@angular/material';
+import { Store } from '@ngrx/store';
 import {
   HackTopicSelectorModule,
   ItemAndLabel
 } from '../../../lib/item-selector/item-selector.component';
+import { AppState } from '../../reducers';
+import { selectMission, selectTopic } from '../assistant.actions';
+import { getMission, getTopic } from '../assistant.selectors';
 import { Mission } from '../mission';
 import { Topic } from '../topic';
 
@@ -41,10 +45,10 @@ export class AssistantComponent {
   ];
 
   missionAndLabelList: ItemAndLabel<Mission>[];
-  selectedTopic: string;
-  selectedMission: Mission;
+  topic$ = this._store.select(getTopic);
+  mission$ = this._store.select(getMission);
 
-  constructor() {
+  constructor(private _store: Store<AppState>) {
     this.missionAndLabelList = this.missionList.map(mission => ({
       label: mission.title,
       item: mission
@@ -52,11 +56,11 @@ export class AssistantComponent {
   }
 
   selectTopic(topic: Topic) {
-    this.selectedTopic = topic;
+    this._store.dispatch(selectTopic({ topic }));
   }
 
   selectMission(mission: Mission) {
-    this.selectedMission = mission;
+    this._store.dispatch(selectMission({ mission }));
   }
 }
 

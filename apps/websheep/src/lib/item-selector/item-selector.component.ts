@@ -34,11 +34,18 @@ export class ItemSelectorComponent<T> implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.selectedItem) {
       this.isExpanded = this.selectedItem == null;
-      this.selectedItemLabel = this.selectedItem
-        ? this.itemAndLabelList.find(({ item }) => item === this.selectedItem)
-            .label
-        : null;
+      this.selectedItemLabel = this._getItemLabel(this.selectedItem);
     }
+  }
+
+  private _getItemLabel(item: T) {
+    if (item == null || this.itemAndLabelList == null) {
+      return null;
+    }
+
+    const itemAndLabel = this.itemAndLabelList.find(args => args.item === item);
+
+    return itemAndLabel ? itemAndLabel.label : null;
   }
 }
 

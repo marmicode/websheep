@@ -2,15 +2,15 @@
 <ws-item-selector
   description="Choose a topic"
   titlePrefix="Topic"
-  [selectedItem]="selectedTopic"
+  [selectedItem]="topic$ | async"
   [itemAndLabelList]="topicAndLabelList"
   (selectedItemChange)="selectTopic($event)"></ws-item-selector>
 
 <!-- Mission selector. -->
 <ws-item-selector
-  *ngIf="selectedTopic"
+  *ngIf="topic$ | async"
   description="Choose a mission"
   titlePrefix="Mission"
-  [selectedItem]="selectedMission"
+  [selectedItem]="mission$ | async"
   [itemAndLabelList]="missionAndLabelList"
   (selectedItemChange)="selectMission($event)"></ws-item-selector>

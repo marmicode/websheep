@@ -1,4 +1,5 @@
-import { Action, createReducer } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
+import { selectMission, selectTopic } from './assistant.actions';
 import { Mission } from './mission';
 import { Topic } from './topic';
 
@@ -14,7 +15,11 @@ export const initialState: AssistantState = {
   topic: null
 };
 
-const _assistantReducer = createReducer(initialState);
+const _assistantReducer = createReducer(
+  initialState,
+  on(selectMission, (state, { mission }) => ({ ...state, mission })),
+  on(selectTopic, (state, { topic }) => ({ ...state, topic }))
+);
 
 export function assistantReducer(
   state: AssistantState,
