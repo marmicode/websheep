@@ -17,7 +17,11 @@ export const missionList: Mission[] = [
     title: 'Catch a sheep herd 2',
     topic: Topic.Authorization,
     goals: [`Grab the names of Foo Bar's sheep`],
-    hints: [`Admins can see all sheep`],
+    hints: [
+      `Admins can see all sheep`,
+      `Analyse API responses body`,
+      `Check this route /farmers/:farmerId`
+    ],
     config: {
       apiBasePath: 'authz2'
     }
