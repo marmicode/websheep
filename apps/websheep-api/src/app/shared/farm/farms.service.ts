@@ -1,4 +1,4 @@
-import { database } from '../database';
+import { database } from '../../database';
 
 export const farmsService = {
   getFarmsByFarmerId({ farmerId }: { farmerId: string }) {

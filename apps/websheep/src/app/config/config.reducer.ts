@@ -9,7 +9,7 @@ export interface ConfigState {
 }
 
 export const initialState: ConfigState = {
-  apiBasePath: 'v1',
+  apiBasePath: 'authz1',
   apiServerUrl: 'http://localhost:3333'
 };
 

@@ -42,7 +42,7 @@ export class ApiSelectorFormComponent implements OnDestroy, OnInit {
   });
 
   /* ['v1', 'v2', ...] */
-  apiBasePathList = Array.from(Array(2).keys()).map(i => `v${i + 1}`);
+  apiBasePathList = ['authz1', 'authz2'];
 
   private _scavenger = new Scavenger(this);
 

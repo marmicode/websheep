@@ -42,7 +42,6 @@ import { metaReducers, reducers } from './reducers';
     MatToolbarModule,
     MatIconModule,
     FlexModule,
-    ApiSelectorModule,
     MatSidenavModule,
     HackAssistantModule
   ],

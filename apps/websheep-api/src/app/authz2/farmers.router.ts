@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getFarmer } from '../farmer/get-farmer';
-import { patchFarmer } from '../farmer/patch-farmer';
+import { getFarmer } from '../shared/farmer/get-farmer';
+import { patchFarmer } from '../shared/farmer/patch-farmer';
 
 export const farmersRouter = Router();
 

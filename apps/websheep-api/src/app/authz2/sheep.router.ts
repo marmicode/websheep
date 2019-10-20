@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getFarmerSheepList } from '../sheep/get-farmer-sheep-list';
-import { getSheepList } from '../sheep/get-sheep-list';
+import { getFarmerSheepList } from '../shared/sheep/get-farmer-sheep-list';
+import { getSheepList } from '../shared/sheep/get-sheep-list';
 import { isSelfGuard } from './is-self.guard';
 
 export const sheepRouter = Router();
