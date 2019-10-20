@@ -1,4 +1,6 @@
-<ws-hack-topic-selector
-  [selectedTopic]="selectedTopic"
-  [topics]="topics"
-  (topicSelect)="selectTopic($event)"></ws-hack-topic-selector>
+<ws-item-selector
+  description="Choose a topic"
+  titlePrefix="Topic"
+  [selectedItem]="selectedTopic"
+  [itemAndLabelList]="topicAndLabelList"
+  (selectedItemChange)="selectTopic($event)"></ws-item-selector>

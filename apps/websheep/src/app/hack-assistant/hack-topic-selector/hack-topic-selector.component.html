@@ -2,17 +2,17 @@
 
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <span class="ws-hack-topic-selector__title-prefix">Topic:&nbsp;</span>
-      <span>{{ selectedTopic }}</span>
+      <span class="ws-hack-topic-selector__title-prefix">{{ titlePrefix }}:&nbsp;</span>
+      <span>{{ selectedItemLabel }}</span>
     </mat-panel-title>
-    <mat-panel-description>Choose a topic</mat-panel-description>
+    <mat-panel-description>{{ description }}</mat-panel-description>
   </mat-expansion-panel-header>
 
   <mat-list>
     <mat-list-item
-      *ngFor="let topic of topics"
+      *ngFor="let itemAndLabel of itemAndLabelList"
       class="ws-cursor-pointer"
-      (click)="topicSelect.next(topic)">{{ topic }}</mat-list-item>
+      (click)="selectedItemChange.next(itemAndLabel.item)">{{ itemAndLabel.label }}</mat-list-item>
   </mat-list>
 
 </mat-expansion-panel>
