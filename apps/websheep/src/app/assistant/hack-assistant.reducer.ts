@@ -1,7 +1,6 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { Action, createReducer } from '@ngrx/store';
 import { Mission } from './mission';
 import { Topic } from './topic';
-import { hideHackAssistant, showHackAssistant } from './layout.actions';
 
 export const assistantFeatureKey = 'assistant';
 
@@ -10,13 +9,16 @@ export interface AssistantState {
   topic: Topic;
 }
 
-export const initialState: AssistantState = {};
+export const initialState: AssistantState = {
+  mission: null,
+  topic: null
+};
 
 const _assistantReducer = createReducer(initialState);
 
 export function assistantReducer(
-  state: LayoutState,
+  state: AssistantState,
   action: Action
-): LayoutState {
+): AssistantState {
   return _assistantReducer(state, action);
 }

@@ -19,10 +19,10 @@ export interface ItemAndLabel<T> {
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ws-item-selector',
-  templateUrl: './hack-topic-selector.component.html',
-  styleUrls: ['./hack-topic-selector.component.scss']
+  templateUrl: './item-selector.component.html',
+  styleUrls: ['./item-selector.component.scss']
 })
-export class HackTopicSelectorComponent<T> implements OnChanges {
+export class ItemSelectorComponent<T> implements OnChanges {
   @Input() selectedItem: T;
   @Input() itemAndLabelList: ItemAndLabel<T>[];
   @Input() description: string;
@@ -43,8 +43,8 @@ export class HackTopicSelectorComponent<T> implements OnChanges {
 }
 
 @NgModule({
-  declarations: [HackTopicSelectorComponent],
+  declarations: [ItemSelectorComponent],
   imports: [CommonModule, MatListModule, MatExpansionModule],
-  exports: [HackTopicSelectorComponent]
+  exports: [ItemSelectorComponent]
 })
 export class HackTopicSelectorModule {}

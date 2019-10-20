@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AuthEffects } from './auth/auth.effects';
-import { HackAssistantModule } from './hack-assistant/hack-assistant/hack-assistant.component';
+import { HackAssistantModule } from './assistant/assistant/assistant.component';
 import { AuthInterceptor } from './http/auth.interceptor';
 import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';

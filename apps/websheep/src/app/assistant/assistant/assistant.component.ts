@@ -4,16 +4,16 @@ import { MatDividerModule } from '@angular/material';
 import {
   HackTopicSelectorModule,
   ItemAndLabel
-} from '../hack-topic-selector/hack-topic-selector.component';
+} from '../../../lib/item-selector/item-selector.component';
 import { Mission } from '../mission';
 import { Topic } from '../topic';
 
 @Component({
-  selector: 'ws-hack-assistant',
-  templateUrl: './hack-assistant.component.html',
-  styleUrls: ['./hack-assistant.component.scss']
+  selector: 'ws-assistant',
+  templateUrl: './assistant.component.html',
+  styleUrls: ['./assistant.component.scss']
 })
-export class HackAssistantComponent {
+export class AssistantComponent {
   topicAndLabelList: ItemAndLabel<Topic>[] = [
     {
       item: Topic.Authorization,
@@ -61,8 +61,8 @@ export class HackAssistantComponent {
 }
 
 @NgModule({
-  declarations: [HackAssistantComponent],
+  declarations: [AssistantComponent],
   imports: [CommonModule, HackTopicSelectorModule, MatDividerModule],
-  exports: [HackAssistantComponent]
+  exports: [AssistantComponent]
 })
 export class HackAssistantModule {}

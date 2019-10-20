@@ -9,7 +9,7 @@ import {
   assistantFeatureKey,
   assistantReducer,
   AssistantState
-} from '../hack-assistant/hack-assistant.reducer';
+} from '../assistant/hack-assistant.reducer';
 import {
   layoutFeatureKey,
   layoutReducer,
