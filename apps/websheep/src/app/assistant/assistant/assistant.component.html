@@ -4,18 +4,18 @@
   <ws-item-selector
     description="Choose a topic"
     titlePrefix="Topic"
-    [selectedItem]="topic$ | async"
-    [itemAndLabelList]="topicAndLabelList"
-    (selectedItemChange)="selectTopic($event)"></ws-item-selector>
+    [selectedId]="topic$ | async"
+    [idAndLabelList]="topicAndLabelList"
+    (selectedIdChange)="selectTopic($event)"></ws-item-selector>
 
   <!-- Mission selector. -->
   <ws-item-selector
     *ngIf="topic$ | async"
     description="Choose a mission"
     titlePrefix="Mission"
-    [selectedItem]="mission$ | async"
-    [itemAndLabelList]="missionAndLabelList"
-    (selectedItemChange)="selectMission($event)"></ws-item-selector>
+    [selectedId]="missionId$ | async"
+    [idAndLabelList]="missionIdAndLabelList"
+    (selectedIdChange)="selectMissionById($event)"></ws-item-selector>
 
   <div class="ws-scrollable" fxFlex></div>
 

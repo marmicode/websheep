@@ -5,6 +5,7 @@ export interface MissionConfig {
 }
 
 export interface Mission {
+  id: string;
   title: string;
   topic: Topic;
   goals?: string[];

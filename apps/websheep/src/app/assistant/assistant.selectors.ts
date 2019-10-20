@@ -10,6 +10,11 @@ export const getMission = createSelector(
   assistant => assistant.mission
 );
 
+export const getMissionId = createSelector(
+  getMission,
+  mission => mission.id
+);
+
 export const getTopic = createSelector(
   getAssistant,
   assistant => assistant.topic

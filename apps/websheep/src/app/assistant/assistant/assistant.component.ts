@@ -3,18 +3,18 @@ import { Component, NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import {
   HackTopicSelectorModule,
-  ItemAndLabel
+  IdAndLabel
 } from '../../../lib/item-selector/item-selector.component';
 import { getApiBasePath, getApiBaseUrl } from '../../config/config.selectors';
 import { AppState } from '../../reducers';
 import { ApiSelectorModule } from '../api-selector/api-selector.component';
 import { selectMission, selectTopic } from '../assistant.actions';
-import { getMission, getTopic } from '../assistant.selectors';
+import { getMission, getMissionId, getTopic } from '../assistant.selectors';
 import { Mission } from '../mission';
 import { Topic } from '../topic';
+import { missionList } from '../mission-list';
 
 @Component({
   selector: 'ws-assistant',
@@ -22,62 +22,39 @@ import { Topic } from '../topic';
   styleUrls: ['./assistant.component.scss']
 })
 export class AssistantComponent {
-  topicAndLabelList: ItemAndLabel<Topic>[] = [
+  topicAndLabelList: IdAndLabel[] = [
     {
-      item: Topic.Authorization,
+      id: Topic.Authorization,
       label: 'Authorization'
     },
     {
-      item: Topic.Csrf,
+      id: Topic.Csrf,
       label: 'C.S.R.F.'
     }
   ];
 
-  missionList: Mission[] = [
-    {
-      title: 'Catch a sheep herd',
-      topic: Topic.Authorization,
-      goals: [`Grab the names of Foo Bar's sheep`],
-      hints: [`Foo Bar's user id is "foobar"`],
-      config: {
-        apiBasePath: 'authz1'
-      }
-    },
-    {
-      title: 'Catch a sheep herd',
-      topic: Topic.Authorization,
-      goals: [`Grab the names of Foo Bar's sheep`],
-      hints: [`Admins can see all sheep`],
-      config: {
-        apiBasePath: 'authz2'
-      }
-    }
-    // {
-    //   title: 'Inject a wolf in the herd',
-    //   topic: Topic.Csrf,
-    //   goals: [`Inject a wolf in the hed`],
-    //   hints: [`Foo Bar's user id is "foobar"`]
-    // }
-  ];
+  missionList: Mission[] = missionList;
 
-  missionAndLabelList: ItemAndLabel<Mission>[];
+  missionIdAndLabelList: IdAndLabel[];
   topic$ = this._store.select(getTopic);
   mission$ = this._store.select(getMission);
   apiBasePath$ = this._store.select(getApiBasePath);
   apiBaseUrl$ = this._store.select(getApiBaseUrl);
+  missionId$ = this._store.select(getMissionId);
 
   constructor(private _store: Store<AppState>) {
-    this.missionAndLabelList = this.missionList.map(mission => ({
+    this.missionIdAndLabelList = this.missionList.map(mission => ({
       label: mission.title,
-      item: mission
+      id: mission.id
     }));
   }
 
-  selectTopic(topic: Topic) {
-    this._store.dispatch(selectTopic({ topic }));
+  selectTopic(topicId: string) {
+    this._store.dispatch(selectTopic({ topic: topicId as Topic }));
   }
 
-  selectMission(mission: Mission) {
+  selectMissionById(missionId: string) {
+    const mission = this.missionList.find(({ id }) => id === missionId);
     this._store.dispatch(selectMission({ mission }));
   }
 }

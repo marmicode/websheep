@@ -11,9 +11,9 @@ import {
 } from '@angular/core';
 import { MatExpansionModule, MatListModule } from '@angular/material';
 
-export interface ItemAndLabel<T> {
+export interface IdAndLabel {
   label: string;
-  item: T;
+  id: string;
 }
 
 @Component({
@@ -22,30 +22,30 @@ export interface ItemAndLabel<T> {
   templateUrl: './item-selector.component.html',
   styleUrls: ['./item-selector.component.scss']
 })
-export class ItemSelectorComponent<T> implements OnChanges {
-  @Input() selectedItem: T;
-  @Input() itemAndLabelList: ItemAndLabel<T>[];
+export class ItemSelectorComponent implements OnChanges {
+  @Input() selectedId: string;
+  @Input() idAndLabelList: IdAndLabel[];
   @Input() description: string;
   @Input() titlePrefix: string;
-  @Output() selectedItemChange = new EventEmitter<T>();
+  @Output() selectedIdChange = new EventEmitter<string>();
   isExpanded: boolean;
-  selectedItemLabel: string;
+  selectedLabel: string;
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.selectedItem) {
-      this.isExpanded = this.selectedItem == null;
-      this.selectedItemLabel = this._getItemLabel(this.selectedItem);
+    if (changes.selectedId) {
+      this.isExpanded = this.selectedId == null;
+      this.selectedLabel = this._getItemLabel(this.selectedId);
     }
   }
 
-  private _getItemLabel(item: T) {
-    if (item == null || this.itemAndLabelList == null) {
+  private _getItemLabel(id: string) {
+    if (id == null || this.idAndLabelList == null) {
       return null;
     }
 
-    const itemAndLabel = this.itemAndLabelList.find(args => args.item === item);
+    const idAndLabel = this.idAndLabelList.find(args => args.id === id);
 
-    return itemAndLabel ? itemAndLabel.label : null;
+    return idAndLabel ? idAndLabel.label : null;
   }
 }
 

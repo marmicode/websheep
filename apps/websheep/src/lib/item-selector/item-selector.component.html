@@ -3,16 +3,16 @@
   <mat-expansion-panel-header>
     <mat-panel-title>
       <span class="ws-hack-topic-selector__title-prefix">{{ titlePrefix }}:&nbsp;</span>
-      <span>{{ selectedItemLabel }}</span>
+      <span>{{ selectedLabel }}</span>
     </mat-panel-title>
-    <mat-panel-description *ngIf="!selectedItem">{{ description }}</mat-panel-description>
+    <mat-panel-description *ngIf="!selectedId">{{ description }}</mat-panel-description>
   </mat-expansion-panel-header>
 
   <mat-list>
     <mat-list-item
-      *ngFor="let itemAndLabel of itemAndLabelList"
+      *ngFor="let itemAndLabel of idAndLabelList"
       class="ws-cursor-pointer"
-      (click)="selectedItemChange.next(itemAndLabel.item)">{{ itemAndLabel.label }}</mat-list-item>
+      (click)="selectedIdChange.next(itemAndLabel.id)">{{ itemAndLabel.label }}</mat-list-item>
   </mat-list>
 
 </mat-expansion-panel>
