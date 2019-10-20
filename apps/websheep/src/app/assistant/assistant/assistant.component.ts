@@ -38,14 +38,26 @@ export class AssistantComponent {
       title: 'Catch a sheep herd',
       topic: Topic.Authorization,
       goals: [`Grab the names of Foo Bar's sheep`],
-      hints: [`Foo Bar's user id is "foobar"`]
+      hints: [`Foo Bar's user id is "foobar"`],
+      config: {
+        apiBasePath: 'authz1'
+      }
     },
     {
-      title: 'Inject a wolf in the herd',
-      topic: Topic.Csrf,
-      goals: [`Inject a wolf in the hed`],
-      hints: [`Foo Bar's user id is "foobar"`]
+      title: 'Catch a sheep herd',
+      topic: Topic.Authorization,
+      goals: [`Grab the names of Foo Bar's sheep`],
+      hints: [`Admins can see all sheep`],
+      config: {
+        apiBasePath: 'authz2'
+      }
     }
+    // {
+    //   title: 'Inject a wolf in the herd',
+    //   topic: Topic.Csrf,
+    //   goals: [`Inject a wolf in the hed`],
+    //   hints: [`Foo Bar's user id is "foobar"`]
+    // }
   ];
 
   missionAndLabelList: ItemAndLabel<Mission>[];
