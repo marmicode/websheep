@@ -35,7 +35,7 @@ export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: [configFeatureKey, userFeatureKey],
+    keys: [assistantFeatureKey, configFeatureKey, userFeatureKey],
     rehydrate: true
   })(reducer);
 }
