@@ -36,7 +36,7 @@ export class HackAssistantComponent {
     }
   ];
 
-  missions: Mission[] = [
+  missionList: Mission[] = [
     {
       title: 'Catch a sheep herd',
       topic: Topic.Authorization,
@@ -51,10 +51,23 @@ export class HackAssistantComponent {
     }
   ];
 
+  missionAndLabelList: ItemAndLabel<Mission>[];
   selectedTopic: string;
+  selectedMission: Mission;
+
+  constructor() {
+    this.missionAndLabelList = this.missionList.map(mission => ({
+      label: mission.title,
+      item: mission
+    }));
+  }
 
   selectTopic(topic: Topic) {
     this.selectedTopic = topic;
+  }
+
+  selectMission(mission: Mission) {
+    this.selectedMission = mission;
   }
 }
 

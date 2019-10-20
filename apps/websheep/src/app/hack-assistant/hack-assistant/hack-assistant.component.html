@@ -1,6 +1,16 @@
+<!-- Topic selector. -->
 <ws-item-selector
   description="Choose a topic"
   titlePrefix="Topic"
   [selectedItem]="selectedTopic"
   [itemAndLabelList]="topicAndLabelList"
   (selectedItemChange)="selectTopic($event)"></ws-item-selector>
+
+<!-- Mission selector. -->
+<ws-item-selector
+  *ngIf="selectedTopic"
+  description="Choose a mission"
+  titlePrefix="Mission"
+  [selectedItem]="selectedMission"
+  [itemAndLabelList]="missionAndLabelList"
+  (selectedItemChange)="selectMission($event)"></ws-item-selector>
