@@ -17,6 +17,10 @@
     [idAndLabelList]="missionIdAndLabelList"
     (selectedIdChange)="selectMissionById($event)"></ws-item-selector>
 
+  <ws-mission-info
+    *ngIf="mission$ | async"
+    [mission]="mission$ | async"></ws-mission-info>
+
   <div class="ws-scrollable" fxFlex></div>
 
   <mat-divider></mat-divider>

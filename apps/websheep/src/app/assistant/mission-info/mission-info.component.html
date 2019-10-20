@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span>Goals</span>
+</mat-toolbar>
+
+<ul>
+  <li
+    *ngFor="let goal of mission.goals"
+    class="ws-mission-info__goal">🎯 {{ goal }}</li>
+</ul>
+
+<mat-toolbar>
+  <span>Hints</span>
+</mat-toolbar>
+
+<ul>
+  <li
+    *ngFor="let hint of mission.hints"
+    class="ws-mission-info__hint">💡 {{ hint }}</li>
+</ul>

@@ -1,0 +1,12 @@
+.ws-mission-info__goal {
+  list-style: none;
+}
+
+.ws-mission-info__hint {
+  list-style: none;
+
+  &:not(:hover) {
+    background-color: black;
+  }
+
+}

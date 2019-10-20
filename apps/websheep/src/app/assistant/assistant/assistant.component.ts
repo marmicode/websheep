@@ -13,6 +13,7 @@ import { ApiSelectorModule } from '../api-selector/api-selector.component';
 import { selectMission, selectTopic } from '../assistant.actions';
 import { getMission, getMissionId, getTopic } from '../assistant.selectors';
 import { Mission } from '../mission';
+import { MissionInfoModule } from '../mission-info/mission-info.component';
 import { Topic } from '../topic';
 import { missionList } from '../mission-list';
 
@@ -66,7 +67,8 @@ export class AssistantComponent {
     HackTopicSelectorModule,
     MatDividerModule,
     FlexModule,
-    ApiSelectorModule
+    ApiSelectorModule,
+    MissionInfoModule
   ],
   exports: [AssistantComponent]
 })
