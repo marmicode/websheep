@@ -47,7 +47,7 @@ export class SheepFormComponent implements OnInit {
     shareReplay({ refCount: true, bufferSize: 1 })
   );
 
-  pictureUriList$ = this._store.select(fromConfig.apiServerUrl).pipe(
+  pictureUriList$ = this._store.select(fromConfig.getApiServerUrl).pipe(
     map(apiServerUrl => {
       return Array.from(Array(20).keys()).map(
         i => `${apiServerUrl}/assets/sheep-${i}.jpg`

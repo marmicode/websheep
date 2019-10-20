@@ -3,7 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material';
 import { Store } from '@ngrx/store';
-import * as fromConfig from '../../config/config.selectors';
+import { getApiServerUrl } from '../../config/config.selectors';
 import { AppState } from '../../reducers';
 import { ApiSelectorFormModule } from '../api-selector-form/api-selector-form.component';
 
@@ -13,7 +13,7 @@ import { ApiSelectorFormModule } from '../api-selector-form/api-selector-form.co
   styleUrls: ['./api-selector.component.scss']
 })
 export class ApiSelectorComponent {
-  apiBaseUrl$ = this._store.select(fromConfig.getApiBaseUrl);
+  apiServerUrl$ = this._store.select(getApiServerUrl);
   isEditing = false;
 
   constructor(private _store: Store<AppState>) {}

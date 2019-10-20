@@ -4,18 +4,18 @@ import { configFeatureKey, ConfigState } from './config.reducer';
 
 export const config = createFeatureSelector<ConfigState>(configFeatureKey);
 
-export const apiBasePath = createSelector(
+export const getApiBasePath = createSelector(
   config,
   _config => _config.apiBasePath
 );
 
-export const apiServerUrl = createSelector(
+export const getApiServerUrl = createSelector(
   config,
   _config => _config.apiServerUrl
 );
 
 export const getApiBaseUrl = createSelector(
-  apiServerUrl,
-  apiBasePath,
+  getApiServerUrl,
+  getApiBasePath,
   (serverUrl, basePath) => urlJoin([serverUrl, basePath])
 );

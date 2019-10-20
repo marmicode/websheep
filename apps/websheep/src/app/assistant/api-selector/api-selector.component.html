@@ -1,23 +1,17 @@
 <div
   *ngIf="!isEditing"
-  fxLayout="row"
-  fxLayoutAlign="center center">
+  class="ws-api-selector__edit"
+  (click)="edit()">
   <span>API:&nbsp;</span>
-  <a
-    class="ws-api-selector__api-base-url"
-    target="_blank"
-    [href]="apiBaseUrl$ | async">{{ apiBaseUrl$ | async }}</a>
+  <span>{{ apiServerUrl$ | async }}</span>
   <mat-icon
-    class="ws-api-selector__edit"
+    class="ws-api-selector__edit-button"
     aria-hidden="false"
-    aria-label="Edit API URL"
-    (click)="edit()">edit
+    aria-label="Edit API URL">edit
   </mat-icon>
 </div>
 
 <div
-  *ngIf="isEditing"
-  fxLayout="row"
-  fxLayoutAlign="center center">
+  *ngIf="isEditing">
   <ws-api-selector-form (done)="stopEditing()"></ws-api-selector-form>
 </div>

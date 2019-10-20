@@ -8,7 +8,7 @@ import {
   HackTopicSelectorModule,
   ItemAndLabel
 } from '../../../lib/item-selector/item-selector.component';
-import { getApiBaseUrl } from '../../config/config.selectors';
+import { getApiBasePath, getApiBaseUrl } from '../../config/config.selectors';
 import { AppState } from '../../reducers';
 import { ApiSelectorModule } from '../api-selector/api-selector.component';
 import { selectMission, selectTopic } from '../assistant.actions';
@@ -63,6 +63,7 @@ export class AssistantComponent {
   missionAndLabelList: ItemAndLabel<Mission>[];
   topic$ = this._store.select(getTopic);
   mission$ = this._store.select(getMission);
+  apiBasePath$ = this._store.select(getApiBasePath);
   apiBaseUrl$ = this._store.select(getApiBaseUrl);
 
   constructor(private _store: Store<AppState>) {

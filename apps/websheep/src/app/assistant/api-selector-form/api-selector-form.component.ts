@@ -33,28 +33,22 @@ import { AppState } from '../../reducers';
 export class ApiSelectorFormComponent implements OnDestroy, OnInit {
   @Output() done = new EventEmitter();
 
-  apiServerUrl$ = this._store.select(fromConfig.apiServerUrl);
-  apiBasePath$ = this._store.select(fromConfig.apiBasePath);
+  apiServerUrl$ = this._store.select(fromConfig.getApiServerUrl);
 
   apiBaseUrlForm = new FormGroup({
-    apiServerUrl: new FormControl(),
-    apiBasePath: new FormControl()
+    apiServerUrl: new FormControl()
   });
-
-  /* ['v1', 'v2', ...] */
-  apiBasePathList = ['authz1', 'authz2'];
 
   private _scavenger = new Scavenger(this);
 
   constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {
-    combineLatest([this.apiServerUrl$, this.apiBasePath$])
+    this.apiServerUrl$
       .pipe(this._scavenger.collect())
-      .subscribe(([apiServerUrl, apiBasePath]) => {
+      .subscribe(apiServerUrl => {
         this.apiBaseUrlForm.patchValue({
-          apiServerUrl,
-          apiBasePath
+          apiServerUrl
         });
       });
 
@@ -63,14 +57,6 @@ export class ApiSelectorFormComponent implements OnDestroy, OnInit {
       .valueChanges.pipe(this._scavenger.collect())
       .subscribe(apiServerUrl => {
         this._store.dispatch(selectApiServerUrl({ apiServerUrl }));
-      });
-
-    this.apiBaseUrlForm
-      .get('apiBasePath')
-      .valueChanges.pipe(this._scavenger.collect())
-      .subscribe(apiBasePath => {
-        this._store.dispatch(selectApiBasePath({ apiBasePath }));
-        this.close();
       });
   }
 
