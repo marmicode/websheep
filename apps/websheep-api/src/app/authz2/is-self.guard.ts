@@ -1,8 +1,5 @@
-export function isSelfGuard(req, res, next) {
-  if (req.user.id !== req.params.farmerId) {
-    res.sendStatus(403);
-    return;
-  }
+import { Guard } from '../shared/with-guard';
 
-  return next();
-}
+export const isSelf: Guard = req => {
+  return req['user'].id === req.params.farmerId;
+};

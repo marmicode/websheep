@@ -1,7 +1,7 @@
 import { serializeSheep } from './serialize-sheep';
 import { sheepService } from './sheep.service';
 
-export function getSheepList(req, res) {
+export function addSheep(req, res) {
   const pictureUri =
     req.body.pictureUri &&
     req.body.pictureUri.replace(/^.*:\/\//, '').replace(req.headers.host, '');

@@ -1,10 +1,15 @@
 import { Router } from 'express';
 import { getFarmerSheepList } from '../shared/sheep/get-farmer-sheep-list';
-import { getSheepList } from '../shared/sheep/get-sheep-list';
-import { isSelfGuard } from './is-self.guard';
+import { addSheep } from '../shared/sheep/add-sheep';
+import { withGuard } from '../shared/with-guard';
+import { isSelf } from './is-self.guard';
 
 export const sheepRouter = Router();
 
-sheepRouter.get('/farmers/:farmerId/sheep', isSelfGuard, getFarmerSheepList);
+sheepRouter.get(
+  '/farmers/:farmerId/sheep',
+  withGuard(isSelf),
+  getFarmerSheepList
+);
 
-sheepRouter.post('/sheep', getSheepList);
+sheepRouter.post('/sheep', addSheep);
