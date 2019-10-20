@@ -1,5 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDividerModule } from '@angular/material';
+import { HackTopicSelectorModule } from '../hack-topic-selector/hack-topic-selector.component';
 
 export interface Mission {
   title: string;
@@ -31,11 +33,17 @@ export class HackAssistantComponent {
       hints: [`Foo Bar's user id is "foobar"`]
     }
   ];
+
+  selectedTopic: string;
+
+  selectTopic(topic: string) {
+    this.selectedTopic = topic;
+  }
 }
 
 @NgModule({
   declarations: [HackAssistantComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, HackTopicSelectorModule, MatDividerModule],
   exports: [HackAssistantComponent]
 })
 export class HackAssistantModule {}

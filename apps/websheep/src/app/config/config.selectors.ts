@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { urlJoin } from '../helpers/url-join';
+import { urlJoin } from '../../lib/url-join';
 import { configFeatureKey, ConfigState } from './config.reducer';
 
 export const config = createFeatureSelector<ConfigState>(configFeatureKey);

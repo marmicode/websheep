@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { first, map, switchMap } from 'rxjs/operators';
 import * as fromConfig from '../config/config.selectors';
-import { urlJoin } from '../helpers/url-join';
+import { urlJoin } from '../../lib/url-join';
 import { AppState } from '../reducers';
 
 @Injectable({

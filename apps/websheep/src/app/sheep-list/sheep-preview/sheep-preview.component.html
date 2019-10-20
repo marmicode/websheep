@@ -3,18 +3,18 @@
   <mat-card-header>
     <mat-card-title>{{ sheep.name }}</mat-card-title>
     <mat-card-subtitle>{{ sheep.age }} years old</mat-card-subtitle>
-    <mat-card-subtitle class="wt-sheep-preview__created-at">Created on {{ sheep.createdAt | date:'medium' }}</mat-card-subtitle>
+    <mat-card-subtitle class="ws-sheep-preview__created-at">Created on {{ sheep.createdAt | date:'medium' }}</mat-card-subtitle>
   </mat-card-header>
 
   <img
     *ngIf="sheep.pictureUri"
-    class="wt-sheep-preview__picture"
+    class="ws-sheep-preview__picture"
     mat-card-image
     [alt]="'Picture of ' + sheep.name"
     [src]="sheep.pictureUri">
 
   <mat-card-content>
-    <div class="wt-sheep-preview__eye-color" [style.color]="sheep.eyeColor">👀 {{ sheep.eyeColor }} eyes</div>
+    <div class="ws-sheep-preview__eye-color" [style.color]="sheep.eyeColor">👀 {{ sheep.eyeColor }} eyes</div>
     <div>Goals:</div>
     <ul>
       <li

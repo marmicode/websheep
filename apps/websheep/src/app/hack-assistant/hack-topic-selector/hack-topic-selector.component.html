@@ -1,1 +1,18 @@
-<p>hack-topic-selector works!</p>
+<mat-expansion-panel [(expanded)]="isExpanded">
+
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="ws-hack-topic-selector__title-prefix">Topic:&nbsp;</span>
+      <span>{{ selectedTopic }}</span>
+    </mat-panel-title>
+    <mat-panel-description>Choose a topic</mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-list>
+    <mat-list-item
+      *ngFor="let topic of topics"
+      class="ws-cursor-pointer"
+      (click)="topicSelect.next(topic)">{{ topic }}</mat-list-item>
+  </mat-list>
+
+</mat-expansion-panel>
