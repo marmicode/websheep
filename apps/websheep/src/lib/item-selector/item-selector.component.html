@@ -5,7 +5,7 @@
       <span class="ws-hack-topic-selector__title-prefix">{{ titlePrefix }}:&nbsp;</span>
       <span>{{ selectedItemLabel }}</span>
     </mat-panel-title>
-    <mat-panel-description>{{ description }}</mat-panel-description>
+    <mat-panel-description *ngIf="!selectedItem">{{ description }}</mat-panel-description>
   </mat-expansion-panel-header>
 
   <mat-list>
