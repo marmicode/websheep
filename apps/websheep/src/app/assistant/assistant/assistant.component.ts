@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
+import { FlexModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import {
   HackTopicSelectorModule,
   ItemAndLabel
 } from '../../../lib/item-selector/item-selector.component';
+import { getApiBaseUrl } from '../../config/config.selectors';
 import { AppState } from '../../reducers';
 import { selectMission, selectTopic } from '../assistant.actions';
 import { getMission, getTopic } from '../assistant.selectors';
@@ -47,6 +50,7 @@ export class AssistantComponent {
   missionAndLabelList: ItemAndLabel<Mission>[];
   topic$ = this._store.select(getTopic);
   mission$ = this._store.select(getMission);
+  apiBaseUrl$ = this._store.select(getApiBaseUrl);
 
   constructor(private _store: Store<AppState>) {
     this.missionAndLabelList = this.missionList.map(mission => ({
@@ -66,7 +70,12 @@ export class AssistantComponent {
 
 @NgModule({
   declarations: [AssistantComponent],
-  imports: [CommonModule, HackTopicSelectorModule, MatDividerModule],
+  imports: [
+    CommonModule,
+    HackTopicSelectorModule,
+    MatDividerModule,
+    FlexModule
+  ],
   exports: [AssistantComponent]
 })
 export class HackAssistantModule {}

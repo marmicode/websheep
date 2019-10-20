@@ -24,7 +24,7 @@ export class PrependBaseUrlInterceptor implements HttpInterceptor {
           return of(url);
         }
 
-        const apiBaseUrl$ = this._store.select(fromConfig.apiBaseUrl);
+        const apiBaseUrl$ = this._store.select(fromConfig.getApiBaseUrl);
 
         return apiBaseUrl$.pipe(
           first(),

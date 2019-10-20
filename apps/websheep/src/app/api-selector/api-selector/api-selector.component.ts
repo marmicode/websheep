@@ -13,7 +13,7 @@ import { ApiSelectorFormModule } from '../api-selector-form/api-selector-form.co
   styleUrls: ['./api-selector.component.scss']
 })
 export class ApiSelectorComponent {
-  apiBaseUrl$ = this._store.select(fromConfig.apiBaseUrl);
+  apiBaseUrl$ = this._store.select(fromConfig.getApiBaseUrl);
   isEditing = false;
 
   constructor(private _store: Store<AppState>) {}

@@ -1,16 +1,26 @@
-<!-- Topic selector. -->
-<ws-item-selector
-  description="Choose a topic"
-  titlePrefix="Topic"
-  [selectedItem]="topic$ | async"
-  [itemAndLabelList]="topicAndLabelList"
-  (selectedItemChange)="selectTopic($event)"></ws-item-selector>
+<section fxFill fxLayout="column">
 
-<!-- Mission selector. -->
-<ws-item-selector
-  *ngIf="topic$ | async"
-  description="Choose a mission"
-  titlePrefix="Mission"
-  [selectedItem]="mission$ | async"
-  [itemAndLabelList]="missionAndLabelList"
-  (selectedItemChange)="selectMission($event)"></ws-item-selector>
+  <!-- Topic selector. -->
+  <ws-item-selector
+    description="Choose a topic"
+    titlePrefix="Topic"
+    [selectedItem]="topic$ | async"
+    [itemAndLabelList]="topicAndLabelList"
+    (selectedItemChange)="selectTopic($event)"></ws-item-selector>
+
+  <!-- Mission selector. -->
+  <ws-item-selector
+    *ngIf="topic$ | async"
+    description="Choose a mission"
+    titlePrefix="Mission"
+    [selectedItem]="mission$ | async"
+    [itemAndLabelList]="missionAndLabelList"
+    (selectedItemChange)="selectMission($event)"></ws-item-selector>
+
+  <div class="ws-scrollable" fxFlex></div>
+
+  <footer class="ws-assistant__footer">
+    <div>Base URL: {{ apiBaseUrl$ | async }}</div>
+  </footer>
+
+</section>

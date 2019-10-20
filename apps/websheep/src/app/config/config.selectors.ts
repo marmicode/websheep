@@ -14,7 +14,7 @@ export const apiServerUrl = createSelector(
   _config => _config.apiServerUrl
 );
 
-export const apiBaseUrl = createSelector(
+export const getApiBaseUrl = createSelector(
   apiServerUrl,
   apiBasePath,
   (serverUrl, basePath) => urlJoin([serverUrl, basePath])
