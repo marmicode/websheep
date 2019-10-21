@@ -5,7 +5,7 @@ export const missionList: Mission[] = [
   {
     id: 'authz1',
     title: 'Catch a sheep herd 1',
-    topic: Topic.Authorization,
+    topic: Topic.BrokenAccessControl,
     goals: [`Grab the names of Foo Bar's sheep`],
     hints: [`Foo Bar's user id is "foobar"`],
     config: {
@@ -15,7 +15,7 @@ export const missionList: Mission[] = [
   {
     id: 'authz2',
     title: 'Catch a sheep herd 2',
-    topic: Topic.Authorization,
+    topic: Topic.BrokenAccessControl,
     goals: [`Grab the names of Foo Bar's sheep`],
     hints: [
       `Admins can see all sheep`,

@@ -25,8 +25,8 @@ import { missionList } from '../mission-list';
 export class AssistantComponent {
   topicAndLabelList: IdAndLabel[] = [
     {
-      id: Topic.Authorization,
-      label: 'Authorization'
+      id: Topic.BrokenAccessControl,
+      label: 'Broken Access Control'
     },
     {
       id: Topic.Csrf,

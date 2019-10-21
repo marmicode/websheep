@@ -1,4 +1,4 @@
 export enum Topic {
-  Authorization = 'authorization',
+  BrokenAccessControl = 'broken-access-control',
   Csrf = 'csrf'
 }
