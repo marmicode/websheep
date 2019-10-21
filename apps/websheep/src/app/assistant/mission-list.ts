@@ -20,16 +20,23 @@ export const missionList: Mission[] = [
     hints: [
       `Admins can see all sheep`,
       `Analyse API responses body`,
-      `Check this route /farmers/:farmerId`
+      `Check this route: /farmers/:farmerId`
     ],
     config: {
       apiBasePath: 'authz2'
     }
+  },
+  {
+    id: 'csrf1',
+    title: 'Bad C.O.R.S. rules',
+    topic: Topic.Csrf,
+    goals: [`Steal foobar's sheep from another origin`],
+    hints: [
+      `Analyse API responses headers`,
+      `Check this route: /farmers/:farmerId/sheep`
+    ],
+    config: {
+      apiBasePath: 'csrf1'
+    }
   }
-  // {
-  //   title: 'Inject a wolf in the herd',
-  //   topic: Topic.Csrf,
-  //   goals: [`Inject a wolf in the hed`],
-  //   hints: [`Foo Bar's user id is "foobar"`]
-  // }
 ];
