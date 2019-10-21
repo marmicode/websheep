@@ -9,14 +9,14 @@ import { sheepRouter } from '../shared/sheep/sheep.router';
 import { farmersRouter } from '../shared/farmer/farmers.router';
 import { tokensRouter } from './tokens.router';
 
-export const authz2Router = Router();
+export const csrf1Router = Router();
 
-authz2Router.use(cors());
-authz2Router.use(bodyParser.json());
+csrf1Router.use(cors());
+csrf1Router.use(bodyParser.json());
 
-authz2Router.use(docsRouter);
-authz2Router.use(tokensRouter);
+csrf1Router.use(docsRouter);
+csrf1Router.use(tokensRouter);
 
-authz2Router.use(bearerAuthMiddleware, farmersRouter);
-authz2Router.use(bearerAuthMiddleware, farmsRouter);
-authz2Router.use(bearerAuthMiddleware, sheepRouter);
+csrf1Router.use(bearerAuthMiddleware, farmersRouter);
+csrf1Router.use(bearerAuthMiddleware, farmsRouter);
+csrf1Router.use(bearerAuthMiddleware, sheepRouter);

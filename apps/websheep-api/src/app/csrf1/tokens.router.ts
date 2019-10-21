@@ -16,6 +16,8 @@ tokensRouter.post('/tokens', async (req, res) => {
     return;
   }
 
+  res.cookie('token', tokenInfo.token);
+
   res.json({
     id: tokenInfo.id,
     userId
