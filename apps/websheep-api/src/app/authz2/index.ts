@@ -6,7 +6,7 @@ import { bearerAuthMiddleware } from '../shared/bearer-auth-middleware';
 import { docsRouter } from '../shared/docs/docs.router';
 import { tokensRouter } from '../shared/token/tokens.router';
 import { farmersRouter } from './farmers.router';
-import { farmsRouter } from './farms.router';
+import { farmsRouter } from '../shared/farm/farms.router';
 import { sheepRouter } from './sheep.router';
 
 export const authz2Router = Router();

@@ -10,7 +10,7 @@ export const sheepRouter = Router();
 
 sheepRouter.get(
   '/farmers/:farmerId/sheep',
-  withGuard(or([isAdmin, isSelf])),
+  withGuard(isSelf),
   getFarmerSheepList
 );
 

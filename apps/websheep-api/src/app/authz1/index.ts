@@ -4,8 +4,8 @@ import { Router } from 'express';
 import { bearerAuthMiddleware } from '../shared/bearer-auth-middleware';
 
 import { docsRouter } from '../shared/docs/docs.router';
-import { farmersRouter } from './farmers.router';
-import { farmsRouter } from './farms.router';
+import { farmsRouter } from '../shared/farm/farms.router';
+import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from './sheep.router';
 import { tokensRouter } from '../shared/token/tokens.router';
 
