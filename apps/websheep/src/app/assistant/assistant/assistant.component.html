@@ -14,7 +14,7 @@
     description="Choose a mission"
     titlePrefix="Mission"
     [selectedId]="missionId$ | async"
-    [idAndLabelList]="missionIdAndLabelList"
+    [idAndLabelList]="missionIdAndLabelList$ | async"
     (selectedIdChange)="selectMissionById($event)"></ws-item-selector>
 
   <ws-mission-info

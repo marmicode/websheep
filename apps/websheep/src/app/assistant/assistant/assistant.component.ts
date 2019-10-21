@@ -3,6 +3,8 @@ import { Component, NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material';
 import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import {
   HackTopicSelectorModule,
   IdAndLabel
@@ -36,7 +38,7 @@ export class AssistantComponent {
 
   missionList: Mission[] = missionList;
 
-  missionIdAndLabelList: IdAndLabel[];
+  missionIdAndLabelList$: Observable<IdAndLabel[]>;
   topic$ = this._store.select(getTopic);
   mission$ = this._store.select(getMission);
   apiBasePath$ = this._store.select(getApiBasePath);
@@ -44,10 +46,16 @@ export class AssistantComponent {
   missionId$ = this._store.select(getMissionId);
 
   constructor(private _store: Store<AppState>) {
-    this.missionIdAndLabelList = this.missionList.map(mission => ({
-      label: mission.title,
-      id: mission.id
-    }));
+    this.missionIdAndLabelList$ = this.topic$.pipe(
+      map(topic => {
+        return this.missionList
+          .filter(mission => mission.topic === topic)
+          .map(mission => ({
+            label: mission.title,
+            id: mission.id
+          }));
+      })
+    );
   }
 
   selectTopic(topicId: string) {
