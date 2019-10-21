@@ -3,8 +3,13 @@ import * as shortid from 'shortid';
 import { promisify } from 'util';
 import { database } from '../../database';
 
+export interface TokenInfo {
+  id: string;
+  token: string;
+}
+
 export const tokensService = {
-  async create({ userId }: { userId: string }) {
+  async create({ userId }: { userId: string }): Promise<TokenInfo> {
     const tokenBuffer = await promisify(randomBytes)(32);
     const tokenValue = tokenBuffer.toString('base64');
     const tokenId = shortid.generate();
