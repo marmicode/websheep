@@ -1,4 +1,4 @@
-import { farmersService } from './farmers.service';
+import { farmersService } from '../shared/farmer/farmers.service';
 import { serializeFarmer } from './serialize-farmer';
 
 export function getFarmer(req, res) {

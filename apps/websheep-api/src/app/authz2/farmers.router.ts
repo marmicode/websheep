@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { getFarmer } from '../shared/farmer/get-farmer';
 import { isSelf } from '../shared/is-self.guard';
 import { withGuard } from '../shared/with-guard';
+import { getFarmer } from './get-farmer';
 import { patchFarmer } from './patch-farmer';
 
 export const farmersRouter = Router();

@@ -1,5 +1,5 @@
 import { farmersService } from '../shared/farmer/farmers.service';
-import { serializeFarmer } from '../shared/farmer/serialize-farmer';
+import { serializeFarmer } from './serialize-farmer';
 
 export function patchFarmer(req, res) {
   const farmer = farmersService.updateFarmer({

@@ -4,7 +4,6 @@ import * as request from 'supertest';
 import * as express from 'express';
 import { initializeDatabase } from '../database';
 import { farmersRouter } from './farmers.router';
-import { authz2Router } from './index';
 
 describe('sheep router', () => {
   let app: Express;

@@ -1,7 +1,7 @@
 export function serializeFarmer(farmer) {
-  const serializedFarmer = {
-    ...farmer
+  return {
+    id: farmer.id,
+    firstName: farmer.firstName,
+    lastName: farmer.lastName
   };
-  delete serializedFarmer.passwordHash;
-  return serializedFarmer;
 }
