@@ -18,7 +18,7 @@ export const initialState: AssistantState = {
 const _assistantReducer = createReducer(
   initialState,
   on(selectMission, (state, { mission }) => ({ ...state, mission })),
-  on(selectTopic, (state, { topic }) => ({ ...state, topic }))
+  on(selectTopic, (state, { topic }) => ({ ...state, topic, mission: null }))
 );
 
 export function assistantReducer(

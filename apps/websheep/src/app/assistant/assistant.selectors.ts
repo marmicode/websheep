@@ -12,7 +12,7 @@ export const getMission = createSelector(
 
 export const getMissionId = createSelector(
   getMission,
-  mission => mission.id
+  mission => mission && mission.id
 );
 
 export const getTopic = createSelector(
