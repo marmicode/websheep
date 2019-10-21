@@ -2,6 +2,7 @@ import { pbkdf2Sync } from 'crypto';
 import { Router } from 'express';
 import { bearerAuthMiddleware } from '../bearer-auth-middleware';
 import { farmersService } from '../farmer/farmers.service';
+import { deleteToken } from './delete-token';
 import { tokensService } from './tokens.service';
 
 export const tokensRouter = Router();
@@ -33,18 +34,4 @@ tokensRouter.post('/tokens', async (req, res) => {
   });
 });
 
-tokensRouter.delete('/tokens/:tokenId', bearerAuthMiddleware, (req, res) => {
-  const { tokenId } = req.params;
-
-  const userId = tokensService.getUserId({ tokenId });
-
-  /* User should be owner of the token. */
-  if (userId !== req['user'].id) {
-    res.sendStatus(403);
-    return;
-  }
-
-  tokensService.delete({ tokenId });
-
-  res.sendStatus(204);
-});
+tokensRouter.delete('/tokens/:tokenId', bearerAuthMiddleware, deleteToken);
