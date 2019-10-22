@@ -5,7 +5,7 @@ import * as express from 'express';
 import { initializeDatabase } from '../database';
 import { farmersRouter } from './farmers.router';
 
-describe('sheep router', () => {
+describe('farmers router', () => {
   let app: Express;
 
   beforeEach(() => {
