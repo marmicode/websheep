@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { callbackify } from 'util';
 import { bearerAuthMiddleware } from '../shared/bearer-auth-middleware';
+import { cookieAuthMiddleware } from '../shared/cookie-auth-middleware';
 import { deleteToken } from '../shared/token/delete-token';
 import { authenticate } from '../shared/token/tokens.router';
 import * as cors from 'cors';
@@ -39,4 +40,4 @@ tokensRouter.post(
   }
 );
 
-tokensRouter.delete('/tokens/:tokenId', bearerAuthMiddleware, deleteToken);
+tokensRouter.delete('/tokens/:tokenId', cookieAuthMiddleware, deleteToken);
