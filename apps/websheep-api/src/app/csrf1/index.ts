@@ -11,12 +11,12 @@ import { tokensRouter } from './tokens.router';
 
 export const csrf1Router = Router();
 
-csrf1Router.use(cors());
 csrf1Router.use(bodyParser.json());
 
 csrf1Router.use(docsRouter);
 csrf1Router.use(tokensRouter);
 
+csrf1Router.use(cors());
 csrf1Router.use(bearerAuthMiddleware, farmersRouter);
 csrf1Router.use(bearerAuthMiddleware, farmsRouter);
 csrf1Router.use(bearerAuthMiddleware, sheepRouter);
