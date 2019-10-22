@@ -27,7 +27,7 @@ export class AuthInterceptor implements HttpInterceptor {
       this._store.select(fromUser.token).pipe(first())
     ]).pipe(
       switchMap(([apiBaseUrl, token]) => {
-        if (!req.url.startsWith(apiBaseUrl)) {
+        if (!req.url.startsWith(apiBaseUrl) || !token) {
           return of(req);
         }
 
