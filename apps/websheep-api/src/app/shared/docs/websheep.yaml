@@ -8,10 +8,12 @@ info:
   license:
     name: MIT
 servers:
-  - description: Authorization vulnerability 1
-    url: http://localhost:3333/v1
-  - description: Authorization vulnerability 2
-    url: http://localhost:3333/v2
+  - description: Broken Access Control 1
+    url: http://localhost:3333/authz1
+  - description: Broken Access Control 2
+    url: http://localhost:3333/authz2
+  - description: Bad C.O.R.S. rules
+    url: http://localhost:3333/csrf1
 paths:
   #
   # Authentication
