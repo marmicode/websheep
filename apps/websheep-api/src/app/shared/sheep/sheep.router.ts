@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { isSelf } from '../is-self.guard';
+import { openApiValidator } from '../openapi/validator';
 import { withGuard } from '../with-guard';
 import { addSheep } from './add-sheep';
 import { getFarmerSheepList } from './get-farmer-sheep-list';
@@ -12,4 +13,8 @@ sheepRouter.get(
   getFarmerSheepList
 );
 
-sheepRouter.post('/sheep', addSheep);
+sheepRouter.post(
+  '/sheep',
+  openApiValidator.validate('post', '/sheep'),
+  addSheep
+);

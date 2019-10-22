@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { openApiValidator } from '../shared/openapi/validator';
 import { getFarmerSheepList } from '../shared/sheep/get-farmer-sheep-list';
 import { addSheep } from '../shared/sheep/add-sheep';
 import { withGuard } from '../shared/with-guard';
@@ -14,4 +15,8 @@ sheepRouter.get(
   getFarmerSheepList
 );
 
-sheepRouter.post('/sheep', addSheep);
+sheepRouter.post(
+  '/sheep',
+  openApiValidator.validate('post', '/sheep'),
+  addSheep
+);

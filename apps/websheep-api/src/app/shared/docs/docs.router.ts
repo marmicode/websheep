@@ -1,17 +1,13 @@
 import { Router } from 'express';
 import * as swaggerUi from 'swagger-ui-express';
-import * as yaml from 'yamljs';
+import { openApiDocument, openApiRaw } from '../openapi/document';
 
 export const docsRouter = Router();
 
-const swaggerRaw = require('./websheep.yaml').default;
-
-const swaggerDocument = yaml.parse(swaggerRaw);
-
 docsRouter.get('/', (req, res) => res.redirect(`${req.baseUrl}/docs`));
 docsRouter.use('/docs', swaggerUi.serve);
-docsRouter.get('/docs', swaggerUi.setup(swaggerDocument));
-docsRouter.get('/docs/specification.yaml', (req, res) => res.send(swaggerRaw));
+docsRouter.get('/docs', swaggerUi.setup(openApiDocument));
+docsRouter.get('/docs/specification.yaml', (req, res) => res.send(openApiRaw));
 docsRouter.get('/docs/specification.json', (req, res) =>
-  res.send(swaggerDocument)
+  res.send(openApiDocument)
 );

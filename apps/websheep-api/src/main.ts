@@ -21,6 +21,20 @@ app.use('/csrf1', csrf1Router);
 app.get('/', (req, res) => res.redirect('/authz1'));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
+/* Error handler. */
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  res.status(statusCode).json({
+    errors: [
+      {
+        name: err.name,
+        message: err.message,
+        data: err.data
+      }
+    ]
+  });
+});
+
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);

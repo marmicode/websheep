@@ -265,10 +265,12 @@ components:
         age:
           type: number
         destinations:
-          type: string
-          enum:
-            - kebab
-            - wool
+          type: array
+          items:
+            type: string
+            enum:
+              - kebab
+              - wool
         eyeColor:
           type: string
         farm:
@@ -285,6 +287,7 @@ components:
           type: string
         pictureUri:
           type: string
+          nullable: true
 
     SheepListResponse:
       allOf:

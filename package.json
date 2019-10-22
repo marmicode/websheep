@@ -52,6 +52,7 @@
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
     "express": "4.17.1",
+    "express-openapi-validate": "^0.4.4",
     "hammerjs": "^2.0.8",
     "lowdb": "^1.0.0",
     "ngrx-store-localstorage": "^8.0.0",
