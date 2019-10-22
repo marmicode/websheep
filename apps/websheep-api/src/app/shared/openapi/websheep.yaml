@@ -100,13 +100,6 @@ paths:
           schema:
             type: string
           description: The farmer's id
-      requestBody:
-        description: Farmer
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Farmer'
       responses:
         200:
           description: OK
@@ -129,6 +122,13 @@ paths:
           schema:
             type: string
           description: The farmer's id
+      requestBody:
+        description: Farmer
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Farmer'
       responses:
         200:
           description: OK
