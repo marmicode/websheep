@@ -1,8 +1,8 @@
-import { Mission } from './mission';
+import { createMission, Mission } from './mission';
 import { Topic } from './topic';
 
 export const missionList: Mission[] = [
-  {
+  createMission({
     id: 'authz1',
     title: 'Catch a sheep herd 1',
     topic: Topic.BrokenAccessControl,
@@ -11,8 +11,8 @@ export const missionList: Mission[] = [
     config: {
       apiBasePath: 'authz1'
     }
-  },
-  {
+  }),
+  createMission({
     id: 'authz2',
     title: 'Catch a sheep herd 2',
     topic: Topic.BrokenAccessControl,
@@ -25,8 +25,8 @@ export const missionList: Mission[] = [
     config: {
       apiBasePath: 'authz2'
     }
-  },
-  {
+  }),
+  createMission({
     id: 'csrf1',
     title: 'Bad C.O.R.S. rules',
     topic: Topic.Csrf,
@@ -39,5 +39,5 @@ export const missionList: Mission[] = [
       apiBasePath: 'csrf1',
       includeCredentials: true
     }
-  }
+  })
 ];
