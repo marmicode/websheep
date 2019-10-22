@@ -1,11 +1,7 @@
-import { applyChange } from '@angular/compiler-cli/ngcc/src/writing/package_json_updater';
 import { Action, createReducer, on } from '@ngrx/store';
+import { environment } from '../../environments/environment';
 import { selectMission } from '../assistant/assistant.actions';
-import {
-  applyConfig,
-  selectApiBasePath,
-  selectApiServerUrl
-} from './config.actions';
+import { selectApiBasePath, selectApiServerUrl } from './config.actions';
 
 export const configFeatureKey = 'config';
 
@@ -17,7 +13,7 @@ export interface ConfigState {
 
 export const initialState: ConfigState = {
   apiBasePath: 'authz1',
-  apiServerUrl: 'http://localhost:3333',
+  apiServerUrl: environment.defaultApiServerUrl,
   includeCredentials: false
 };
 

@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "deploy": "run-p deploy:*",
+    "deploy:websheep": "run-s build:websheep:prod _now:websheep",
     "deploy:websheep-api": "run-s build:websheep-api _now:websheep-api",
     "ng": "ng",
     "nx": "nx",
@@ -13,6 +14,7 @@
     "start:websheep-api": "ng serve websheep-api",
     "build": "run-p build:*",
     "build:websheep": "ng build websheep",
+    "build:websheep:prod": "ng build websheep --prod",
     "build:websheep-api": "ng build websheep-api",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
@@ -33,6 +35,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "_now:websheep": "now dist/apps/websheep",
     "_now:websheep-api": "now --local-config apps/websheep-api/now.json"
   },
   "private": true,
