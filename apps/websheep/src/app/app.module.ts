@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AssistantEffects } from './assistant/assistant.effects';
 import { HackAssistantModule } from './assistant/assistant/assistant.component';
 import { AuthEffects } from './auth/auth.effects';
 import { AuthInterceptor } from './http/auth.interceptor';
@@ -28,7 +27,7 @@ import { metaReducers, reducers } from './reducers';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    EffectsModule.forRoot([AssistantEffects, AuthEffects]),
+    EffectsModule.forRoot([AuthEffects]),
     HttpClientModule,
     NavModule,
     StoreModule.forRoot(reducers, {

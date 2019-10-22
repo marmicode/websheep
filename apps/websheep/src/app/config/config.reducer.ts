@@ -1,5 +1,6 @@
 import { applyChange } from '@angular/compiler-cli/ngcc/src/writing/package_json_updater';
 import { Action, createReducer, on } from '@ngrx/store';
+import { selectMission } from '../assistant/assistant.actions';
 import {
   applyConfig,
   selectApiBasePath,
@@ -30,9 +31,9 @@ const _configReducer = createReducer(
     ...state,
     apiServerUrl
   })),
-  on(applyConfig, (state, { config }) => ({
+  on(selectMission, (state, { mission }) => ({
     ...state,
-    ...config
+    ...mission.config
   }))
 );
 
