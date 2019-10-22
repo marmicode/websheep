@@ -16,9 +16,9 @@ export interface Mission {
 
 export function createMission(mission: Mission): Mission {
   return {
-    ...mission,
     goals: [],
     hints: [],
+    ...mission,
     config: {
       /* Default configuration is without including credentials. */
       includeCredentials: false,
