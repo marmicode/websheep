@@ -29,13 +29,17 @@ export class AuthInterceptor implements HttpInterceptor {
       this._store.select(getIncludeCredentials).pipe(first())
     ]).pipe(
       switchMap(([apiBaseUrl, token, includeCredentials]) => {
+        if (!req.url.startsWith(apiBaseUrl)) {
+          return of(req);
+        }
+
         if (includeCredentials) {
-          req.clone({
+          req = req.clone({
             withCredentials: includeCredentials
           });
         }
 
-        if (!req.url.startsWith(apiBaseUrl) || !token) {
+        if (!token) {
           return of(req);
         }
 
