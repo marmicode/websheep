@@ -36,7 +36,8 @@ export const missionList: Mission[] = [
       `Check this route: /farmers/:farmerId/sheep`
     ],
     config: {
-      apiBasePath: 'csrf1'
+      apiBasePath: 'csrf1',
+      includeCredentials: true
     }
   }
 ];

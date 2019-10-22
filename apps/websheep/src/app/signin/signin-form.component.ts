@@ -35,7 +35,7 @@ export class SigninFormComponent implements OnDestroy, OnInit {
   constructor(private _signin: Signin) {
     this.loginResult$ = this._credentialsSubmit$.pipe(
       /* Login and materialize response so the stream doesn't brake on error. */
-      switchMap(credentials => concat(this._signin.logIn(credentials))),
+      switchMap(credentials => concat(this._signin.signIn(credentials))),
       shareReplay({
         bufferSize: 1,
         refCount: true

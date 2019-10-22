@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { concat, Observable, of } from 'rxjs';
-import { map, materialize, tap } from 'rxjs/operators';
+import { first, map, materialize, switchMap, tap } from 'rxjs/operators';
+import { getIncludeCredentials } from '../config/config.selectors';
 import { AppState } from '../reducers';
 import { signinSuccess } from '../user/user.actions';
 import { sheepRouteHelper } from '../views/sheep/sheep-route-helper';
@@ -35,20 +36,28 @@ export class Signin {
     private _store: Store<AppState>
   ) {}
 
-  logIn(credentials: Credentials): Observable<SigninResult> {
-    const loginRequest$ = this._httpClient
-      .post<TokenResponse>('/tokens', credentials)
-      .pipe(
-        tap((tokenResponse: TokenResponse) =>
-          this._store.dispatch(
-            signinSuccess({
-              token: tokenResponse.token,
-              tokenId: tokenResponse.id,
-              userId: tokenResponse.userId
-            })
-          )
+  signIn(credentials: Credentials): Observable<SigninResult> {
+    const includeCredentials$ = this._store
+      .select(getIncludeCredentials)
+      .pipe(first());
+
+    const loginRequest$ = includeCredentials$.pipe(
+      switchMap(includeCredentials =>
+        this._httpClient.post<TokenResponse>('/tokens', credentials, {
+          withCredentials: includeCredentials
+        })
+      ),
+      tap((tokenResponse: TokenResponse) =>
+        this._store.dispatch(
+          signinSuccess({
+            token: tokenResponse.token,
+            tokenId: tokenResponse.id,
+            userId: tokenResponse.userId
+          })
         )
-      );
+      )
+    );
+
     return concat(
       of(SigninResult.Pending),
       loginRequest$.pipe(

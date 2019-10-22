@@ -11,11 +11,13 @@ export const configFeatureKey = 'config';
 export interface ConfigState {
   apiBasePath: string;
   apiServerUrl: string;
+  includeCredentials: boolean;
 }
 
 export const initialState: ConfigState = {
   apiBasePath: 'authz1',
-  apiServerUrl: 'http://localhost:3333'
+  apiServerUrl: 'http://localhost:3333',
+  includeCredentials: false
 };
 
 const _configReducer = createReducer(

@@ -2,6 +2,7 @@ import { Topic } from './topic';
 
 export interface MissionConfig {
   apiBasePath: string;
+  includeCredentials?: boolean;
 }
 
 export interface Mission {
