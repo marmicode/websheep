@@ -35,7 +35,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "_now:websheep": "now dist/apps/websheep",
+    "_now:websheep": "cp apps/websheep/now.json dist/apps/websheep && now dist/apps/websheep",
     "_now:websheep-api": "now --local-config apps/websheep-api/now.json"
   },
   "private": true,
