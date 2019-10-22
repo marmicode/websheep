@@ -3,7 +3,7 @@ import * as express from 'express';
 import { Express } from 'express';
 import * as request from 'supertest';
 import { initializeDatabase } from '../database';
-import { tokensRouter } from './tokens.router';
+import { csrf1Router } from './index';
 
 describe('tokens router', () => {
   let app: Express;
@@ -21,7 +21,7 @@ describe('tokens router', () => {
       next();
     });
 
-    app.use(tokensRouter);
+    app.use(csrf1Router);
 
     initializeDatabase();
   });

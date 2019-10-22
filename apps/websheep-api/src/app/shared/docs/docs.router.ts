@@ -5,6 +5,7 @@ import * as yaml from 'yamljs';
 export const docsRouter = Router();
 
 const swaggerRaw = require('./websheep.yaml').default;
+
 const swaggerDocument = yaml.parse(swaggerRaw);
 
 docsRouter.get('/', (req, res) => res.redirect(`${req.baseUrl}/docs`));

@@ -1,18 +1,9 @@
-import * as cors from 'cors';
 import { Router } from 'express';
 import { cookieAuthMiddleware } from '../shared/cookie-auth-middleware';
 import { deleteToken } from '../shared/token/delete-token';
 import { authenticate } from '../shared/token/tokens.router';
-import { anyOrigin } from './any-origin';
 
 export const tokensRouter = Router();
-
-tokensRouter.use(
-  cors({
-    credentials: true,
-    origin: anyOrigin
-  })
-);
 
 tokensRouter.post(
   '/tokens',
