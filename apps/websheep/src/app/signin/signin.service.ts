@@ -37,26 +37,19 @@ export class Signin {
   ) {}
 
   signIn(credentials: Credentials): Observable<SigninResult> {
-    const includeCredentials$ = this._store
-      .select(getIncludeCredentials)
-      .pipe(first());
-
-    const loginRequest$ = includeCredentials$.pipe(
-      switchMap(includeCredentials =>
-        this._httpClient.post<TokenResponse>('/tokens', credentials, {
-          withCredentials: includeCredentials
-        })
-      ),
-      tap((tokenResponse: TokenResponse) =>
-        this._store.dispatch(
-          signinSuccess({
-            token: tokenResponse.token,
-            tokenId: tokenResponse.id,
-            userId: tokenResponse.userId
-          })
+    const loginRequest$ = this._httpClient
+      .post<TokenResponse>('/tokens', credentials)
+      .pipe(
+        tap((tokenResponse: TokenResponse) =>
+          this._store.dispatch(
+            signinSuccess({
+              token: tokenResponse.token,
+              tokenId: tokenResponse.id,
+              userId: tokenResponse.userId
+            })
+          )
         )
-      )
-    );
+      );
 
     return concat(
       of(SigninResult.Pending),
