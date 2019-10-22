@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "deploy": "run-p deploy:*",
-    "deploy:websheep-api": "now -A apps/websheep-api/now.json -e NODE_ENV=production",
+    "deploy:websheep-api": "run-s build:websheep-api _now:websheep-api",
     "ng": "ng",
     "nx": "nx",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
@@ -32,7 +32,8 @@
     "update:check": "ng update",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "_now:websheep-api": "now --local-config apps/websheep-api/now.json"
   },
   "private": true,
   "dependencies": {
