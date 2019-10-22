@@ -16,7 +16,7 @@ export class Signout {
   ) {}
 
   signOut() {
-    return this._store.select(fromUser.tokenId).pipe(
+    return this._store.select(fromUser.getTokenId).pipe(
       first(),
       switchMap(tokenId => this._httpClient.delete(`/tokens/${tokenId}`)),
       tap(() => this._store.dispatch(signout()))

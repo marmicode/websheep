@@ -16,7 +16,7 @@ export interface Farm {
   providedIn: 'root'
 })
 export class UserFarmService {
-  farmList$: Observable<Farm[]> = this._store.select(fromUser.userId).pipe(
+  farmList$: Observable<Farm[]> = this._store.select(fromUser.getUserId).pipe(
     first(),
     switchMap(userId =>
       this._httpClient.get<ListResponse<Farm>>(`/farmers/${userId}/farms`)

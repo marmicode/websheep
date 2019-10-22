@@ -1,24 +1,24 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { userFeatureKey, UserState } from './user.reducer';
 
-export const user = createFeatureSelector<UserState>(userFeatureKey);
+export const getUser = createFeatureSelector<UserState>(userFeatureKey);
 
-export const token = createSelector(
-  user,
-  _user => _user.token
+export const getToken = createSelector(
+  getUser,
+  user => user.token
 );
 
-export const isSignedIn = createSelector(
-  token,
-  _token => _token != null
+export const getTokenId = createSelector(
+  getUser,
+  user => user.tokenId
 );
 
-export const tokenId = createSelector(
-  user,
-  _user => _user.tokenId
+export const getUserId = createSelector(
+  getUser,
+  user => user.userId
 );
 
-export const userId = createSelector(
-  user,
-  _user => _user.userId
+export const getIsSignedIn = createSelector(
+  getUserId,
+  userId => userId != null
 );

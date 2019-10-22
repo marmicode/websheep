@@ -25,7 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return combineLatest([
       this._store.select(fromConfig.getApiBaseUrl).pipe(first()),
-      this._store.select(fromUser.token).pipe(first()),
+      this._store.select(fromUser.getToken).pipe(first()),
       this._store.select(getIncludeCredentials).pipe(first())
     ]).pipe(
       switchMap(([apiBaseUrl, token, includeCredentials]) => {

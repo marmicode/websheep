@@ -42,7 +42,7 @@ export class NavComponent {
       shareReplay()
     );
   isSidenavOpen$: Observable<boolean>;
-  isSignedIn$ = this._store.select(fromUser.isSignedIn);
+  isSignedIn$ = this._store.select(fromUser.getIsSignedIn);
 
   constructor(
     private _breakpointObserver: BreakpointObserver,

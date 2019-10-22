@@ -18,7 +18,7 @@ export class IsSignedInGuard implements CanActivate {
   constructor(private _router: Router, private _store: Store<AppState>) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this._store.select(fromUser.isSignedIn).pipe(
+    return this._store.select(fromUser.getIsSignedIn).pipe(
       map(isSignedIn => {
         return isSignedIn
           ? true

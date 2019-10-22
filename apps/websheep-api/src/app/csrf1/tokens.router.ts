@@ -1,13 +1,11 @@
 import * as cors from 'cors';
 import { Router } from 'express';
-import { callbackify } from 'util';
 import { cookieAuthMiddleware } from '../shared/cookie-auth-middleware';
 import { deleteToken } from '../shared/token/delete-token';
 import { authenticate } from '../shared/token/tokens.router';
+import { anyOrigin } from './any-origin';
 
 export const tokensRouter = Router();
-
-export const anyOrigin = callbackify(async origin => true);
 
 tokensRouter.use(
   cors({

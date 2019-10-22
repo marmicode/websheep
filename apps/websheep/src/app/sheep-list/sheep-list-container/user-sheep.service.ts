@@ -15,11 +15,10 @@ export class UserSheepService {
   constructor(
     private _httpClient: HttpClient,
     private _store: Store<AppState>
-  ) {
-  }
+  ) {}
 
   getUserSheep(): Observable<ListResponse<Sheep>> {
-    return this._store.select(fromUser.userId).pipe(
+    return this._store.select(fromUser.getUserId).pipe(
       first(),
       switchMap(farmerId =>
         this._httpClient
