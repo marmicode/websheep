@@ -9,8 +9,11 @@ const passport = new Passport();
 passport.use(
   new BearerStrategy(
     callbackify(async token => {
-      const userId = jwt.decode(token).sub;
-      return farmersService.getFarmer({ farmerId: userId });
+      const claims = jwt.decode(token, process.env.JWT_SECRET);
+      if (claims == null) {
+        return null;
+      }
+      return farmersService.getFarmer({ farmerId: claims.sub });
     })
   )
 );
