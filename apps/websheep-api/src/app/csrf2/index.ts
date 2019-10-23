@@ -9,15 +9,20 @@ import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from '../shared/sheep/sheep.router';
 import { tokensRouter } from './tokens.router';
 
-export const csrf1Router = Router();
+export const csrf2Router = Router();
 
-csrf1Router.use(bodyParser.json());
-csrf1Router.use(cookieParser());
+/*
+ * This is an ugly deprecated shortcut for:
+ * router.use(bodyParser.json());
+ * router.use(bodyParser.urlencoded({extended: false}));
+ */
+csrf2Router.use(bodyParser());
+csrf2Router.use(cookieParser());
 
-csrf1Router.use(cors());
+csrf2Router.use(cors());
 
-csrf1Router.use(docsRouter);
-csrf1Router.use(tokensRouter);
-csrf1Router.use(cookieAuthMiddleware, farmersRouter);
-csrf1Router.use(cookieAuthMiddleware, farmsRouter);
-csrf1Router.use(cookieAuthMiddleware, sheepRouter);
+csrf2Router.use(docsRouter);
+csrf2Router.use(tokensRouter);
+csrf2Router.use(cookieAuthMiddleware, farmersRouter);
+csrf2Router.use(cookieAuthMiddleware, farmsRouter);
+csrf2Router.use(cookieAuthMiddleware, sheepRouter);
