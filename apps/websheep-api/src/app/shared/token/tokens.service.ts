@@ -8,25 +8,36 @@ export interface TokenInfo {
   token: string;
 }
 
+export async function defaultTokenFactory(): Promise<TokenInfo> {
+  const tokenBuffer = await promisify(randomBytes)(32);
+
+  return {
+    id: shortid.generate(),
+    token: tokenBuffer.toString('base64')
+  };
+}
+
+export type TokenFactory = () => Promise<TokenInfo>;
+
 export const tokensService = {
-  async create({ userId }: { userId: string }): Promise<TokenInfo> {
-    const tokenBuffer = await promisify(randomBytes)(32);
-    const tokenValue = tokenBuffer.toString('base64');
-    const tokenId = shortid.generate();
+  async create({
+    tokenFactory = defaultTokenFactory,
+    userId
+  }: {
+    tokenFactory: TokenFactory;
+    userId: string;
+  }): Promise<TokenInfo> {
+    const tokenInfo = await tokenFactory();
 
     database
       .get('tokens')
       .push({
-        id: tokenId,
-        token: tokenValue,
+        ...tokenInfo,
         userId
       })
       .write();
 
-    return {
-      id: tokenId,
-      token: tokenValue
-    };
+    return tokenInfo;
   },
   delete({ tokenId }: { tokenId: string }) {
     database

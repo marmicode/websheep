@@ -3,11 +3,11 @@ import { cookieAuthMiddleware } from '../cookie-auth.middleware';
 import { deleteToken } from './delete-token';
 import { createTokenAndSetCookie } from './create-token-and-set-cookie';
 
-export const cookieTokensRouter = Router();
+export const tokensCookieRouter = Router();
 
-cookieTokensRouter.post('/tokens', createTokenAndSetCookie);
+tokensCookieRouter.post('/tokens', createTokenAndSetCookie);
 
-cookieTokensRouter.delete(
+tokensCookieRouter.delete(
   '/tokens/:tokenId',
   cookieAuthMiddleware,
   deleteToken

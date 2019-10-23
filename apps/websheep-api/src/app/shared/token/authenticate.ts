@@ -1,13 +1,15 @@
 import { pbkdf2Sync } from 'crypto';
 import { farmersService } from '../farmer/farmers.service';
-import { TokenInfo, tokensService } from './tokens.service';
+import { TokenFactory, TokenInfo, tokensService } from './tokens.service';
 
 export async function authenticate({
   userId,
-  password
+  password,
+  tokenFactory
 }: {
   userId: string;
   password: string;
+  tokenFactory: TokenFactory;
 }): Promise<TokenInfo> {
   const farmer = farmersService.getFarmer({ farmerId: userId });
 
@@ -23,5 +25,5 @@ export async function authenticate({
     return null;
   }
 
-  return tokensService.create({ userId });
+  return tokensService.create({ tokenFactory, userId });
 }

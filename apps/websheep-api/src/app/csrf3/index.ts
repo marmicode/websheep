@@ -8,7 +8,7 @@ import { docsRouter } from '../shared/docs/docs.router';
 import { farmsRouter } from '../shared/farm/farms.router';
 import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from '../shared/sheep/sheep.router';
-import { cookieTokensRouter } from '../shared/token/cookie-tokens.router';
+import { tokensCookieRouter } from '../shared/token/tokens.cookie.router';
 
 export const csrf3Router = Router();
 
@@ -27,7 +27,7 @@ csrf3Router.use(
 );
 
 csrf3Router.use(docsRouter);
-csrf3Router.use(cookieTokensRouter);
+csrf3Router.use(tokensCookieRouter);
 csrf3Router.use(cookieAuthMiddleware, farmersRouter);
 csrf3Router.use(cookieAuthMiddleware, farmsRouter);
 csrf3Router.use(cookieAuthMiddleware, sheepRouter);

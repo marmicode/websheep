@@ -1,10 +1,10 @@
 import { authenticate } from './authenticate';
 
-export async function createToken(req, res) {
+export const createToken = (tokenFactory?) => async (req, res) => {
   const userId = req.body.userName;
   const password = req.body.password;
 
-  const tokenInfo = await authenticate({ userId, password });
+  const tokenInfo = await authenticate({ userId, password, tokenFactory });
 
   if (tokenInfo == null) {
     res.sendStatus(401);
@@ -15,4 +15,4 @@ export async function createToken(req, res) {
     ...tokenInfo,
     userId
   });
-}
+};
