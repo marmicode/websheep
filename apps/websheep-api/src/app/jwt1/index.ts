@@ -7,7 +7,7 @@ import { docsRouter } from '../shared/docs/docs.router';
 import { farmsRouter } from '../shared/farm/farms.router';
 import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from '../shared/sheep/sheep.router';
-import { tokensJwtRouter } from './tokens.jwt.router';
+import { tokensJwtRouter } from '../shared/token/tokens.jwt.router';
 
 export const jwt1Router = Router();
 

@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import * as shortid from 'shortid';
-import { TokenInfo, TokensService } from '../shared/token/tokens.service';
+import { TokenInfo, TokensService } from './tokens.service';
 
-export const tokensService: TokensService = {
+export const tokensJwtService: TokensService = {
   async create({ userId }: { userId: string }): Promise<TokenInfo> {
     const tokenId = shortid.generate();
     return {
@@ -16,11 +16,5 @@ export const tokensService: TokensService = {
         { expiresIn: '24h' }
       )
     };
-  },
-  delete({ tokenId }: { tokenId: string }) {
-    /* @todo add to blacklist */
-  },
-  getUserId({ tokenId, token }: { tokenId: string; token: string }) {
-    return jwt.decode(token);
   }
 };
