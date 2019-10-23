@@ -48,7 +48,8 @@ export const missionList: Mission[] = [
     hints: [
       `The API might consume media types other than application/json`,
       `Try a standard media type`,
-      `application/x-www-form-urlencoded`
+      `application/x-www-form-urlencoded`,
+      `You might need to use extended query params: "farm[id]=FARM_ID"`
     ],
     config: {
       apiBasePath: 'csrf2',
