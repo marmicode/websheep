@@ -1,6 +1,5 @@
-import * as shortid from 'shortid';
 import * as jwt from 'jsonwebtoken';
-import { database } from '../database';
+import * as shortid from 'shortid';
 import { TokenInfo, TokensService } from '../shared/token/tokens.service';
 
 export const tokensService: TokensService = {
