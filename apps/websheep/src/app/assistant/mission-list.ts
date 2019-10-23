@@ -70,5 +70,16 @@ export const missionList: Mission[] = [
       apiBasePath: 'csrf3',
       includeCredentials: true
     }
+  }),
+  createMission({
+    id: 'jwt1',
+    title: 'Le Petit Chaperon Rouge',
+    topic: Topic.Jwt,
+    goals: [`Authenticate as foobar without his password`],
+    hints: [],
+    config: {
+      apiBasePath: 'jwt1',
+      includeCredentials: true
+    }
   })
 ];

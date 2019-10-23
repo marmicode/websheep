@@ -1,4 +1,5 @@
 export enum Topic {
   BrokenAccessControl = 'broken-access-control',
-  Csrf = 'csrf'
+  Csrf = 'csrf',
+  Jwt = 'jwt'
 }

@@ -3,7 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
   HackTopicSelectorModule,
@@ -16,8 +16,8 @@ import { selectMission, selectTopic } from '../assistant.actions';
 import { getMission, getMissionId, getTopic } from '../assistant.selectors';
 import { Mission } from '../mission';
 import { MissionInfoModule } from '../mission-info/mission-info.component';
-import { Topic } from '../topic';
 import { missionList } from '../mission-list';
+import { Topic } from '../topic';
 
 @Component({
   selector: 'ws-assistant',
@@ -33,6 +33,10 @@ export class AssistantComponent {
     {
       id: Topic.Csrf,
       label: 'C.S.R.F.'
+    },
+    {
+      id: Topic.Jwt,
+      label: 'J.W.T.'
     }
   ];
 
