@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { bearerAuthMiddleware } from '../bearer-auth.middleware';
+import { jwtAuthMiddleware } from '../jwt-auth.middleware';
 import { createToken } from './create-token';
 import { tokensJwtService } from './tokens.jwt.service';
 
@@ -12,7 +12,7 @@ tokensJwtRouter.post(
   })
 );
 
-tokensJwtRouter.delete('/tokens/:tokenId', bearerAuthMiddleware, (req, res) => {
+tokensJwtRouter.delete('/tokens/:tokenId', jwtAuthMiddleware, (req, res) => {
   /* @todo add jwt token to blacklist. */
   return res.sendStatus(204);
 });
