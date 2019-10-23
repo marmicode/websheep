@@ -1,4 +1,4 @@
-import { authenticate } from '../shared/token/authenticate';
+import { authenticate } from './authenticate';
 
 export async function createTokenAndSetCookie(req, res) {
   const userId = req.body.userName;

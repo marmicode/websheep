@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import { Router } from 'express';
-import { bearerAuthMiddleware } from '../shared/bearer-auth-middleware';
+import { bearerAuthMiddleware } from '../shared/bearer-auth.middleware';
 
 import { docsRouter } from '../shared/docs/docs.router';
 import { farmsRouter } from '../shared/farm/farms.router';
