@@ -9,8 +9,17 @@ const passport = new Passport();
 passport.use(
   new BearerStrategy(
     callbackify(async token => {
-      const userId = jwt.verify(token, process.env.JWT_SECRET).sub;
-      return farmersService.getFarmer({ farmerId: userId });
+      try {
+        const { sub } = jwt.verify(token, process.env.JWT_SECRET);
+
+        return farmersService.getFarmer({ farmerId: sub });
+      } catch (e) {
+        if (e.name !== 'JsonWebTokenError') {
+          throw e;
+        }
+
+        return false;
+      }
     })
   )
 );
