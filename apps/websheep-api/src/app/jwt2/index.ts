@@ -9,14 +9,14 @@ import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from '../shared/sheep/sheep.router';
 import { tokensJwtRouter } from '../shared/token/tokens.jwt.router';
 
-export const jwt1Router = Router();
+export const jwt2Router = Router();
 
-jwt1Router.use(cors());
-jwt1Router.use(bodyParser.json());
+jwt2Router.use(cors());
+jwt2Router.use(bodyParser.json());
 
-jwt1Router.use(docsRouter);
-jwt1Router.use(tokensJwtRouter);
+jwt2Router.use(docsRouter);
+jwt2Router.use(tokensJwtRouter);
 
-jwt1Router.use(jwtAuthMiddleware, farmersRouter);
-jwt1Router.use(jwtAuthMiddleware, farmsRouter);
-jwt1Router.use(jwtAuthMiddleware, sheepRouter);
+jwt2Router.use(jwtAuthMiddleware, farmersRouter);
+jwt2Router.use(jwtAuthMiddleware, farmsRouter);
+jwt2Router.use(jwtAuthMiddleware, sheepRouter);

@@ -1,6 +1,5 @@
 import * as jwt from 'jsonwebtoken';
 import * as shortid from 'shortid';
-import { environment } from '../../../environments/environment';
 import { TokenInfo, TokensService } from './tokens.service';
 
 export const tokensJwtService: TokensService = {

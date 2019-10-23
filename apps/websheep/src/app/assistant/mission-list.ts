@@ -84,5 +84,18 @@ export const missionList: Mission[] = [
     config: {
       apiBasePath: 'jwt1'
     }
+  }),
+  createMission({
+    id: 'jwt2',
+    title: 'Mission Impossible',
+    topic: Topic.Jwt,
+    goals: [`Authenticate as foobar without his password`],
+    hints: [
+      `Try an invalid password and check the error`,
+      `Try to forge a similar token`
+    ],
+    config: {
+      apiBasePath: 'jwt2'
+    }
   })
 ];
