@@ -62,7 +62,7 @@ export const missionList: Mission[] = [
     topic: Topic.Csrf,
     goals: [`Add a sheep named Bear to foobar's farm`],
     hints: [
-      `THe API might not care about the given content-type header`,
+      `The API might not care about the given content-type header`,
       `Try a standard media type`,
       `application/x-www-form-urlencoded`
     ],
@@ -76,7 +76,11 @@ export const missionList: Mission[] = [
     title: 'Le Petit Chaperon Rouge',
     topic: Topic.Jwt,
     goals: [`Authenticate as foobar without his password`],
-    hints: [],
+    hints: [
+      `Check the token in the local storage`,
+      `Try to forge a similar token`,
+      `Don't forget to update the userId in the local storage`
+    ],
     config: {
       apiBasePath: 'jwt1'
     }
