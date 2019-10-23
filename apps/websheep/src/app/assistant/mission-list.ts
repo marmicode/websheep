@@ -28,12 +28,27 @@ export const missionList: Mission[] = [
   }),
   createMission({
     id: 'csrf1',
-    title: 'Bad C.O.R.S. rules',
+    title: 'Sheep Stalker 👀',
     topic: Topic.Csrf,
     goals: [`Steal foobar's sheep from another origin`],
     hints: [
       `Analyse API responses headers`,
       `Check this route: /farmers/:farmerId/sheep`
+    ],
+    config: {
+      apiBasePath: 'csrf2',
+      includeCredentials: true
+    }
+  }),
+  createMission({
+    id: 'csrf2',
+    title: 'A sheep named Wolf',
+    topic: Topic.Csrf,
+    goals: [`Add a sheep named Wolf to foobar's herd`],
+    hints: [
+      `The API might consume media types other than application/json`,
+      `Try a standard media type`,
+      `application/x-www-form-urlencoded`
     ],
     config: {
       apiBasePath: 'csrf1',
