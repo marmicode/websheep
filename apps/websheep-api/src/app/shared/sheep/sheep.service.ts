@@ -9,20 +9,27 @@ export const sheepService = {
       .value();
   },
   createSheep({ sheep }) {
+    sheep = {
+      id: shortid.generate(),
+      createdAt: new Date().toISOString(),
+      ...sheep
+    };
+
     database
       .get('sheep')
       .push({
-        id: shortid.generate(),
-        createdAt: new Date().toISOString(),
+        id: sheep.id,
+        createdAt: sheep.createdAt,
         age: sheep.age,
         eyeColor: sheep.eyeColor,
         gender: sheep.gender,
         name: sheep.name,
         pictureUri: sheep.pictureUri,
-        farmId: sheep.farm.id,
+        farmId: sheep.farm && sheep.farm.id,
         destinations: sheep.destinations
       })
       .write();
+
     return sheep;
   }
 };

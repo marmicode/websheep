@@ -7,7 +7,7 @@ import { cookieAuthMiddleware } from '../shared/cookie-auth.middleware';
 import { docsRouter } from '../shared/docs/docs.router';
 import { farmsRouter } from '../shared/farm/farms.router';
 import { farmersRouter } from '../shared/farmer/farmers.router';
-import { sheepRouter } from '../shared/sheep/sheep.router';
+import { sheepRouter } from './sheep.router';
 import { tokensRouter } from './tokens.router';
 
 export const csrf2Router = Router();
