@@ -9,6 +9,7 @@ import { authz1Router } from './app/authz1';
 import { authz2Router } from './app/authz2';
 import { csrf1Router } from './app/csrf1';
 import { csrf2Router } from './app/csrf2';
+import { csrf3Router } from './app/csrf3';
 import { initializeDatabase } from './app/database';
 
 const app = express();
@@ -19,6 +20,7 @@ app.use('/authz1', authz1Router);
 app.use('/authz2', authz2Router);
 app.use('/csrf1', csrf1Router);
 app.use('/csrf2', csrf2Router);
+app.use('/csrf3', csrf3Router);
 
 app.get('/', (req, res) => res.redirect('/authz1'));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));

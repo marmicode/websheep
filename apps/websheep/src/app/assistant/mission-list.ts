@@ -44,7 +44,7 @@ export const missionList: Mission[] = [
     id: 'csrf2',
     title: 'A sheep named Wolf',
     topic: Topic.Csrf,
-    goals: [`Add a sheep named Wolf to foobar's herd`],
+    goals: [`Add a sheep named Wolf to foobar's farm`],
     hints: [
       `The API might consume media types other than application/json`,
       `Try a standard media type`,
@@ -53,6 +53,21 @@ export const missionList: Mission[] = [
     ],
     config: {
       apiBasePath: 'csrf2',
+      includeCredentials: true
+    }
+  }),
+  createMission({
+    id: 'csrf3',
+    title: 'A sheep named Bear',
+    topic: Topic.Csrf,
+    goals: [`Add a sheep named Bear to foobar's farm`],
+    hints: [
+      `THe API might not care about the given content-type header`,
+      `Try a standard media type`,
+      `application/x-www-form-urlencoded`
+    ],
+    config: {
+      apiBasePath: 'csrf3',
       includeCredentials: true
     }
   })
