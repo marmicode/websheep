@@ -8,7 +8,7 @@ export interface TokenInfo {
   token: string;
 }
 
-export async function defaultTokenFactory(): Promise<TokenInfo> {
+export async function generateToken(): Promise<TokenInfo> {
   const tokenBuffer = await promisify(randomBytes)(32);
 
   return {
@@ -17,17 +17,9 @@ export async function defaultTokenFactory(): Promise<TokenInfo> {
   };
 }
 
-export type TokenFactory = (args?: { userId: string }) => Promise<TokenInfo>;
-
 export const tokensService = {
-  async create({
-    tokenFactory = defaultTokenFactory,
-    userId
-  }: {
-    tokenFactory: TokenFactory;
-    userId: string;
-  }): Promise<TokenInfo> {
-    const tokenInfo = await tokenFactory({ userId });
+  async create({ userId }: { userId: string }): Promise<TokenInfo> {
+    const tokenInfo = await generateToken();
 
     database
       .get('tokens')
