@@ -1,4 +1,4 @@
 export const environment = {
-  defaultApiServerUrl: 'https://websheep-api.yjaaidi.now.sh',
+  defaultApiServerUrl: 'https://websheep.herokuapp.com',
   production: true
 };
