@@ -255,6 +255,7 @@ components:
       type: object
       required:
         - name
+        - farm
       properties:
         id:
           type: string
@@ -275,6 +276,8 @@ components:
           type: string
         farm:
           type: object
+          required:
+            - id
           properties:
             id:
               type: string
