@@ -9,7 +9,7 @@ export async function authenticate({
 }: {
   userId: string;
   password: string;
-  tokenFactory: TokenFactory;
+  tokenFactory?: TokenFactory;
 }): Promise<TokenInfo> {
   const farmer = farmersService.getFarmer({ farmerId: userId });
 

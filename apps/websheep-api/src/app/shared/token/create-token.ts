@@ -1,6 +1,9 @@
 import { authenticate } from './authenticate';
+import { TokenFactory } from './tokens.service';
 
-export const createToken = (tokenFactory?) => async (req, res) => {
+export const createToken = ({
+  tokenFactory
+}: { tokenFactory?: TokenFactory } = {}) => async (req, res) => {
   const userId = req.body.userName;
   const password = req.body.password;
 

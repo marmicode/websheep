@@ -17,7 +17,7 @@ export async function defaultTokenFactory(): Promise<TokenInfo> {
   };
 }
 
-export type TokenFactory = () => Promise<TokenInfo>;
+export type TokenFactory = (args?: { userId: string }) => Promise<TokenInfo>;
 
 export const tokensService = {
   async create({

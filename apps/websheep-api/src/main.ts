@@ -12,6 +12,8 @@ import { csrf2Router } from './app/csrf2';
 import { csrf3Router } from './app/csrf3';
 import { initializeDatabase } from './app/database';
 
+process.env.JWT_SECRET = 'MY_AWESOME_UNIQUE_JWT_SECRET';
+
 const app = express();
 
 initializeDatabase();
