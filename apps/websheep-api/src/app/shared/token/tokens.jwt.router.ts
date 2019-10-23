@@ -6,7 +6,7 @@ import { createToken } from './create-token';
 import { deleteToken } from './delete-token';
 import { TokenInfo } from './tokens.service';
 
-export const tokensRouter = Router();
+export const tokensJwtRouter = Router();
 
 export async function jwtTokenFactory({
   userId
@@ -27,11 +27,11 @@ export async function jwtTokenFactory({
   };
 }
 
-tokensRouter.post(
+tokensJwtRouter.post(
   '/tokens',
   createToken({
     tokenFactory: jwtTokenFactory
   })
 );
 
-tokensRouter.delete('/tokens/:tokenId', bearerAuthMiddleware, deleteToken);
+tokensJwtRouter.delete('/tokens/:tokenId', bearerAuthMiddleware, deleteToken);

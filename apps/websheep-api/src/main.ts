@@ -11,6 +11,7 @@ import { csrf1Router } from './app/csrf1';
 import { csrf2Router } from './app/csrf2';
 import { csrf3Router } from './app/csrf3';
 import { initializeDatabase } from './app/database';
+import { jwt1Router } from './app/jwt';
 
 process.env.JWT_SECRET = 'MY_AWESOME_UNIQUE_JWT_SECRET';
 
@@ -23,6 +24,7 @@ app.use('/authz2', authz2Router);
 app.use('/csrf1', csrf1Router);
 app.use('/csrf2', csrf2Router);
 app.use('/csrf3', csrf3Router);
+app.use('/jwt1', jwt1Router);
 
 app.get('/', (req, res) => res.redirect('/authz1'));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
