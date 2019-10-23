@@ -78,8 +78,7 @@ export const missionList: Mission[] = [
     goals: [`Authenticate as foobar without his password`],
     hints: [],
     config: {
-      apiBasePath: 'jwt1',
-      includeCredentials: true
+      apiBasePath: 'jwt1'
     }
   })
 ];

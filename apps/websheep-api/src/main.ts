@@ -11,7 +11,7 @@ import { csrf1Router } from './app/csrf1';
 import { csrf2Router } from './app/csrf2';
 import { csrf3Router } from './app/csrf3';
 import { initializeDatabase } from './app/database';
-import { jwt1Router } from './app/jwt';
+import { jwt1Router } from './app/jwt1';
 
 process.env.JWT_SECRET = 'MY_AWESOME_UNIQUE_JWT_SECRET';
 

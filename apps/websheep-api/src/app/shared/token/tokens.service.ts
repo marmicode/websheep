@@ -27,7 +27,7 @@ export const tokensService = {
     tokenFactory: TokenFactory;
     userId: string;
   }): Promise<TokenInfo> {
-    const tokenInfo = await tokenFactory();
+    const tokenInfo = await tokenFactory({ userId });
 
     database
       .get('tokens')
