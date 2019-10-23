@@ -4,7 +4,7 @@ import { Router } from 'express';
 import { bearerAuthMiddleware } from '../bearer-auth.middleware';
 import { createToken } from './create-token';
 import { deleteToken } from './delete-token';
-import { TokenInfo } from './tokens.service';
+import { TokenInfo, tokensService } from './tokens.service';
 
 export const tokensJwtRouter = Router();
 
@@ -30,7 +30,7 @@ export async function jwtTokenFactory({
 tokensJwtRouter.post(
   '/tokens',
   createToken({
-    tokenFactory: jwtTokenFactory
+    tokensService
   })
 );
 

@@ -20,7 +20,7 @@ export async function generateToken(): Promise<TokenInfo> {
 export interface TokensService {
   create(args: { userId: string }): Promise<TokenInfo>;
   delete(args: { tokenId: string });
-  getUserId(args: { tokenId: string }): string;
+  getUserId?(args: { tokenId: string }): string;
 }
 
 export const tokensService: TokensService = {
