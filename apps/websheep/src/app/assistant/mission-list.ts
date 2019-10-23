@@ -28,7 +28,7 @@ export const missionList: Mission[] = [
   }),
   createMission({
     id: 'csrf1',
-    title: 'Sheep Stalker 👀',
+    title: 'Sheep Stalker',
     topic: Topic.Csrf,
     goals: [`Steal foobar's sheep from another origin`],
     hints: [
@@ -36,7 +36,7 @@ export const missionList: Mission[] = [
       `Check this route: /farmers/:farmerId/sheep`
     ],
     config: {
-      apiBasePath: 'csrf2',
+      apiBasePath: 'csrf1',
       includeCredentials: true
     }
   }),
@@ -51,7 +51,7 @@ export const missionList: Mission[] = [
       `application/x-www-form-urlencoded`
     ],
     config: {
-      apiBasePath: 'csrf1',
+      apiBasePath: 'csrf2',
       includeCredentials: true
     }
   })
