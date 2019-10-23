@@ -91,8 +91,9 @@ export const missionList: Mission[] = [
     topic: Topic.Jwt,
     goals: [`Authenticate as foobar without his password`],
     hints: [
-      `Try an invalid password and check the error`,
-      `Try to forge a similar token`
+      `Try to add a sheep with invalid data and check error response`,
+      `Try to forge a token for foobar`,
+      `Don't forget to update the userId in the local storage`
     ],
     config: {
       apiBasePath: 'jwt2'
