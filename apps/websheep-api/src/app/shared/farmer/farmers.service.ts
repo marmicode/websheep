@@ -22,11 +22,12 @@ export const farmersService = {
   updateFarmer({ farmerId, farmer }: { farmerId: string; farmer }) {
     const data = { ...farmer };
     delete data.id;
+    delete data.passwordHash;
 
     return database
       .get('farmers')
       .find({ id: farmerId })
-      .assign(farmer)
+      .assign(data)
       .value();
   }
 };
