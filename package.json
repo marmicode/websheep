@@ -17,6 +17,7 @@
     "build:websheep:prod": "ng build websheep --prod",
     "build:websheep-api:prod": "ng build websheep-api --prod",
     "test": "ng test",
+    "test:websheep-api": "ng test websheep-api --watch",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",

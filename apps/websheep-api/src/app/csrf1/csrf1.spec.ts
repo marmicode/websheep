@@ -11,22 +11,12 @@ describe('tokens router', () => {
   beforeEach(() => {
     app = express();
 
-    app.use(bodyParser.json());
-
-    /* Suppose user is authenticated. */
-    app.use((req, res, next) => {
-      req['user'] = {
-        id: 'karinelemarchand'
-      };
-      next();
-    });
-
     app.use(csrf1Router);
 
     initializeDatabase();
   });
 
-  it(`should allow farmer to escalate to admin`, async () => {
+  it(`should allow cross origin requests for any origin`, async () => {
     const response = await request(app)
       .post('/tokens')
       .send({
