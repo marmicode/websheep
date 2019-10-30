@@ -38,6 +38,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TokenResponse'
+        400:
+          $ref: '#/components/responses/400'
 
   /tokens/{tokenId}:
     delete:
@@ -136,6 +138,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Farmer'
+        400:
+          $ref: '#/components/responses/400'
       security:
         - BearerAuth: []
 
@@ -186,6 +190,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sheep'
+        400:
+          $ref: '#/components/responses/400'
       security:
         - BearerAuth: []
 
@@ -318,6 +324,32 @@ components:
         userId:
           type: string
       description: User's id
+
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          enum:
+            - ValidationError
+        message:
+          type: string
+
+  responses:
+    400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - errors
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Error'
+
 
   securitySchemes:
     BearerAuth:
