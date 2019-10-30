@@ -177,19 +177,19 @@ paths:
         - Sheep
       operationId: addSheep
       requestBody:
-        description: Sheep
+        description: Sheep info
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Sheep'
+              $ref: '#/components/schemas/SheepRequest'
       responses:
         201:
           description: The created sheep
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Sheep'
+                $ref: '#/components/schemas/SheepWithFarm'
         400:
           $ref: '#/components/responses/400'
       security:
@@ -200,6 +200,7 @@ components:
   schemas:
     Credentials:
       type: object
+      additionalProperties: false
       required:
         - userName
         - password
@@ -214,6 +215,7 @@ components:
 
     Farm:
       type: object
+      additionalProperties: false
       properties:
         id:
           type: string
@@ -224,6 +226,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/ListResponse'
         - type: object
+          additionalProperties: false
           properties:
             items:
               type: array
@@ -232,12 +235,10 @@ components:
 
     Farmer:
       type: object
+      additionalProperties: false
       properties:
         id:
           type: string
-        kind:
-          type: string
-          enum: ['farmer']
         firstName:
           type: string
         lastName:
@@ -245,6 +246,7 @@ components:
 
     ListResponse:
       type: object
+      additionalProperties: false
       properties:
         next:
           type: string
@@ -257,18 +259,13 @@ components:
           # Any type
           items: {}
 
-    Sheep:
+    SheepBase:
       type: object
+      additionalProperties: false
       required:
         - name
-        - farm
-      properties:
-        id:
-          type: string
-        kind:
-          type: string
-          enum:
-            - sheep
+      # @hack using anchors because express-openapi-validate fails to check with allOf
+      properties: &sheepBaseProperties
         age:
           type: number
         destinations:
@@ -280,13 +277,6 @@ components:
               - wool
         eyeColor:
           type: string
-        farm:
-          type: object
-          required:
-            - id
-          properties:
-            id:
-              type: string
         gender:
           type: string
           enum:
@@ -298,18 +288,86 @@ components:
           type: string
           nullable: true
 
+    SheepRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        # @hack using anchors because express-openapi-validate fails to check with allOf
+        <<: *sheepBaseProperties
+        farmId:
+          type: string
+        farm:
+          deprecated: true
+          description: '@deprecated use farmId field instead'
+          type: object
+          properties:
+            id:
+              type: string
+
+#    SheepRequest:
+#      allOf:
+#        - $ref: '#/components/schemas/SheepBase'
+#        - oneOf:
+#            - type: object
+#              additionalProperties: false
+#              properties:
+#                farmId:
+#                  type: string
+#            - type: object
+#              additionalProperties: false
+#              properties:
+#                farm:
+#                  deprecated: true
+#                  description: '@deprecated use farmId field instead'
+#                  type: object
+#                  properties:
+#                    id:
+#                      type: string
+
+    Sheep:
+      properties:
+        # @hack using anchors because express-openapi-validate fails to check with allOf
+        <<: *sheepBaseProperties
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+
+#    Sheep:
+#      allOf:
+#        - $ref: '#/components/schemas/SheepBase'
+#        - type: object
+#          properties:
+#            id:
+#              type: string
+#            createdAt:
+#              type: string
+#              format: date-time
+
+    SheepWithFarm:
+      allOf:
+        - $ref: '#/components/schemas/Sheep'
+        - type: object
+          additionalProperties: false
+          properties:
+            farm:
+              $ref: '#/components/schemas/Farm'
+
     SheepListResponse:
       allOf:
         - $ref: '#/components/schemas/ListResponse'
         - type: object
+          additionalProperties: false
           properties:
             items:
               type: array
               items:
-                $ref: '#/components/schemas/Sheep'
+                $ref: '#/components/schemas/SheepWithFarm'
 
     TokenResponse:
       type: object
+      additionalProperties: false
       required:
         - id
         - token
@@ -342,6 +400,7 @@ components:
         application/json:
           schema:
             type: object
+            additionalProperties: false
             required:
               - errors
             properties:

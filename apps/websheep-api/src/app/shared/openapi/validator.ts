@@ -3,11 +3,7 @@ import { Operation } from 'express-openapi-validate/dist/OpenApiDocument';
 import { RequestHandler } from 'express-serve-static-core';
 import { openApiDocument } from './document';
 
-export const openApiValidator = new OpenApiValidator(openApiDocument, {
-  ajvOptions: {
-    removeAdditional: 'all'
-  }
-});
+export const openApiValidator = new OpenApiValidator(openApiDocument);
 
 export const validate = (path?: string): RequestHandler => (req, res, next) => {
   openApiValidator.validate(
