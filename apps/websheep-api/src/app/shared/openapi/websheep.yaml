@@ -264,7 +264,6 @@ components:
       additionalProperties: false
       required:
         - name
-      # @hack using anchors because express-openapi-validate fails to check with allOf
       properties: &sheepBaseProperties
         age:
           type: number
@@ -325,7 +324,9 @@ components:
 #                      type: string
 
     Sheep:
-      properties:
+      type: object
+      additionalProperties: false
+      properties: &sheepProperties
         # @hack using anchors because express-openapi-validate fails to check with allOf
         <<: *sheepBaseProperties
         id:
@@ -346,13 +347,22 @@ components:
 #              format: date-time
 
     SheepWithFarm:
-      allOf:
-        - $ref: '#/components/schemas/Sheep'
-        - type: object
-          additionalProperties: false
-          properties:
-            farm:
-              $ref: '#/components/schemas/Farm'
+      type: object
+      additionalProperties: false
+      properties:
+        # @hack using anchors because express-openapi-validate fails to check with allOf
+        <<: *sheepProperties
+        farm:
+          $ref: '#/components/schemas/Farm'
+
+#    SheepWithFarm:
+#      allOf:
+#        - $ref: '#/components/schemas/Sheep'
+#        - type: object
+#          additionalProperties: false
+#          properties:
+#            farm:
+#              $ref: '#/components/schemas/Farm'
 
     SheepListResponse:
       allOf:
