@@ -13,7 +13,7 @@ export async function createTokenAndSetCookie(req, res) {
 
   res.cookie('token', tokenInfo.token);
 
-  res.json({
+  res.status(201).json({
     id: tokenInfo.id,
     userId
   });

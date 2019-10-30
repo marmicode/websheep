@@ -23,7 +23,7 @@ describe('tokens router', () => {
         userName: 'karinelemarchand',
         password: '123456'
       });
-    expect(response.status).toEqual(200);
+    expect(response.status).toEqual(201);
     expect(response.body).toEqual(
       expect.objectContaining({
         userId: 'karinelemarchand'
