@@ -15,6 +15,9 @@ export const sheepService = {
       ...sheep
     };
 
+    /* Handle both "{farmId: FARM_ID}" and legacy "{farm: {id: FARM_ID}}". */
+    const farmId = sheep.farmId || (sheep.farm && sheep.farm.id);
+
     database
       .get('sheep')
       .push({
@@ -25,7 +28,7 @@ export const sheepService = {
         gender: sheep.gender,
         name: sheep.name,
         pictureUri: sheep.pictureUri,
-        farmId: sheep.farm && sheep.farm.id,
+        farmId,
         destinations: sheep.destinations
       })
       .write();
