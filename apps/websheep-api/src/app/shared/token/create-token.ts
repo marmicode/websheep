@@ -16,7 +16,7 @@ export const createToken = ({
     return;
   }
 
-  res.sendStatus(201).json({
+  res.status(201).json({
     ...tokenInfo,
     userId
   });
