@@ -45,7 +45,6 @@ export class AssistantComponent {
   missionIdAndLabelList$: Observable<IdAndLabel[]>;
   topic$ = this._store.select(getTopic);
   mission$ = this._store.select(getMission);
-  apiBasePath$ = this._store.select(getApiBasePath);
   apiBaseUrl$ = this._store.select(getApiBaseUrl);
   missionId$ = this._store.select(getMissionId);
 
