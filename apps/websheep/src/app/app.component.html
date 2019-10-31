@@ -3,30 +3,7 @@
   (rightSidenavOpenChange)="setIsHackAssistantOpen($event)">
 
   <!-- Toolbar -->
-  <ng-container slot="toolbar">
-    <div fxFlex fxLayout="row">
-      <div fxFlex><span>🐑 {{ greetings$ | async}}</span></div>
-      <div fxFlex fxLayout="row" fxLayoutAlign="end">
-
-        <!-- Link to openapi specification. -->
-        <a
-          class="ws-swagger-logo__container"
-          aria-label="openapi specification"
-          target="_blank"
-          [href]="apiBaseUrl$ | async">
-          <img alt="openapi specification logo" [src]="swaggerLogoUri">
-        </a>
-
-        <!-- Settings button. -->
-        <mat-icon
-          aria-label="Show hack menu"
-          class="ws-cursor-pointer"
-          (click)="hack()">settings_applications
-        </mat-icon>
-
-      </div>
-    </div>
-  </ng-container>
+  <ws-toolbar fxFlex fxLayout="row" slot="toolbar"></ws-toolbar>
 
   <!-- Sidenav -->
   <div slot="sidenav">

@@ -16,32 +16,17 @@ import { sheepRouteHelper } from './views/sheep/sheep-route-helper';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  currentFarmer$ = this._farmerService.currentFarmer$;
   isHackAssistantOpen$ = this._store.select(getIsHackAssistantOpen);
-  apiBaseUrl$ = this._store.select(getApiBaseUrl);
   sheepRouteHelper = sheepRouteHelper;
-  greetings$: Observable<string>;
-
-  swaggerLogoUri = require('./swagger-logo.png');
 
   constructor(
     private _farmerService: FarmerService,
     private _store: Store<AppState>,
     private _signout: Signout
-  ) {
-    this.greetings$ = this.currentFarmer$.pipe(
-      map(farmer =>
-        farmer ? `Welcome ${farmer.firstName}` : `Welcome to Websheep`
-      )
-    );
-  }
+  ) {}
 
   signOut() {
     this._signout.signOut().subscribe();
-  }
-
-  hack() {
-    this._store.dispatch(showHackAssistant());
   }
 
   setIsHackAssistantOpen(isHackAssistantOpen: boolean) {

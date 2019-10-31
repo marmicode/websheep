@@ -20,6 +20,7 @@ import { AuthInterceptor } from './http/auth.interceptor';
 import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';
 import { metaReducers, reducers } from './reducers';
+import { ToolbarModule } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,7 +43,8 @@ import { metaReducers, reducers } from './reducers';
     MatIconModule,
     FlexModule,
     MatSidenavModule,
-    HackAssistantModule
+    HackAssistantModule,
+    ToolbarModule
   ],
   providers: [
     {
