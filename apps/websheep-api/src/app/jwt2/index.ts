@@ -1,3 +1,4 @@
+import { jsonOnly } from './../shared/json-only.middleware';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import { Router } from 'express';
@@ -12,6 +13,7 @@ import { tokensJwtRouter } from '../shared/token/tokens.jwt.router';
 export const jwt2Router = Router();
 
 jwt2Router.use(cors());
+jwt2Router.use(jsonOnly());
 jwt2Router.use(bodyParser.json());
 
 jwt2Router.use(docsRouter);

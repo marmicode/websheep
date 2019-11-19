@@ -8,10 +8,12 @@ import { farmsRouter } from '../shared/farm/farms.router';
 import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from './sheep.router';
 import { tokensRouter } from '../shared/token/tokens.router';
+import { jsonOnly } from '../shared/json-only.middleware';
 
 export const authz1Router = Router();
 
 authz1Router.use(cors());
+authz1Router.use(jsonOnly());
 authz1Router.use(bodyParser.json());
 
 authz1Router.use(docsRouter);

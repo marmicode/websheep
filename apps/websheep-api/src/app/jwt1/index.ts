@@ -8,10 +8,12 @@ import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from '../shared/sheep/sheep.router';
 import { tokensJwtRouter } from '../shared/token/tokens.jwt.router';
 import { jwtAuthMiddleware } from './jwt-auth.middleware';
+import { jsonOnly } from '../shared/json-only.middleware';
 
 export const jwt1Router = Router();
 
 jwt1Router.use(cors());
+jwt1Router.use(jsonOnly());
 jwt1Router.use(bodyParser.json());
 
 jwt1Router.use(docsRouter);

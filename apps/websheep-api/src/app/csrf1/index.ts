@@ -10,9 +10,11 @@ import { farmersRouter } from '../shared/farmer/farmers.router';
 import { sheepRouter } from '../shared/sheep/sheep.router';
 import { anyOrigin } from '../shared/helpers/any-origin';
 import { tokensCookieRouter } from '../shared/token/tokens.cookie.router';
+import { jsonOnly } from '../shared/json-only.middleware';
 
 export const csrf1Router = Router();
 
+csrf1Router.use(jsonOnly());
 csrf1Router.use(bodyParser.json());
 csrf1Router.use(cookieParser());
 
