@@ -28,6 +28,9 @@ csrf3Router.use(
 
 csrf3Router.use(docsRouter);
 csrf3Router.use(tokensCookieRouter);
-csrf3Router.use(cookieAuthMiddleware, farmersRouter);
-csrf3Router.use(cookieAuthMiddleware, farmsRouter);
-csrf3Router.use(cookieAuthMiddleware, sheepRouter);
+
+csrf3Router.use(cookieAuthMiddleware);
+
+csrf3Router.use(farmersRouter);
+csrf3Router.use(farmsRouter);
+csrf3Router.use(sheepRouter);

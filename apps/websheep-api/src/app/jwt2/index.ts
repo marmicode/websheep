@@ -17,9 +17,10 @@ jwt2Router.use(bodyParser.json());
 jwt2Router.use(docsRouter);
 jwt2Router.use(tokensJwtRouter);
 
-jwt2Router.use(jwtAuthMiddleware, farmersRouter);
-jwt2Router.use(jwtAuthMiddleware, farmsRouter);
-jwt2Router.use(jwtAuthMiddleware, sheepRouter);
+jwt2Router.use(jwtAuthMiddleware);
+jwt2Router.use(farmersRouter);
+jwt2Router.use(farmsRouter);
+jwt2Router.use(sheepRouter);
 
 /* Error handler. */
 jwt2Router.use((err, req, res, next) => {

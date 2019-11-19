@@ -25,6 +25,9 @@ csrf1Router.use(
 
 csrf1Router.use(docsRouter);
 csrf1Router.use(tokensCookieRouter);
-csrf1Router.use(cookieAuthMiddleware, farmersRouter);
-csrf1Router.use(cookieAuthMiddleware, farmsRouter);
-csrf1Router.use(cookieAuthMiddleware, sheepRouter);
+
+csrf1Router.use(cookieAuthMiddleware);
+
+csrf1Router.use(farmersRouter);
+csrf1Router.use(farmsRouter);
+csrf1Router.use(sheepRouter);

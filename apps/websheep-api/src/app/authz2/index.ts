@@ -17,6 +17,8 @@ authz2Router.use(bodyParser.json());
 authz2Router.use(docsRouter);
 authz2Router.use(tokensRouter);
 
-authz2Router.use(bearerAuthMiddleware, farmersRouter);
-authz2Router.use(bearerAuthMiddleware, farmsRouter);
-authz2Router.use(bearerAuthMiddleware, sheepRouter);
+authz2Router.use(bearerAuthMiddleware);
+
+authz2Router.use(farmersRouter);
+authz2Router.use(farmsRouter);
+authz2Router.use(sheepRouter);

@@ -17,6 +17,7 @@ jwt1Router.use(bodyParser.json());
 jwt1Router.use(docsRouter);
 jwt1Router.use(tokensJwtRouter);
 
-jwt1Router.use(jwtAuthMiddleware, farmersRouter);
-jwt1Router.use(jwtAuthMiddleware, farmsRouter);
-jwt1Router.use(jwtAuthMiddleware, sheepRouter);
+jwt1Router.use(jwtAuthMiddleware);
+jwt1Router.use(farmersRouter);
+jwt1Router.use(farmsRouter);
+jwt1Router.use(sheepRouter);
