@@ -30,7 +30,7 @@ export const missionList: Mission[] = [
     id: 'csrf1',
     title: 'Sheep Stalker',
     topic: Topic.Csrf,
-    goals: [`Steal foobar's sheep from another origin`],
+    goals: [`Steal karine's sheep from another origin`],
     hints: [
       `Analyse API responses headers`,
       `Check this route: /farmers/:farmerId/sheep`
@@ -44,7 +44,7 @@ export const missionList: Mission[] = [
     id: 'csrf2',
     title: 'A sheep named Wolf',
     topic: Topic.Csrf,
-    goals: [`Add a sheep named Wolf to foobar's farm`],
+    goals: [`Add a sheep named Wolf to karine's farm`],
     hints: [
       `The API might consume media types other than application/json`,
       `Try a standard media type`,
@@ -60,7 +60,7 @@ export const missionList: Mission[] = [
     id: 'csrf3',
     title: 'A sheep named Bear',
     topic: Topic.Csrf,
-    goals: [`Add a sheep named Bear to foobar's farm`],
+    goals: [`Add a sheep named Bear to karine's farm`],
     hints: [
       `The API might not care about the given content-type header`,
       `Try a standard media type`,
