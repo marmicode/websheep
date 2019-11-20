@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { first, map, switchMap } from 'rxjs/operators';
+import { first, map, switchMap, tap } from 'rxjs/operators';
 import { ListResponse } from '../../http/list-response';
 import { AppState } from '../../reducers';
 import { createSheep, Sheep } from '../../sheep-core/sheep';

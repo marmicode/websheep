@@ -21,6 +21,7 @@ import { PrependBaseUrlInterceptor } from './http/prepend-base-url.interceptor';
 import { NavModule } from './nav/nav.component';
 import { metaReducers, reducers } from './reducers';
 import { ToolbarModule } from './toolbar/toolbar.component';
+import { HttpInterceptorsModule } from './http/http-interceptors.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { ToolbarModule } from './toolbar/toolbar.component';
     BrowserAnimationsModule,
     EffectsModule.forRoot([AuthEffects]),
     HttpClientModule,
+    HttpInterceptorsModule.forRoot(),
     NavModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -45,18 +47,6 @@ import { ToolbarModule } from './toolbar/toolbar.component';
     MatSidenavModule,
     HackAssistantModule,
     ToolbarModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: PrependBaseUrlInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent]
 })
