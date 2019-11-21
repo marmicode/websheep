@@ -8,8 +8,9 @@ export const databaseFilePath = '/tmp/websheep-db.json';
 
 export const database = low(new FileSync(databaseFilePath));
 
-export function initializeDatabase() {
+export function resetDatabase() {
   database
+    .setState({})
     .defaults({
       farms,
       farmers,

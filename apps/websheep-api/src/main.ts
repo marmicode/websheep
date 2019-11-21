@@ -10,7 +10,7 @@ import { authz2Router } from './app/authz2';
 import { csrf1Router } from './app/csrf1';
 import { csrf2Router } from './app/csrf2';
 import { csrf3Router } from './app/csrf3';
-import { initializeDatabase } from './app/database';
+import { resetDatabase } from './app/database';
 import { jwt1Router } from './app/jwt1';
 import { jwt2Router } from './app/jwt2';
 
@@ -18,7 +18,7 @@ process.env.JWT_SECRET = 'MY_AWESOME_UNIQUE_JWT_SECRET';
 
 const app = express();
 
-initializeDatabase();
+resetDatabase();
 
 app.use('/authz1', authz1Router);
 app.use('/authz2', authz2Router);

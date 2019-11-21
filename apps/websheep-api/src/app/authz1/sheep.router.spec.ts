@@ -1,7 +1,7 @@
 import { Express } from 'express';
 import * as request from 'supertest';
 import * as express from 'express';
-import { initializeDatabase } from '../database';
+import { resetDatabase, clearDatabase } from '../database';
 import { sheepRouter } from './sheep.router';
 
 describe('sheep router', () => {
@@ -10,7 +10,7 @@ describe('sheep router', () => {
   beforeEach(() => {
     app = express();
     app.use(sheepRouter);
-    initializeDatabase();
+    resetDatabase();
   });
 
   it(`should get farmer's sheep without authorization`, async () => {

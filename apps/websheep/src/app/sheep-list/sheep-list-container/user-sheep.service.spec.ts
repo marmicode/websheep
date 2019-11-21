@@ -5,30 +5,37 @@ import { provider } from '../../../testing/pact-provider';
 import { HttpInterceptorsModule } from '../../http/http-interceptors.module';
 import { AppState } from '../../reducers';
 import { UserSheepService } from './user-sheep.service';
+import { like, iso8601DateTimeWithMillis } from '@pact-foundation/pact/dsl/matchers';
 
 describe('UserSheepService', () => {
   beforeAll(async () => {
     await provider.setup();
 
     await provider.addInteraction({
-      state: 'farmer has sheep',
-      uponReceiving: `a request for farmer's sheep`,
+      state: 'farmer A has sheep',
+      uponReceiving: `a request for farmer A's sheep`,
       withRequest: {
         method: 'GET',
-        path: '/farmers/USER_ID/sheep',
-        headers: { Authorization: 'Bearer TOKEN' }
+        path: '/farmers/FARMER_A/sheep',
+        headers: { Authorization: 'Bearer VALID_TOKEN' }
       },
       willRespondWith: {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'content-type': 'application/json; charset=utf-8' },
         body: {
           next: null,
           totalCount: 2,
           items: [
             {
+              id: like('Mwy2m8LY'),
+              createdAt: iso8601DateTimeWithMillis(),
+              farmId: 'FARM_ID',
               name: 'Dolly'
             },
             {
+              id: like('VxyoabX4'),
+              createdAt: iso8601DateTimeWithMillis(),
+              farmId: 'FARM_ID',
               name: 'Bruce'
             }
           ]
@@ -49,9 +56,9 @@ describe('UserSheepService', () => {
               includeCredentials: false
             },
             user: {
-              token: 'TOKEN',
+              token: 'VALID_TOKEN',
               tokenId: null,
-              userId: 'USER_ID'
+              userId: 'FARMER_A'
             }
           }
         })
@@ -71,12 +78,12 @@ describe('UserSheepService', () => {
 
     expect(response.totalCount).toEqual(2);
     expect(response.items).toEqual([
-      {
+      expect.objectContaining({
         name: 'Dolly'
-      },
-      {
+      }),
+      expect.objectContaining({
         name: 'Bruce'
-      }
+      })
     ]);
   });
 });

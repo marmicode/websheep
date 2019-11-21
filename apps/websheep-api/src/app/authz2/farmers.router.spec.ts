@@ -2,7 +2,7 @@ import * as bodyParser from 'body-parser';
 import { Express } from 'express';
 import * as request from 'supertest';
 import * as express from 'express';
-import { initializeDatabase } from '../database';
+import { resetDatabase } from '../database';
 import { farmersRouter } from './farmers.router';
 
 describe('farmers router', () => {
@@ -23,7 +23,7 @@ describe('farmers router', () => {
 
     app.use(farmersRouter);
 
-    initializeDatabase();
+    resetDatabase();
   });
 
   it(`should allow farmer to escalate to admin`, async () => {

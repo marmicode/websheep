@@ -1,0 +1,67 @@
+{
+  "consumer": {
+    "name": "WebSheep"
+  },
+  "provider": {
+    "name": "WebSheepApi"
+  },
+  "interactions": [
+    {
+      "description": "a request for farmer A's sheep",
+      "providerState": "farmer A has sheep",
+      "request": {
+        "method": "GET",
+        "path": "/farmers/FARMER_A/sheep",
+        "headers": {
+          "Authorization": "Bearer VALID_TOKEN"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "next": null,
+          "totalCount": 2,
+          "items": [
+            {
+              "id": "Mwy2m8LY",
+              "createdAt": "2015-08-06T16:53:10.123+01:00",
+              "farmId": "FARM_ID",
+              "name": "Dolly"
+            },
+            {
+              "id": "VxyoabX4",
+              "createdAt": "2015-08-06T16:53:10.123+01:00",
+              "farmId": "FARM_ID",
+              "name": "Bruce"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.items[0].id": {
+            "match": "type"
+          },
+          "$.body.items[0].createdAt": {
+            "match": "regex",
+            "regex": "^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d{3,}([+-][0-2]\\d:[0-5]\\d|Z)$"
+          },
+          "$.body.items[1].id": {
+            "match": "type"
+          },
+          "$.body.items[1].createdAt": {
+            "match": "regex",
+            "regex": "^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d{3,}([+-][0-2]\\d:[0-5]\\d|Z)$"
+          }
+        }
+      },
+      "metadata": null
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

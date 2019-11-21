@@ -8,5 +8,5 @@ export const provider = new Pact({
   cors: true,
   pactfileWriteMode: 'update',
   log: `${_projectRootPath}/dist/pact-logs`,
-  dir: `${_projectRootPath}/pacts`
+  dir: `${_projectRootPath}/libs/pacts`
 });

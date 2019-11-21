@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { Express } from 'express';
 import * as request from 'supertest';
-import { initializeDatabase } from '../database';
+import { resetDatabase } from '../database';
 import { farmersService } from '../shared/farmer/farmers.service';
 import { openApiValidator } from '../shared/openapi/validator';
 import { csrf2Router } from './index';
@@ -22,7 +22,7 @@ describe('tokens router', () => {
 
     app.use(csrf2Router);
 
-    initializeDatabase();
+    resetDatabase();
   });
 
   it(`should allow x-www-form-urlencoded`, async () => {

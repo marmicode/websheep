@@ -2,7 +2,7 @@ import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { Express } from 'express';
 import * as request from 'supertest';
-import { initializeDatabase } from '../database';
+import { resetDatabase } from '../database';
 import { csrf1Router } from './index';
 
 describe('tokens router', () => {
@@ -13,7 +13,7 @@ describe('tokens router', () => {
 
     app.use(csrf1Router);
 
-    initializeDatabase();
+    resetDatabase();
   });
 
   it(`should allow cross origin requests for any origin`, async () => {
