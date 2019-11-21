@@ -1,7 +1,7 @@
 import { Express } from 'express';
 import * as request from 'supertest';
 import * as express from 'express';
-import { resetDatabase, clearDatabase } from '../database';
+import { resetDatabase } from '../database';
 import { sheepRouter } from './sheep.router';
 
 describe('sheep router', () => {
