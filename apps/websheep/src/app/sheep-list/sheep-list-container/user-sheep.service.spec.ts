@@ -12,12 +12,20 @@ describe('UserSheepService', () => {
     await provider.setup();
 
     await provider.addInteraction({
-      state: 'farmer A has sheep',
-      uponReceiving: `a request for farmer A's sheep`,
+      state: [
+        'user is farmer Foo',
+        'farm Green exists',
+        'farm Green has a sheep named Dolly',
+        'farm Green has a sheep named Bruce',
+        'farmer Foo is farm Green owner',
+      ].join(','),
+      uponReceiving: `a request for farmer Foo's sheep`,
       withRequest: {
         method: 'GET',
-        path: '/farmers/FARMER_A/sheep',
-        headers: { Authorization: 'Bearer VALID_TOKEN' }
+        path: '/farmers/FARMER_FOO/sheep',
+        headers: {
+          authorization: 'Bearer TOKEN'
+        }
       },
       willRespondWith: {
         status: 200,
@@ -29,13 +37,13 @@ describe('UserSheepService', () => {
             {
               id: like('Mwy2m8LY'),
               createdAt: iso8601DateTimeWithMillis(),
-              farmId: 'FARM_ID',
+              farmId: like('Aasfasd'),
               name: 'Dolly'
             },
             {
               id: like('VxyoabX4'),
               createdAt: iso8601DateTimeWithMillis(),
-              farmId: 'FARM_ID',
+              farmId: like('Aasfasd'),
               name: 'Bruce'
             }
           ]
@@ -56,9 +64,9 @@ describe('UserSheepService', () => {
               includeCredentials: false
             },
             user: {
-              token: 'VALID_TOKEN',
+              token: 'TOKEN',
               tokenId: null,
-              userId: 'FARMER_A'
+              userId: 'FARMER_FOO'
             }
           }
         })

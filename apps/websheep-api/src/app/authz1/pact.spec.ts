@@ -10,16 +10,27 @@ import { testPactInteraction } from '../shared/test-pact-interaction';
 
 describe('websheep api contract testing', () => {
   let app: Express;
+  let farmGreenId: string;
   let stateProviders = {
-    'farmer A has sheep': () => {
-      jest.spyOn(farmsService, 'getFarmsByFarmerId').mockReturnValue([
-        {
-          id: 'FARM_ID',
-          name: 'FARM_NAME'
-        }
-      ]);
-      sheepService.createSheep({ sheep: { name: 'Dolly', farmId: 'FARM_ID' } });
-      sheepService.createSheep({ sheep: { name: 'Bruce', farmId: 'FARM_ID' } });
+    'user is farmer Foo': () => {
+      /* Mock token authentication. */
+      jest
+        .spyOn(farmersService, 'getByToken')
+        .mockImplementation(() => {
+          return { id: 'FARMER_FOO' };
+        });
+    },
+    'farm Green exists': () => {
+      farmGreenId = farmsService.createFarm({farm: {name: 'Green'}}).id;
+    },
+    'farm Green has a sheep named Dolly': () => {
+      sheepService.createSheep({ sheep: {name: 'Dolly', farmId: farmGreenId}});
+    },
+    'farm Green has a sheep named Bruce': () => {
+      sheepService.createSheep({ sheep: {name: 'Bruce', farmId: farmGreenId}});
+    },
+    'farmer Foo is farm Green owner': () => {
+      farmsService.setFarmFarmers({farmId: farmGreenId, farmerIds: ['FARMER_FOO']})
     }
   };
 
@@ -28,11 +39,6 @@ describe('websheep api contract testing', () => {
     app.use(authz1Router);
 
     resetDatabase();
-
-    /* Mock token authentication. */
-    jest.spyOn(farmersService, 'getByToken').mockImplementation(({ token }) => {
-      return token === 'VALID_TOKEN' ? { id: 'FARMER_A' } : null;
-    });
   });
 
   it.each(
@@ -41,10 +47,11 @@ describe('websheep api contract testing', () => {
       interaction.providerState || 'no state',
       interaction
     ])
-  )('should check %s given %s', async (description, state, interaction) => {
-    expect(Object.keys(stateProviders)).toContain(state);
-
-    await stateProviders[state]();
+  )('should check %s given %s', async (description, states, interaction) => {
+    for (const state of states.split(',')) {
+      expect(Object.keys(stateProviders)).toContain(state);
+      await stateProviders[state]();
+    }
 
     await testPactInteraction({ app, interaction });
   });

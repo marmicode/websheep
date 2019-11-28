@@ -9,15 +9,19 @@ export async function testPactInteraction({
   app: Express;
   interaction;
 }) {
+  
   const res = await request(app)
     [interaction.request.method.toLowerCase()](interaction.request.path)
-    .set(interaction.request.headers);
+    .set(interaction.request.headers || {});
+
   /* Use simple object type for jsonpath to work. */
   const response = {
     body: res.body,
     status: res.status,
     headers: res.headers
   };
+
+  expect(response.status).toEqual(interaction.response.status);
   expect(response.headers).toEqual(
     expect.objectContaining(interaction.response.headers)
   );
