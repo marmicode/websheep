@@ -6,7 +6,7 @@ import { resetDatabase } from './../database';
 import { farmsService } from './../shared/farm/farms.service';
 import { farmersService } from './../shared/farmer/farmers.service';
 import { sheepService } from './../shared/sheep/sheep.service';
-import { testPactInteraction } from '../shared/test-pact-interaction';
+import { testPactInteraction } from '../../testing/test-pact-interaction';
 
 describe('websheep api contract testing', () => {
   let app: Express;
