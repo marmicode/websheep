@@ -11,7 +11,10 @@ export async function createTokenAndSetCookie(req, res) {
     return;
   }
 
-  res.cookie('token', tokenInfo.token);
+  res.cookie('token', tokenInfo.token, {
+    secure: true,
+    sameSite: 'None'
+  });
 
   res.status(201).json({
     id: tokenInfo.id,
