@@ -9,8 +9,8 @@ export const tokensJwtService: TokensService = {
       id: tokenId,
       token: jwt.sign(
         {
-          aud: 'https://websheep.io',
-          iss: 'https://api.websheep.io',
+          aud: 'https://api.websheep.io',
+          iss: 'https://auth.websheep.io',
           jti: tokenId,
           sub: userId
         },
