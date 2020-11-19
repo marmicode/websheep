@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "deploy": "run-p deploy:*",
-    "deploy:websheep": "run-s build:websheep:prod _now:websheep",
+    "deploy:websheep": "run-s build:websheep:prod _vercel:websheep",
     "deploy:websheep-api": "git push heroku master",
     "ng": "ng",
     "nx": "nx",
@@ -36,8 +36,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "_now:websheep": "cp apps/websheep/now.json dist/apps/websheep && now dist/apps/websheep",
-    "_now:websheep-api": "now --local-config apps/websheep-api/now.json"
+    "_vercel:websheep": "cp apps/websheep/vercel.json dist/apps/websheep && vercel dist/apps/websheep",
+    "_vercel:websheep-api": "vercel --local-config apps/websheep-api/vercel.json"
   },
   "private": true,
   "dependencies": {
