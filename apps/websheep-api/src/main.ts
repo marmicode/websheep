@@ -33,15 +33,8 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 /* Error handler. */
 app.use((err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  res.status(statusCode).json({
-    errors: [
-      {
-        name: err.name,
-        message: err.message,
-        data: err.data
-      }
-    ]
+  res.status(err.status || 500).json({
+    errors: err.errors
   });
 });
 
