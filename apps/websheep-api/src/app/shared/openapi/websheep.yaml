@@ -1,4 +1,4 @@
-openapi: "3.0.0"
+openapi: '3.0.0'
 info:
   version: 1.0.0
   title: Websheep
@@ -58,7 +58,7 @@ paths:
         204:
           description: Token destroyed
       security:
-          - BearerAuth: []
+        - BearerAuth: []
 
   #
   # Farm
@@ -143,7 +143,6 @@ paths:
       security:
         - BearerAuth: []
 
-
   #
   # Sheep
   #
@@ -195,7 +194,6 @@ paths:
       security:
         - BearerAuth: []
 
-
 components:
   schemas:
     Credentials:
@@ -243,6 +241,7 @@ components:
           type: string
         lastName:
           type: string
+          maxLength: 10
 
     ListResponse:
       type: object
@@ -303,31 +302,31 @@ components:
             id:
               type: string
 
-#    SheepRequest:
-#      allOf:
-#        - $ref: '#/components/schemas/SheepBase'
-#        - oneOf:
-#            - type: object
-#              additionalProperties: false
-#              properties:
-#                farmId:
-#                  type: string
-#            - type: object
-#              additionalProperties: false
-#              properties:
-#                farm:
-#                  deprecated: true
-#                  description: '@deprecated use farmId field instead'
-#                  type: object
-#                  properties:
-#                    id:
-#                      type: string
+    #    SheepRequest:
+    #      allOf:
+    #        - $ref: '#/components/schemas/SheepBase'
+    #        - oneOf:
+    #            - type: object
+    #              additionalProperties: false
+    #              properties:
+    #                farmId:
+    #                  type: string
+    #            - type: object
+    #              additionalProperties: false
+    #              properties:
+    #                farm:
+    #                  deprecated: true
+    #                  description: '@deprecated use farmId field instead'
+    #                  type: object
+    #                  properties:
+    #                    id:
+    #                      type: string
 
     Sheep:
       type: object
       additionalProperties: false
+      # @hack using anchors because express-openapi-validate fails to check with allOf
       properties: &sheepProperties
-        # @hack using anchors because express-openapi-validate fails to check with allOf
         <<: *sheepBaseProperties
         id:
           type: string
@@ -335,16 +334,16 @@ components:
           type: string
           format: date-time
 
-#    Sheep:
-#      allOf:
-#        - $ref: '#/components/schemas/SheepBase'
-#        - type: object
-#          properties:
-#            id:
-#              type: string
-#            createdAt:
-#              type: string
-#              format: date-time
+    #    Sheep:
+    #      allOf:
+    #        - $ref: '#/components/schemas/SheepBase'
+    #        - type: object
+    #          properties:
+    #            id:
+    #              type: string
+    #            createdAt:
+    #              type: string
+    #              format: date-time
 
     SheepWithFarm:
       type: object
@@ -355,14 +354,14 @@ components:
         farm:
           $ref: '#/components/schemas/Farm'
 
-#    SheepWithFarm:
-#      allOf:
-#        - $ref: '#/components/schemas/Sheep'
-#        - type: object
-#          additionalProperties: false
-#          properties:
-#            farm:
-#              $ref: '#/components/schemas/Farm'
+    #    SheepWithFarm:
+    #      allOf:
+    #        - $ref: '#/components/schemas/Sheep'
+    #        - type: object
+    #          additionalProperties: false
+    #          properties:
+    #            farm:
+    #              $ref: '#/components/schemas/Farm'
 
     SheepListResponse:
       allOf:
@@ -418,7 +417,6 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Error'
-
 
   securitySchemes:
     BearerAuth:
