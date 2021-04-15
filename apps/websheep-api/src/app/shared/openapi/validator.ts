@@ -6,5 +6,6 @@ export const validate = (): RequestHandler[] =>
   OpenApiValidator.middleware({
     apiSpec: openApiDocument,
     validateFormats: 'full',
-    validateRequests: true
+    validateRequests: true,
+    validateSecurity: false
   });
