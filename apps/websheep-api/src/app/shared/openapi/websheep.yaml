@@ -1,4 +1,4 @@
-openapi: '3.0.0'
+openapi: '3.1.0'
 info:
   version: 1.0.0
   title: Websheep
@@ -338,6 +338,8 @@ components:
         createdAt:
           type: string
           format: date-time
+        farmId:
+          type: string
 
     #    Sheep:
     #      allOf:
@@ -372,7 +374,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/ListResponse'
         - type: object
-          additionalProperties: false
           properties:
             items:
               type: array

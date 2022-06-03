@@ -98,6 +98,7 @@
     "dotenv": "6.2.0",
     "eslint": "6.1.0",
     "jest": "24.1.0",
+    "jest-openapi": "^0.14.2",
     "jest-preset-angular": "7.0.0",
     "jsonpath": "^1.0.2",
     "prettier": "1.18.2",

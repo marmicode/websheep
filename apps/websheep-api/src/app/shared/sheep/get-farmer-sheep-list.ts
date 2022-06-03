@@ -14,8 +14,6 @@ export function getFarmerSheepList(req, res) {
     .map(sheep => serializeSheep({ sheep, host: req.headers.host }));
 
   res.json({
-    next: null,
-    previous: null,
     totalCount: sheepList.length,
     items: sheepList
   });
