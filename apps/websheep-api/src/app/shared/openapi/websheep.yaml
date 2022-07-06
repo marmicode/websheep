@@ -246,7 +246,7 @@ components:
           type: string
         lastName:
           type: string
-          maxLength: 10
+          maxLength: 50
 
     ListResponse:
       type: object

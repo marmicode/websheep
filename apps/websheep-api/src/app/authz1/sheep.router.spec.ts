@@ -14,16 +14,25 @@ jestOpenAPI({
 });
 
 describe('sheep router', () => {
-  it(`should get farmer's sheep without authorization`, async () => {
+  it(`should not allow reading other farmers sheep`, async () => {
     const { client, givenUser } = setUp();
-
     givenUser('karinelemarchand');
+    const { status } = await client.get('/farmers/foobar/sheep');
+    expect(status).toBe(403);
+  });
 
-    const response = await client.get('/farmers/foobar/sheep');
-
-    expect(response.status).toEqual(200);
-    expect(response.body.totalCount).toEqual(13);
-    expect(response.body.items[0].name).toEqual('Adriana');
+  it(`should allow to reading own sheep`, async () => {
+    const { client, givenUser } = setUp();
+    givenUser('karinelemarchand');
+    const response = await client.get('/farmers/karinelemarchand/sheep');
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        items: expect.arrayContaining([
+          expect.objectContaining({ name: 'Irma' })
+        ])
+      })
+    );
     expect(response).toSatisfyApiSpec();
   });
 
