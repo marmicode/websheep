@@ -7860,12 +7860,12 @@ __metadata:
   linkType: hard
 
 "https-proxy-agent@npm:^2.2.1":
-  version: 2.2.2
-  resolution: "https-proxy-agent@npm:2.2.2"
+  version: 2.2.4
+  resolution: "https-proxy-agent@npm:2.2.4"
   dependencies:
     agent-base: ^4.3.0
     debug: ^3.1.0
-  checksum: b8a87791861959d72392d78ad51bde1eb2448f343fed6d866dc18d5e290d14b4be5713b2d1c30b4ba86017df57339fc5a95a9a032d0462c46f8c11c4d3f78858
+  checksum: 5fa8eab256b117a8badb5747bedf8b3a9de1fbabdccb26ff3132385426fdc3ad3c8b092ce52a1b74c70229b971df623f4f5a0c17f78e6a8fe5d10fc65d6ed8b8
   languageName: node
   linkType: hard
 
