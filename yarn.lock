@@ -473,14 +473,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^9.0.0-next.11":
-  version: 9.0.0-next.11
-  resolution: "@angular/core@npm:9.0.0-next.11"
+"@angular/core@npm:^11.0.5":
+  version: 11.2.14
+  resolution: "@angular/core@npm:11.2.14"
+  dependencies:
+    tslib: ^2.0.0
   peerDependencies:
     rxjs: ^6.5.3
-    tslib: ^1.9.0
-    zone.js: ~0.10.2
-  checksum: 182648f4ab1f4d8130b36d5008243da4f75633c00e44b7b3ede7f5a9af5c558d2721204dad4fec01b65bb2325e9d1f080e676c3b5679dac2f310eaff19b78234
+    zone.js: ^0.10.2 || ^0.11.3
+  checksum: 8dd40d6c90246726e8b6c1bf715e7ea688da7ea71da5742737d2d04ce85ccc5378e00a6aa2d796bcfaa82d11e4677b551ceda347a76242e7b0feea09e1a2e92f
   languageName: node
   linkType: hard
 
@@ -15217,6 +15218,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:^2.0.0":
+  version: 2.4.1
+  resolution: "tslib@npm:2.4.1"
+  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
+  languageName: node
+  linkType: hard
+
 "tslint@npm:~5.11.0":
   version: 5.11.0
   resolution: "tslint@npm:5.11.0"
@@ -16112,7 +16120,7 @@ __metadata:
     "@angular/common": ^9.0.0-next.11
     "@angular/compiler": ^9.0.0-next.11
     "@angular/compiler-cli": ^9.0.0-next.11
-    "@angular/core": ^9.0.0-next.11
+    "@angular/core": ^11.0.5
     "@angular/flex-layout": ^8.0.0-beta.27
     "@angular/forms": ^9.0.0-next.11
     "@angular/language-service": ^9.0.0-next.11
