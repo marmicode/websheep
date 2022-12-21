@@ -2842,11 +2842,11 @@ __metadata:
   linkType: hard
 
 "acorn@npm:^5.5.3":
-  version: 5.7.3
-  resolution: "acorn@npm:5.7.3"
+  version: 5.7.4
+  resolution: "acorn@npm:5.7.4"
   bin:
-    acorn: ./bin/acorn
-  checksum: 892b3066f7c01f24aed6fc5573e7303a6b63fc6d5290d9ea627597cdf6ca95e58af8a4e92fd747c3a2698505bc042d59fc37da658675c142c5a10281ab8a5814
+    acorn: bin/acorn
+  checksum: f51392a4d25c7705fadb890f784c59cde4ac1c5452ccd569fa59bd2191b7951b4a6398348ab7ea08a54f0bc0a56c13776710f4e1bae9de441e4d33e2015ad1e0
   languageName: node
   linkType: hard
 
