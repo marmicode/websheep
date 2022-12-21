@@ -12,7 +12,7 @@
     "start": "run-p start:*",
     "start:websheep": "ng serve websheep",
     "start:websheep-api": "ng serve websheep-api",
-    "build": "run-p build:websheep-api:prod",
+    "build": "yarn run build:websheep-api:prod",
     "build:websheep": "ng build websheep",
     "build:websheep:prod": "ng build websheep --prod",
     "build:websheep-api:prod": "ng build websheep-api --prod",
@@ -108,5 +108,11 @@
     "tslint": "~5.11.0",
     "typescript": "~3.5.3"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.3.1",
+  "engines": {
+    "node": "16.x"
+  },
+  "volta": {
+    "node": "16.19.0"
+  }
 }
