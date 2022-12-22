@@ -7831,13 +7831,13 @@ __metadata:
   linkType: hard
 
 "http-proxy@npm:^1.16.2, http-proxy@npm:^1.17.0":
-  version: 1.18.0
-  resolution: "http-proxy@npm:1.18.0"
+  version: 1.18.1
+  resolution: "http-proxy@npm:1.18.1"
   dependencies:
     eventemitter3: ^4.0.0
     follow-redirects: ^1.0.0
     requires-port: ^1.0.0
-  checksum: fdf5391ed6789b0d85b513aac1277d8d781330afc56c209d56fcfaba1152255f695421260684f930fd52d5d3a6edc9a6861b3417199b3c3cf87d6ec7336fcf91
+  checksum: f5bd96bf83e0b1e4226633dbb51f8b056c3e6321917df402deacec31dd7fe433914fc7a2c1831cf7ae21e69c90b3a669b8f434723e9e8b71fd68afe30737b6a5
   languageName: node
   linkType: hard
 
